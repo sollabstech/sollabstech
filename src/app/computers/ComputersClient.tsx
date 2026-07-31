@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { computerProducts } from "@/lib/data";
@@ -17,6 +18,13 @@ interface DisplayProduct {
   stock?: number;
   specs?: { cpu: string; ram: string; storage: string; display?: string; gpu?: string };
   warranty?: string;
+  ram?: string;
+  processor?: string;
+  storageType?: string;
+  storageSize?: string;
+  graphicsCard?: string;
+  accessories?: string;
+  videoUrl?: string;
 }
 
 const categories = ["All", "Gaming Laptops", "Business Laptops", "Student Laptops", "Custom PCs", "Workstations"];
@@ -34,6 +42,7 @@ export default function ComputersClient() {
   const [active, setActive] = useState("All");
   const [firebaseProducts, setFirebaseProducts] = useState<DisplayProduct[] | null>(null);
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     const q = query(collection(db, "products"), orderBy("createdAt", "desc"));
@@ -50,6 +59,13 @@ export default function ComputersClient() {
             image: data.image,
             available: data.status === "available" && data.stock > 0,
             stock: data.stock,
+            ram: data.ram,
+            processor: data.processor,
+            storageType: data.storageType,
+            storageSize: data.storageSize,
+            graphicsCard: data.graphicsCard,
+            accessories: data.accessories,
+            videoUrl: data.videoUrl,
           } as DisplayProduct;
         }));
       } else {
@@ -103,7 +119,7 @@ export default function ComputersClient() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: 20 }}>
               {[1, 2, 3, 4, 5, 6].map((i) => (
                 <div key={i} style={{ borderRadius: 16, background: "rgba(10,22,40,0.7)", border: "1px solid rgba(255,255,255,0.06)", overflow: "hidden" }}>
-                  <div style={{ height: 180, background: "rgba(0,102,255,0.06)", animation: "pulse 1.5s ease-in-out infinite" }} />
+                  <div style={{ aspectRatio: "3/2", background: "rgba(0,102,255,0.06)", animation: "pulse 1.5s ease-in-out infinite" }} />
                   <div style={{ padding: "20px 22px 24px" }}>
                     <div style={{ height: 12, background: "rgba(255,255,255,0.04)", borderRadius: 4, marginBottom: 8 }} />
                     <div style={{ height: 18, background: "rgba(255,255,255,0.06)", borderRadius: 4, marginBottom: 12, width: "70%" }} />
@@ -123,9 +139,10 @@ export default function ComputersClient() {
           ) : (
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: 20 }}>
               {filtered.map((product) => (
-                <div key={product.id} className="card-hover" style={{
+                <div key={product.id} className="card-hover" onClick={() => router.push(`/computers/${product.id}`)} style={{
                   borderRadius: 16, background: "rgba(10,22,40,0.7)",
                   border: "1px solid rgba(255,255,255,0.06)", overflow: "hidden", position: "relative",
+                  cursor: "pointer",
                 }}>
                   <div style={{
                     position: "absolute", top: 12, right: 12, zIndex: 2,
@@ -135,7 +152,7 @@ export default function ComputersClient() {
                     color: product.available ? "#00C850" : "#FF6060",
                   }}>{product.available ? "✓ Available" : "Sold Out"}</div>
 
-                  <div style={{ height: 180, overflow: "hidden", background: "rgba(0,102,255,0.08)" }}>
+                  <div style={{ aspectRatio: "3/2", overflow: "hidden", background: "rgba(0,102,255,0.08)", position: "relative" }}>
                     {product.image ? (
                       <img
                         src={product.image}
@@ -145,7 +162,7 @@ export default function ComputersClient() {
                         onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.transform = "scale(1)"; }}
                       />
                     ) : (
-                      <div style={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 48 }}>💻</div>
+                      <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 48 }}>💻</div>
                     )}
                   </div>
 
