@@ -11,7 +11,7 @@ const reasons = [
 
 export default function WhyUs() {
   return (
-    <section style={{ padding: "80px 24px" }}>
+    <section className="resp-section" style={{ padding: "80px 24px" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: 56 }}>
           <span className="section-tag" style={{ marginBottom: 16, display: "inline-flex" }}>Why Sollabs Tech</span>

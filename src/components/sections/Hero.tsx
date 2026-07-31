@@ -87,7 +87,7 @@ export default function Hero() {
       <div className="grid-bg" style={{ position: "absolute", inset: 0, zIndex: 0, opacity: 0.5 }} />
 
       {/* Content */}
-      <div style={{ position: "relative", zIndex: 1, maxWidth: 1280, margin: "0 auto", padding: "120px 24px 80px", textAlign: "center", width: "100%" }}>
+      <div className="hero-content" style={{ position: "relative", zIndex: 1, maxWidth: 1280, margin: "0 auto", padding: "120px 24px 80px", textAlign: "center", width: "100%" }}>
         <div style={{ display: "inline-flex", alignItems: "center", gap: 8, marginBottom: 24 }}>
           <span className="section-tag">
             <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#00AAFF", display: "inline-block", animation: "pulse-glow 2s infinite" }} />
@@ -172,7 +172,7 @@ export default function Hero() {
         </div>
 
         {/* Stats */}
-        <div style={{ display: "flex", gap: 40, justifyContent: "center", flexWrap: "wrap" }}>
+        <div className="hero-stats" style={{ display: "flex", gap: 40, justifyContent: "center", flexWrap: "wrap" }}>
           {[
             { value: "200+", label: "Projects" },
             { value: "150+", label: "Clients" },
@@ -198,8 +198,16 @@ export default function Hero() {
 
       <style>{`
         .hero-cards { grid-template-columns: 1fr 1fr !important; }
-        @media (max-width: 600px) {
-          .hero-cards { grid-template-columns: 1fr !important; }
+        .hero-content { padding: 120px 24px 80px !important; }
+        .hero-stats  { gap: 40px !important; }
+        @media (max-width: 768px) {
+          .hero-content { padding: 110px 20px 60px !important; }
+          .hero-stats  { gap: 24px !important; }
+        }
+        @media (max-width: 500px) {
+          .hero-cards  { grid-template-columns: 1fr !important; }
+          .hero-content { padding: 100px 16px 48px !important; }
+          .hero-stats  { gap: 16px !important; }
         }
       `}</style>
     </section>

@@ -6,7 +6,7 @@ export default function TechStack() {
   const doubled = [...techStack, ...techStack];
 
   return (
-    <section style={{ padding: "80px 0", overflow: "hidden", position: "relative" }}>
+    <section className="techstack-section" style={{ padding: "80px 0", overflow: "hidden", position: "relative" }}>
       <div style={{ textAlign: "center", marginBottom: 48, padding: "0 24px" }}>
         <span className="section-tag" style={{ marginBottom: 12, display: "inline-flex" }}>Technology</span>
         <h2 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)", fontWeight: 800 }}>
@@ -81,6 +81,8 @@ export default function TechStack() {
           0% { transform: translateX(-50%); }
           100% { transform: translateX(0); }
         }
+        .techstack-section { padding: 80px 0 !important; }
+        @media (max-width: 640px) { .techstack-section { padding: 48px 0 !important; } }
       `}</style>
     </section>
   );

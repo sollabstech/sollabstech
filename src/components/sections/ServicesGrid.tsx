@@ -8,7 +8,7 @@ export default function ServicesGrid() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <section style={{ padding: "100px 24px", position: "relative" }}>
+    <section className="resp-section" style={{ padding: "100px 24px", position: "relative" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: 64 }}>
           <span className="section-tag" style={{ marginBottom: 16, display: "inline-flex" }}>Our Services</span>
@@ -22,7 +22,7 @@ export default function ServicesGrid() {
           </p>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 20 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: 16 }}>
           {softwareServices.map((service) => (
             <div
               key={service.id}

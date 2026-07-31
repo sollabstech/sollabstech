@@ -38,7 +38,7 @@ export default function Footer() {
   return (
     <footer style={{ background: "#03070F", borderTop: "1px solid rgba(0,102,255,0.15)" }}>
       {/* CTA Band */}
-      <div style={{
+      <div className="footer-cta-band" style={{
         background: "linear-gradient(135deg, rgba(0,102,255,0.15) 0%, rgba(0,170,255,0.08) 100%)",
         borderBottom: "1px solid rgba(0,102,255,0.15)",
         padding: "60px 24px",
@@ -51,7 +51,7 @@ export default function Footer() {
           <p style={{ color: "#8A9BB8", marginBottom: 28, fontSize: 16 }}>
             Let&apos;s talk about your project or find the perfect laptop for your needs.
           </p>
-          <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
+          <div className="footer-cta-btns" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/contact" className="btn-primary">Start a Project</Link>
             <a
               href="https://wa.me/91XXXXXXXXXX"
@@ -66,7 +66,7 @@ export default function Footer() {
       </div>
 
       {/* Main Footer */}
-      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "60px 24px 40px" }}>
+      <div className="footer-main" style={{ maxWidth: 1280, margin: "0 auto", padding: "60px 24px 40px" }}>
         <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 40, marginBottom: 48 }}
           className="footer-grid">
 
@@ -156,7 +156,7 @@ export default function Footer() {
         <div className="divider-gradient" style={{ marginBottom: 24 }} />
 
         {/* Bottom bar */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
+        <div className="footer-bottom" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
           <p style={{ color: "#3D4F6B", fontSize: 13 }}>
             © {new Date().getFullYear()} Sollabs Tech. All rights reserved.
           </p>
@@ -168,18 +168,24 @@ export default function Footer() {
       </div>
 
       <style>{`
-        .footer-grid {
-          grid-template-columns: 2fr 1fr 1fr 1fr !important;
+        .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr !important; }
+        .footer-cta-band { padding: 60px 24px !important; }
+        .footer-main { padding: 60px 24px 40px !important; }
+        .footer-bottom { flex-direction: row !important; }
+        @media (max-width: 900px) {
+          .footer-grid { grid-template-columns: 1fr 1fr !important; }
+          .footer-cta-band { padding: 48px 20px !important; }
+          .footer-main { padding: 48px 20px 32px !important; }
         }
-        @media (max-width: 768px) {
-          .footer-grid {
-            grid-template-columns: 1fr 1fr !important;
-          }
+        @media (max-width: 640px) {
+          .footer-cta-band { padding: 40px 16px !important; }
+          .footer-main { padding: 36px 16px 24px !important; }
+          .footer-bottom { flex-direction: column !important; align-items: flex-start !important; gap: 10px !important; }
+          .footer-cta-btns { flex-direction: column !important; align-items: stretch !important; }
+          .footer-cta-btns a { text-align: center !important; justify-content: center !important; }
         }
-        @media (max-width: 480px) {
-          .footer-grid {
-            grid-template-columns: 1fr !important;
-          }
+        @media (max-width: 420px) {
+          .footer-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </footer>

@@ -10,6 +10,8 @@ const navLinks = [
   { href: "/computers", label: "Computers" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/reviews", label: "Reviews" },
+  { href: "/warranty", label: "🛡️ Warranty" },
+  { href: "/track", label: "📦 Track Project" },
   { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
@@ -34,10 +36,11 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 1000,
-        transition: "all 0.3s ease",
-        background: scrolled ? "rgba(5, 10, 24, 0.95)" : "transparent",
-        backdropFilter: scrolled ? "blur(20px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(0, 102, 255, 0.15)" : "1px solid transparent",
+        transition: "background 0.3s ease, backdrop-filter 0.3s ease",
+        background: scrolled || menuOpen ? "rgba(5, 10, 24, 0.97)" : "transparent",
+        backdropFilter: scrolled || menuOpen ? "blur(24px)" : "none",
+        WebkitBackdropFilter: scrolled || menuOpen ? "blur(24px)" : "none",
+        borderBottom: scrolled || menuOpen ? "1px solid rgba(0, 102, 255, 0.15)" : "1px solid transparent",
       }}
     >
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 24px" }}>
@@ -120,12 +123,12 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {menuOpen && (
-          <div style={{
-            padding: "16px 0 24px",
+          <div className="mobile-menu" style={{
+            padding: "12px 0 20px",
             borderTop: "1px solid rgba(0,102,255,0.2)",
             display: "flex",
             flexDirection: "column",
-            gap: 4,
+            gap: 2,
           }}>
             {navLinks.map((link) => (
               <Link
@@ -155,9 +158,20 @@ export default function Navbar() {
       <style>{`
         .hidden-mobile { display: flex; }
         .show-mobile { display: none; }
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
           .hidden-mobile { display: none !important; }
           .show-mobile { display: block !important; }
+        }
+        /* Mobile menu */
+        .mobile-menu {
+          max-height: 80vh;
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        .mobile-menu a, .mobile-menu button {
+          min-height: 44px;
+          display: flex;
+          align-items: center;
         }
       `}</style>
     </nav>

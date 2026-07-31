@@ -92,7 +92,7 @@ export const portfolioProjects = [
     id: 1,
     title: "ShopEase E-commerce Platform",
     category: "E-commerce",
-    image: "/portfolio/ecommerce.jpg",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&h=420&fit=crop&q=80&auto=format",
     tech: ["Next.js", "Stripe", "PostgreSQL"],
     client: "RetailCo India",
     description: "Full-featured e-commerce with 10k+ products, custom CMS, and integrated payment gateway.",
@@ -102,7 +102,7 @@ export const portfolioProjects = [
     id: 2,
     title: "FleetPro CRM System",
     category: "CRM",
-    image: "/portfolio/crm.jpg",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&h=420&fit=crop&q=80&auto=format",
     tech: ["React", "Node.js", "MongoDB"],
     client: "LogiTrack Solutions",
     description: "Customer relationship management system for a logistics company managing 500+ clients.",
@@ -112,7 +112,7 @@ export const portfolioProjects = [
     id: 3,
     title: "HealthSync Mobile App",
     category: "Mobile Apps",
-    image: "/portfolio/health.jpg",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700&h=420&fit=crop&q=80&auto=format",
     tech: ["Flutter", "Firebase", "Node.js"],
     client: "HealthFirst Clinic",
     description: "Patient management app with appointment booking, teleconsultation, and health records.",
@@ -122,7 +122,7 @@ export const portfolioProjects = [
     id: 4,
     title: "Analytics Dashboard",
     category: "Dashboard",
-    image: "/portfolio/dashboard.jpg",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&h=420&fit=crop&q=80&auto=format",
     tech: ["React", "Chart.js", "PostgreSQL"],
     client: "DataViz Corp",
     description: "Real-time analytics dashboard with 50+ chart types and automated reporting.",
@@ -132,7 +132,7 @@ export const portfolioProjects = [
     id: 5,
     title: "EduLearn Platform",
     category: "Websites",
-    image: "/portfolio/edu.jpg",
+    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=700&h=420&fit=crop&q=80&auto=format",
     tech: ["Next.js", "MongoDB", "Stripe"],
     client: "EduTech India",
     description: "Online learning platform with video streaming, quizzes, and certificate generation.",
@@ -142,7 +142,7 @@ export const portfolioProjects = [
     id: 6,
     title: "SmartBot AI Assistant",
     category: "AI Projects",
-    image: "/portfolio/ai.jpg",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=700&h=420&fit=crop&q=80&auto=format",
     tech: ["Python", "OpenAI", "React"],
     client: "TechStart Mumbai",
     description: "AI-powered customer support bot with NLP, context memory, and CRM integration.",
@@ -160,7 +160,7 @@ export const computerProducts = [
     warranty: "6 Months",
     price: 65000,
     available: true,
-    image: "/computers/dell-xps.jpg",
+    image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=700&h=420&fit=crop&q=80&auto=format",
   },
   {
     id: 2,
@@ -171,7 +171,7 @@ export const computerProducts = [
     warranty: "3 Months",
     price: 32000,
     available: true,
-    image: "/computers/hp-pavilion.jpg",
+    image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=700&h=420&fit=crop&q=80&auto=format",
   },
   {
     id: 3,
@@ -182,7 +182,7 @@ export const computerProducts = [
     warranty: "3 Months",
     price: 28000,
     available: true,
-    image: "/computers/lenovo.jpg",
+    image: "https://images.unsplash.com/photo-1588702547919-26089e690ecc?w=700&h=420&fit=crop&q=80&auto=format",
   },
   {
     id: 4,
@@ -193,7 +193,7 @@ export const computerProducts = [
     warranty: "1 Year",
     price: 120000,
     available: true,
-    image: "/computers/custom-pc.jpg",
+    image: "https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=700&h=420&fit=crop&q=80&auto=format",
   },
   {
     id: 5,
@@ -204,7 +204,7 @@ export const computerProducts = [
     warranty: "6 Months",
     price: 115000,
     available: false,
-    image: "/computers/macbook.jpg",
+    image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=700&h=420&fit=crop&q=80&auto=format",
   },
   {
     id: 6,
@@ -215,7 +215,7 @@ export const computerProducts = [
     warranty: "6 Months",
     price: 72000,
     available: true,
-    image: "/computers/asus-rog.jpg",
+    image: "https://images.unsplash.com/photo-1616400619175-5beda3a17896?w=700&h=420&fit=crop&q=80&auto=format",
   },
 ];
 
@@ -281,6 +281,175 @@ export const reviews = [
     avatar: "AN",
   },
 ];
+
+export const warrantyRecords: Record<string, {
+  serialNumber: string;
+  laptopName: string;
+  laptopModel: string;
+  brand: string;
+  brandEmoji: string;
+  specs: string;
+  purchaseDate: string;
+  warrantyMonths: number;
+  warrantyEndDate: string;
+  clientName: string;
+  clientCity: string;
+  clientAvatar: string;
+  clientInitials: string;
+  saleVideoId: string;
+  stickerColor: string;
+}> = {
+  "197979": {
+    serialNumber: "197979",
+    laptopName: "Asus TUF Gaming F15",
+    laptopModel: "FX506LH-HN258W",
+    brand: "Asus",
+    brandEmoji: "🎮",
+    specs: "Intel i5-10300H · 8GB DDR4 · 512GB SSD · GTX 1650 · 15.6\" FHD 144Hz",
+    purchaseDate: "2026-01-15",
+    warrantyMonths: 12,
+    warrantyEndDate: "2027-01-15",
+    clientName: "Arjun Mehta",
+    clientCity: "Mumbai",
+    clientAvatar: "",
+    clientInitials: "AM",
+    saleVideoId: "49x5rfxmv4E",
+    stickerColor: "#0066FF",
+  },
+  "205610": {
+    serialNumber: "205610",
+    laptopName: "Dell XPS 15",
+    laptopModel: "9500-D769",
+    brand: "Dell",
+    brandEmoji: "💻",
+    specs: "Intel i7-12th Gen · 16GB DDR5 · 512GB NVMe · RTX 3060 · 15.6\" FHD",
+    purchaseDate: "2025-10-01",
+    warrantyMonths: 6,
+    warrantyEndDate: "2026-04-01",
+    clientName: "Sneha Patel",
+    clientCity: "Ahmedabad",
+    clientAvatar: "",
+    clientInitials: "SP",
+    saleVideoId: "49x5rfxmv4E",
+    stickerColor: "#00AAFF",
+  },
+  "312244": {
+    serialNumber: "312244",
+    laptopName: "HP Pavilion 14",
+    laptopModel: "14-dv2029TU",
+    brand: "HP",
+    brandEmoji: "🖥️",
+    specs: "Intel i5-11th Gen · 8GB DDR4 · 256GB SSD · Intel Iris Xe · 14\" FHD",
+    purchaseDate: "2026-04-10",
+    warrantyMonths: 3,
+    warrantyEndDate: "2026-07-10",
+    clientName: "Rahul Singh",
+    clientCity: "Delhi",
+    clientAvatar: "",
+    clientInitials: "RS",
+    saleVideoId: "49x5rfxmv4E",
+    stickerColor: "#7C3AED",
+  },
+};
+
+export type ProjectStatus = "planning" | "development" | "testing" | "delivered" | "maintenance";
+
+export const projectRecords: Record<string, {
+  projectId: string;
+  projectName: string;
+  projectType: string;
+  typeEmoji: string;
+  platform: string;
+  stack: string;
+  clientName: string;
+  clientCity: string;
+  clientInitials: string;
+  startDate: string;
+  deliveryDate: string;
+  status: ProjectStatus;
+  progress: number;
+  currentMilestone: string;
+  demoVideoId: string;
+  accentColor: string;
+  features: string[];
+}> = {
+  "PRJ001": {
+    projectId: "PRJ001",
+    projectName: "HealthSync Mobile App",
+    projectType: "Mobile App",
+    typeEmoji: "📱",
+    platform: "iOS + Android",
+    stack: "Flutter · Firebase · Node.js",
+    clientName: "Priya Mehta",
+    clientCity: "Bangalore",
+    clientInitials: "PM",
+    startDate: "2026-01-10",
+    deliveryDate: "2026-03-15",
+    status: "delivered",
+    progress: 100,
+    currentMilestone: "Live on Play Store & App Store",
+    demoVideoId: "49x5rfxmv4E",
+    accentColor: "#00AAFF",
+    features: ["Appointment booking", "Teleconsultation", "Health records", "Push notifications"],
+  },
+  "PRJ002": {
+    projectId: "PRJ002",
+    projectName: "ShopEase E-commerce Platform",
+    projectType: "Website",
+    typeEmoji: "🌐",
+    platform: "Web (Next.js)",
+    stack: "Next.js · Node.js · PostgreSQL · Stripe",
+    clientName: "Rahul Sharma",
+    clientCity: "Mumbai",
+    clientInitials: "RS",
+    startDate: "2026-04-01",
+    deliveryDate: "2026-07-31",
+    status: "development",
+    progress: 65,
+    currentMilestone: "Frontend complete · Backend API in progress",
+    demoVideoId: "49x5rfxmv4E",
+    accentColor: "#0066FF",
+    features: ["Product catalog", "Cart & checkout", "Payment gateway", "Admin dashboard"],
+  },
+  "PRJ003": {
+    projectId: "PRJ003",
+    projectName: "StockPro Inventory System",
+    projectType: "Windows Software",
+    typeEmoji: "🖥️",
+    platform: "Windows Desktop",
+    stack: "Electron · React · SQLite",
+    clientName: "Vikash Singh",
+    clientCity: "Delhi",
+    clientInitials: "VS",
+    startDate: "2026-05-15",
+    deliveryDate: "2026-08-30",
+    status: "testing",
+    progress: 82,
+    currentMilestone: "Beta testing with client team",
+    demoVideoId: "49x5rfxmv4E",
+    accentColor: "#7C3AED",
+    features: ["Stock management", "Purchase orders", "Sales reports", "Barcode scanner"],
+  },
+  "PRJ004": {
+    projectId: "PRJ004",
+    projectName: "FleetPro CRM System",
+    projectType: "Custom Software",
+    typeEmoji: "⚙️",
+    platform: "Web + Mobile",
+    stack: "React · Node.js · MongoDB · Flutter",
+    clientName: "Anjali Nair",
+    clientCity: "Pune",
+    clientInitials: "AN",
+    startDate: "2026-06-01",
+    deliveryDate: "2026-09-30",
+    status: "planning",
+    progress: 20,
+    currentMilestone: "UI/UX wireframes approved · Development starting",
+    demoVideoId: "49x5rfxmv4E",
+    accentColor: "#F59E0B",
+    features: ["Client management", "Task tracking", "Invoice generation", "Team collaboration"],
+  },
+};
 
 export const stats = [
   { value: "200+", label: "Projects Delivered" },

@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 
 const contactInfo = [
   { icon: "📧", label: "Email", value: "sollabstech@gmail.com", href: "mailto:sollabstech@gmail.com" },
@@ -17,7 +19,15 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1200));
+    try {
+      await addDoc(collection(db, "messages"), {
+        ...form,
+        read: false,
+        createdAt: serverTimestamp(),
+      });
+    } catch (err) {
+      console.error("Error saving message:", err);
+    }
     setLoading(false);
     setSubmitted(true);
   };

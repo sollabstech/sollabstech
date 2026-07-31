@@ -9,7 +9,7 @@ export default function ReviewsSection() {
   const filtered = reviews.filter((r) => r.type === activeTab);
 
   return (
-    <section style={{ padding: "100px 24px", background: "rgba(0,0,0,0.2)" }}>
+    <section className="resp-section" style={{ padding: "100px 24px", background: "rgba(0,0,0,0.2)" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: 48 }}>
           <span className="section-tag" style={{ marginBottom: 16, display: "inline-flex" }}>Reviews</span>
@@ -20,7 +20,7 @@ export default function ReviewsSection() {
         </div>
 
         {/* Tabs */}
-        <div style={{ display: "flex", gap: 4, justifyContent: "center", marginBottom: 40 }}>
+        <div style={{ display: "flex", gap: 8, justifyContent: "center", marginBottom: 40, flexWrap: "wrap" }}>
           {[
             { key: "software", label: "💻 Software Clients" },
             { key: "laptop", label: "🖥️ Laptop Customers" },

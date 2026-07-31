@@ -168,3 +168,49 @@ body {
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(0, 102, 255, 0.4), transparent);
 }
+
+/* ── Marquee ── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes marquee-reverse {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+.marquee-track { animation: marquee 28s linear infinite; display: flex; }
+.marquee-track-reverse { animation: marquee-reverse 28s linear infinite; display: flex; }
+
+/* ── Base responsive safety ── */
+html, body { max-width: 100%; overflow-x: hidden; }
+img, video, iframe, canvas { max-width: 100%; }
+
+/* ── Touch target minimum ── */
+@media (max-width: 768px) {
+  button, a.btn-primary, a.btn-outline { min-height: 44px; }
+  input, textarea, select { font-size: 16px; } /* prevents iOS zoom */
+}
+
+/* ── Section padding scaling ── */
+/* Sections use inline style padding; these classes override with !important */
+.resp-section { padding: 100px 24px !important; }
+@media (max-width: 900px) { .resp-section { padding: 72px 20px !important; } }
+@media (max-width: 640px) { .resp-section { padding: 52px 16px !important; } }
+
+/* ── Tablet (≤ 900px) ── */
+@media (max-width: 900px) {
+  .resp-grid-3 { grid-template-columns: repeat(2, 1fr) !important; }
+  .resp-grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* ── Mobile (≤ 640px) ── */
+@media (max-width: 640px) {
+  .resp-grid-2,
+  .resp-grid-3,
+  .resp-grid-4 { grid-template-columns: 1fr !important; }
+
+  .resp-hide { display: none !important; }
+  .resp-stack { flex-direction: column !important; }
+  .resp-center { text-align: center !important; justify-content: center !important; }
+  .resp-full { width: 100% !important; }
+}
