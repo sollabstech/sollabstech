@@ -33,7 +33,7 @@ export default function PortfolioPage() {
         setFirebaseProjects(null);
       }
       setLoading(false);
-    });
+    }, () => setLoading(false));
     return () => unsub();
   }, []);
 
@@ -97,8 +97,16 @@ export default function PortfolioPage() {
           ) : (
             <>
               {filtered.length === 0 && (
-                <div style={{ textAlign: "center", padding: "80px 0", color: "#3D4F6B" }}>
-                  No projects in this category yet. Check back soon!
+                <div style={{ textAlign: "center", padding: "80px 0" }}>
+                  <div style={{ fontSize: 56, marginBottom: 16 }}>🚀</div>
+                  <h3 style={{ fontSize: 20, fontWeight: 700, color: "white", marginBottom: 8 }}>
+                    {active === "All" ? "Real Projects Coming Soon" : `No ${active} projects listed yet`}
+                  </h3>
+                  <p style={{ color: "#475569", fontSize: 15 }}>
+                    {active === "All"
+                      ? "We've completed 200+ real projects over 2 years. Adding them here now — check back soon!"
+                      : "Try another category or check back soon."}
+                  </p>
                 </div>
               )}
 

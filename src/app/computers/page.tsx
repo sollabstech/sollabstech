@@ -56,7 +56,7 @@ export default function ComputersPage() {
         setFirebaseProducts(null);
       }
       setLoading(false);
-    });
+    }, () => setLoading(false));
     return () => unsub();
   }, []);
 
@@ -76,55 +76,6 @@ export default function ComputersPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section style={{ paddingTop: 120, paddingBottom: 80, paddingLeft: 24, paddingRight: 24, textAlign: "center", position: "relative" }}>
-        <div style={{
-          position: "absolute", top: "20%", left: "50%", transform: "translateX(-50%)",
-          width: 600, height: 400, borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(0,170,255,0.1) 0%, transparent 70%)",
-          filter: "blur(60px)", zIndex: 0,
-        }} />
-        <div style={{ position: "relative", zIndex: 1, maxWidth: 800, margin: "0 auto" }}>
-          <span className="section-tag" style={{ marginBottom: 20, display: "inline-flex" }}>🖥️ Sollabs Tech Computers</span>
-          <h1 style={{ fontSize: "clamp(2rem, 5vw, 3.8rem)", fontWeight: 800, marginBottom: 20, letterSpacing: "-1px" }}>
-            Premium Machines,
-            <br /><span className="gradient-text">Unbeatable Prices</span>
-          </h1>
-          <p style={{ color: "#6B7A94", fontSize: 18, lineHeight: 1.7, marginBottom: 36 }}>
-            Second-hand laptops, custom gaming PCs, workstations — all tested, graded, and shipped across India.
-          </p>
-          <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-            <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener noreferrer" className="btn-primary">
-              💬 WhatsApp to Order
-            </a>
-            <a href="#products" className="btn-outline">Browse Products</a>
-          </div>
-        </div>
-      </section>
-
-      {/* Services */}
-      <section style={{ padding: "60px 24px", background: "rgba(0,0,0,0.2)" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-          <h2 style={{ textAlign: "center", fontSize: "clamp(1.4rem, 3vw, 2rem)", fontWeight: 700, marginBottom: 36 }}>
-            What We <span className="gradient-text-blue">Offer</span>
-          </h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: 16 }}>
-            {services.map((s) => (
-              <div key={s.title} className="glass" style={{
-                borderRadius: 14, padding: "20px",
-                border: "1px solid rgba(255,255,255,0.06)",
-                display: "flex", gap: 14, alignItems: "flex-start",
-              }}>
-                <span style={{ fontSize: 26, flexShrink: 0 }}>{s.icon}</span>
-                <div>
-                  <h3 style={{ fontSize: 14, fontWeight: 700, color: "white", marginBottom: 4 }}>{s.title}</h3>
-                  <p style={{ fontSize: 13, color: "#6B7A94", lineHeight: 1.5 }}>{s.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Products */}
       <section id="products" style={{ padding: "80px 24px" }}>
@@ -160,6 +111,15 @@ export default function ComputersPage() {
                   </div>
                 </div>
               ))}
+            </div>
+          ) : filtered.length === 0 ? (
+            <div style={{ textAlign: "center", padding: "80px 24px" }}>
+              <div style={{ fontSize: 56, marginBottom: 16 }}>🔄</div>
+              <h3 style={{ fontSize: 20, fontWeight: 700, color: "white", marginBottom: 8 }}>Real Products Coming Soon</h3>
+              <p style={{ color: "#475569", fontSize: 15, marginBottom: 24 }}>We're uploading our actual inventory right now. WhatsApp us to see what's available today.</p>
+              <a href="https://wa.me/919384199108?text=Hi, what laptops do you have available?" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ fontSize: 14, padding: "10px 24px" }}>
+                💬 Ask on WhatsApp
+              </a>
             </div>
           ) : (
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: 20 }}>
@@ -223,13 +183,13 @@ export default function ComputersPage() {
 
                     <div style={{ display: "flex", gap: 8 }}>
                       <a
-                        href={`https://wa.me/91XXXXXXXXXX?text=Hi, I'm interested in buying the ${product.name} for ₹${product.price.toLocaleString("en-IN")}`}
+                        href={`https://wa.me/919384199108?text=Hi, I'm interested in buying the ${product.name} for ₹${product.price.toLocaleString("en-IN")}`}
                         target="_blank" rel="noopener noreferrer"
                         className="btn-primary"
                         style={{ fontSize: 13, padding: "9px 16px", flex: 1, textAlign: "center", justifyContent: "center" }}
                       >Buy Now</a>
                       <a
-                        href={`https://wa.me/91XXXXXXXXXX?text=Hi, I need more details about ${product.name}`}
+                        href={`https://wa.me/919384199108?text=Hi, I need more details about ${product.name}`}
                         target="_blank" rel="noopener noreferrer"
                         className="btn-outline"
                         style={{ fontSize: 13, padding: "9px 14px" }}
@@ -240,6 +200,30 @@ export default function ComputersPage() {
               ))}
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Services */}
+      <section style={{ padding: "60px 24px", background: "rgba(0,0,0,0.2)" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+          <h2 style={{ textAlign: "center", fontSize: "clamp(1.4rem, 3vw, 2rem)", fontWeight: 700, marginBottom: 36 }}>
+            What We <span className="gradient-text-blue">Offer</span>
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: 16 }}>
+            {services.map((s) => (
+              <div key={s.title} className="glass" style={{
+                borderRadius: 14, padding: "20px",
+                border: "1px solid rgba(255,255,255,0.06)",
+                display: "flex", gap: 14, alignItems: "flex-start",
+              }}>
+                <span style={{ fontSize: 26, flexShrink: 0 }}>{s.icon}</span>
+                <div>
+                  <h3 style={{ fontSize: 14, fontWeight: 700, color: "white", marginBottom: 4 }}>{s.title}</h3>
+                  <p style={{ fontSize: 13, color: "#6B7A94", lineHeight: 1.5 }}>{s.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -261,7 +245,7 @@ export default function ComputersPage() {
             Can&apos;t Find What You&apos;re Looking For?
           </h2>
           <p style={{ color: "#6B7A94", marginBottom: 24 }}>Tell us your budget and requirements — we&apos;ll source the perfect machine for you.</p>
-          <a href="https://wa.me/91XXXXXXXXXX?text=Hi, I need a custom laptop recommendation" target="_blank" rel="noopener noreferrer" className="btn-primary">
+          <a href="https://wa.me/919384199108?text=Hi, I need a custom laptop recommendation" target="_blank" rel="noopener noreferrer" className="btn-primary">
             💬 Get Custom Recommendation
           </a>
         </div>

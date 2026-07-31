@@ -47,7 +47,7 @@ export default function ComputersPreview() {
         setFirebaseProducts(null);
       }
       setLoading(false);
-    });
+    }, () => setLoading(false));
     return () => unsub();
   }, []);
 
@@ -89,7 +89,14 @@ export default function ComputersPreview() {
           ))}
         </div>
 
-        {loading ? (
+        {!loading && filtered.length === 0 ? (
+          <div style={{ textAlign: "center", padding: "60px 24px", background: "rgba(0,102,255,0.04)", borderRadius: 16, border: "1px dashed rgba(0,102,255,0.15)" }}>
+            <div style={{ fontSize: 48, marginBottom: 12 }}>🔄</div>
+            <h3 style={{ fontSize: 18, fontWeight: 700, color: "white", marginBottom: 8 }}>Real Inventory Coming Soon</h3>
+            <p style={{ color: "#475569", fontSize: 14, marginBottom: 20 }}>We're adding our actual laptops & computers. WhatsApp to see what's available today.</p>
+            <a href="https://wa.me/919384199108?text=Hi, what laptops are available?" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ fontSize: 13, padding: "9px 20px" }}>💬 WhatsApp Us</a>
+          </div>
+        ) : loading ? (
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: 20 }}>
             {[1, 2, 3].map((i) => (
               <div key={i} style={{ borderRadius: 16, background: "rgba(10,22,40,0.7)", border: "1px solid rgba(255,255,255,0.06)", overflow: "hidden" }}>
@@ -166,14 +173,14 @@ export default function ComputersPreview() {
 
                   <div style={{ display: "flex", gap: 8 }}>
                     <a
-                      href={`https://wa.me/91XXXXXXXXXX?text=Hi, I'm interested in ${product.name}`}
+                      href={`https://wa.me/919384199108?text=Hi, I'm interested in ${product.name}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-primary"
                       style={{ fontSize: 13, padding: "8px 16px", flex: 1, textAlign: "center", justifyContent: "center" }}
                     >Buy Now</a>
                     <a
-                      href={`https://wa.me/91XXXXXXXXXX?text=Hi, I need more info about ${product.name}`}
+                      href={`https://wa.me/919384199108?text=Hi, I need more info about ${product.name}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-outline"

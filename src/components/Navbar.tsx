@@ -9,10 +9,7 @@ const navLinks = [
   { href: "/software", label: "Software" },
   { href: "/computers", label: "Computers" },
   { href: "/portfolio", label: "Portfolio" },
-  { href: "/reviews", label: "Reviews" },
   { href: "/warranty", label: "🛡️ Warranty" },
-  { href: "/track", label: "📦 Track Project" },
-  { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
@@ -46,24 +43,12 @@ export default function Navbar() {
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 24px" }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
           {/* Logo */}
-          <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10 }}>
-            <div style={{
-              width: 36,
-              height: 36,
-              borderRadius: 8,
-              background: "linear-gradient(135deg, #0066FF, #00AAFF)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontWeight: 900,
-              fontSize: 18,
-              color: "white",
-              boxShadow: "0 4px 15px rgba(0,102,255,0.5)",
-            }}>S</div>
-            <div>
-              <span style={{ fontWeight: 800, fontSize: 16, color: "white", letterSpacing: "-0.3px" }}>SOLLABS</span>
-              <span style={{ fontWeight: 400, fontSize: 11, color: "#00AAFF", display: "block", letterSpacing: 3, marginTop: -2 }}>TECH</span>
-            </div>
+          <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
+            <img
+              src="/text-logo.png"
+              alt="Sollabs Tech"
+              style={{ height: 44, width: "auto", objectFit: "contain" }}
+            />
           </Link>
 
           {/* Desktop Nav */}

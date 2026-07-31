@@ -27,11 +27,11 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { label: "Instagram", href: "#", icon: "📸" },
-  { label: "LinkedIn", href: "#", icon: "💼" },
-  { label: "Twitter/X", href: "#", icon: "🐦" },
-  { label: "WhatsApp", href: "#", icon: "💬" },
-  { label: "YouTube", href: "#", icon: "▶️" },
+  { label: "Instagram (Laptops & PC)", href: "https://www.instagram.com/sollabs_tech_laptop__custom_pc/", icon: "📸", tooltip: "Laptops & Custom PC" },
+  { label: "Instagram (Software)", href: "https://www.instagram.com/sollabstech", icon: "📸", tooltip: "Software & Apps" },
+  { label: "WhatsApp", href: "https://wa.me/919384199108", icon: "💬", tooltip: "Chat on WhatsApp" },
+  { label: "LinkedIn", href: "#", icon: "💼", tooltip: "LinkedIn (coming soon)" },
+  { label: "YouTube", href: "#", icon: "▶️", tooltip: "YouTube (coming soon)" },
 ];
 
 export default function Footer() {
@@ -54,7 +54,7 @@ export default function Footer() {
           <div className="footer-cta-btns" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/contact" className="btn-primary">Start a Project</Link>
             <a
-              href="https://wa.me/91XXXXXXXXXX"
+              href="https://wa.me/919384199108"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-outline"
@@ -72,57 +72,38 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
-              <div style={{
-                width: 40,
-                height: 40,
-                borderRadius: 10,
-                background: "linear-gradient(135deg, #0066FF, #00AAFF)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontWeight: 900,
-                fontSize: 20,
-                color: "white",
-                boxShadow: "0 4px 15px rgba(0,102,255,0.4)",
-              }}>S</div>
-              <div>
-                <div style={{ fontWeight: 800, fontSize: 17, color: "white" }}>SOLLABS TECH</div>
-                <div style={{ fontSize: 10, color: "#00AAFF", letterSpacing: 3 }}>CODE. CREATE. CONNECT.</div>
-              </div>
+            <div style={{ marginBottom: 16 }}>
+              <img src="/text-logo.png" alt="Sollabs Tech" style={{ height: 40, width: "auto", objectFit: "contain" }} />
+              <div style={{ fontSize: 10, color: "#00AAFF", letterSpacing: 3, marginTop: 4 }}>CODE. CREATE. CONNECT.</div>
             </div>
             <p style={{ color: "#6B7A94", fontSize: 14, lineHeight: 1.7, maxWidth: 280, marginBottom: 20 }}>
               One trusted brand for modern software development and premium laptops & custom PCs across India.
             </p>
-            <div style={{ display: "flex", gap: 10 }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               {socialLinks.map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
-                  title={s.label}
+                  title={s.tooltip}
+                  target={s.href !== "#" ? "_blank" : undefined}
+                  rel="noopener noreferrer"
                   style={{
-                    width: 38,
-                    height: 38,
-                    borderRadius: 8,
-                    background: "rgba(0,102,255,0.1)",
-                    border: "1px solid rgba(0,102,255,0.2)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: 16,
-                    textDecoration: "none",
-                    transition: "all 0.2s",
+                    display: "flex", alignItems: "center", gap: 10,
+                    padding: "7px 12px", borderRadius: 8,
+                    background: "rgba(0,102,255,0.08)",
+                    border: "1px solid rgba(0,102,255,0.15)",
+                    textDecoration: "none", transition: "all 0.2s",
+                    opacity: s.href === "#" ? 0.45 : 1,
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLAnchorElement).style.background = "rgba(0,102,255,0.25)";
-                    (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)";
+                    if (s.href !== "#") { (e.currentTarget as HTMLAnchorElement).style.background = "rgba(0,102,255,0.2)"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(0,102,255,0.4)"; }
                   }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLAnchorElement).style.background = "rgba(0,102,255,0.1)";
-                    (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
+                    (e.currentTarget as HTMLAnchorElement).style.background = "rgba(0,102,255,0.08)"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(0,102,255,0.15)";
                   }}
                 >
-                  {s.icon}
+                  <span style={{ fontSize: 15 }}>{s.icon}</span>
+                  <span style={{ fontSize: 12, color: "#94A3B8", fontWeight: 500 }}>{s.tooltip}</span>
                 </a>
               ))}
             </div>

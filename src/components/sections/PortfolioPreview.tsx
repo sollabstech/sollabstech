@@ -33,7 +33,7 @@ export default function PortfolioPreview() {
         setFirebaseProjects(null);
       }
       setLoading(false);
-    });
+    }, () => setLoading(false));
     return () => unsub();
   }, []);
 
@@ -72,7 +72,13 @@ export default function PortfolioPreview() {
           ))}
         </div>
 
-        {loading ? (
+        {!loading && filtered.length === 0 ? (
+          <div style={{ textAlign: "center", padding: "60px 24px", background: "rgba(0,102,255,0.04)", borderRadius: 16, border: "1px dashed rgba(0,102,255,0.15)" }}>
+            <div style={{ fontSize: 48, marginBottom: 12 }}>🚀</div>
+            <h3 style={{ fontSize: 18, fontWeight: 700, color: "white", marginBottom: 8 }}>200+ Real Projects Coming Soon</h3>
+            <p style={{ color: "#475569", fontSize: 14 }}>Two years of real client work — adding everything now. Check back soon!</p>
+          </div>
+        ) : loading ? (
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: 24 }}>
             {[1, 2, 3].map((i) => (
               <div key={i} style={{ borderRadius: 16, background: "rgba(10,22,40,0.7)", border: "1px solid rgba(255,255,255,0.06)", overflow: "hidden" }}>

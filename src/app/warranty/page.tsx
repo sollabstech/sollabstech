@@ -121,7 +121,7 @@ export default function WarrantyPage() {
                   Please check the sticker on your laptop or contact us.
                 </p>
                 <a
-                  href="https://wa.me/91XXXXXXXXXX?text=Hi, I need help checking my warranty."
+                  href="https://wa.me/919384199108?text=Hi, I need help checking my warranty."
                   target="_blank" rel="noopener noreferrer"
                   className="btn-primary"
                   style={{ marginTop: 24, display: "inline-flex" }}
@@ -372,7 +372,7 @@ export default function WarrantyPage() {
                   </div>
                   <div style={{ display: "flex", gap: 10 }}>
                     <a
-                      href={`https://wa.me/91XXXXXXXXXX?text=Hi, I need warranty support for serial ${result.serialNumber} (${result.laptopName})`}
+                      href={`https://wa.me/919384199108?text=Hi, I need warranty support for serial ${result.serialNumber} (${result.laptopName})`}
                       target="_blank" rel="noopener noreferrer"
                       className="btn-primary" style={{ fontSize: 13, padding: "9px 20px" }}
                     >
