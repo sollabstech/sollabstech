@@ -1,6 +1,12 @@
 export const metadata = {
   title: "Blog – Sollabs Tech",
-  description: "Tech insights, tutorials, and business tips from the Sollabs Tech team.",
+  description: "Tech insights, laptop buying guides, software development tutorials, and business tips from the Sollabs Tech team.",
+  alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "Blog – Sollabs Tech",
+    description: "Practical tech guides, laptop tips, and software development insights for Indian businesses.",
+    url: "https://www.sollabstech.com/blog",
+  },
 };
 
 export default function BlogPage() {

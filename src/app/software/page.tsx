@@ -3,7 +3,14 @@ import { softwareServices, techStack } from "@/lib/data";
 
 export const metadata = {
   title: "Software Development Services – Sollabs Tech",
-  description: "Mobile apps, websites, e-commerce, AI integration, and custom software built by Sollabs Tech.",
+  description: "Mobile apps, websites, e-commerce, AI integration, ERP, CRM, and custom software built by Sollabs Tech. Clean code. On-time delivery. Free consultation.",
+  keywords: ["mobile app development India", "website development", "ERP software India", "CRM development", "AI integration", "custom software"],
+  alternates: { canonical: "/software" },
+  openGraph: {
+    title: "Software Development Services – Sollabs Tech",
+    description: "From mobile apps to AI systems — software that transforms businesses. Free consultation.",
+    url: "https://www.sollabstech.com/software",
+  },
 };
 
 export default function SoftwarePage() {

@@ -2,7 +2,13 @@ import Link from "next/link";
 
 export const metadata = {
   title: "About Us – Sollabs Tech",
-  description: "Learn about Sollabs Tech — who we are, our mission, values, and the team behind the brand.",
+  description: "Learn about Sollabs Tech — a dual-brand Indian tech company building software and delivering laptops. Our mission, values, and story.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About Sollabs Tech",
+    description: "The story behind India's trusted software development and laptop company.",
+    url: "https://www.sollabstech.com/about",
+  },
 };
 
 const timeline = [

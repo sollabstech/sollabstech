@@ -1,4 +1,16 @@
+import type { Metadata } from "next";
 import Hero from "@/components/sections/Hero";
+
+export const metadata: Metadata = {
+  title: "Sollabs Tech – Software Development & Laptops in India",
+  description: "Sollabs Tech builds modern mobile apps, websites, ERP & CRM software, and delivers laptops & custom PCs across India. Free quote. Responds in 2 hours.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Sollabs Tech – Technology That Builds Businesses",
+    description: "Software development and laptop sales in India. 200+ projects, 500+ laptops delivered.",
+    url: "https://www.sollabstech.com",
+  },
+};
 import ServicesGrid from "@/components/sections/ServicesGrid";
 import TechStack from "@/components/sections/TechStack";
 import PortfolioPreview from "@/components/sections/PortfolioPreview";
