@@ -1,13 +1,27 @@
+import Link from "next/link";
+
 export const metadata = {
   title: "Blog – Sollabs Tech",
-  description: "Tech insights, laptop buying guides, software development tutorials, and business tips from the Sollabs Tech team.",
+  description: "Tech insights, laptop buying guides, warranty information, and business tips from the Sollabs Tech team.",
   alternates: { canonical: "/blog" },
   openGraph: {
     title: "Blog – Sollabs Tech",
-    description: "Practical tech guides, laptop tips, and software development insights for Indian businesses.",
+    description: "Practical tech guides, laptop tips, warranty guides, and software development insights for Indian businesses.",
     url: "https://www.sollabstech.com/blog",
   },
 };
+
+const posts = [
+  {
+    slug: "sollabstech-warranty-policy",
+    tag: "Warranty",
+    date: "August 2, 2026",
+    title: "Sollabs Tech Warranty Policy – How to Check Your Laptop Warranty Status",
+    excerpt: "Every Sollabs Tech laptop comes with 3–12 month warranty. Learn what's covered, how to check your warranty status online, and how to claim it.",
+    readTime: "4 min read",
+    icon: "🛡️",
+  },
+];
 
 export default function BlogPage() {
   return (
@@ -19,28 +33,54 @@ export default function BlogPage() {
             Tech Insights &amp; <span className="gradient-text">Practical Tips</span>
           </h1>
           <p style={{ color: "#6B7A94", fontSize: 17, lineHeight: 1.7 }}>
-            Tutorials, buying guides, and business technology insights from the Sollabs Tech team.
+            Tutorials, buying guides, warranty information, and tech insights from the Sollabs Tech team.
           </p>
         </div>
       </section>
 
       <section style={{ padding: "0 24px 120px" }}>
-        <div style={{ maxWidth: 600, margin: "0 auto", textAlign: "center" }}>
-          <div style={{ fontSize: 64, marginBottom: 24 }}>✍️</div>
-          <h2 style={{ fontSize: 22, fontWeight: 700, color: "white", marginBottom: 12 }}>
-            Articles Coming Soon
-          </h2>
-          <p style={{ color: "#6B7A94", fontSize: 15, lineHeight: 1.7 }}>
-            We&apos;re writing real guides — laptop buying tips, software development insights, and tech for Indian businesses. Check back soon.
-          </p>
-          <a
-            href="https://wa.me/919384199108?text=Hi, notify me when the Sollabs Tech blog is live!"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ display: "inline-flex", alignItems: "center", gap: 8, marginTop: 28, padding: "12px 24px", borderRadius: 10, fontSize: 14, fontWeight: 600, background: "linear-gradient(135deg,#0066FF,#0099FF)", color: "white", textDecoration: "none", boxShadow: "0 4px 16px rgba(0,102,255,0.35)" }}
-          >
-            💬 Notify me on WhatsApp
-          </a>
+        <div style={{ maxWidth: 800, margin: "0 auto", display: "flex", flexDirection: "column", gap: 24 }}>
+          {posts.map((post) => (
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              style={{ textDecoration: "none", display: "block" }}
+            >
+              <article
+                className="card-hover"
+                style={{
+                  padding: "28px 32px",
+                  borderRadius: 18,
+                  background: "rgba(10,22,40,0.7)",
+                  border: "1px solid rgba(255,255,255,0.07)",
+                  display: "flex",
+                  gap: 24,
+                  alignItems: "flex-start",
+                  cursor: "pointer",
+                }}
+              >
+                <div style={{ fontSize: 40, flexShrink: 0, paddingTop: 4 }}>{post.icon}</div>
+                <div style={{ flex: 1 }}>
+                  <div style={{ display: "flex", gap: 10, alignItems: "center", marginBottom: 12, flexWrap: "wrap" }}>
+                    <span style={{ padding: "3px 10px", borderRadius: 100, fontSize: 11, fontWeight: 600, background: "rgba(0,102,255,0.15)", border: "1px solid rgba(0,102,255,0.3)", color: "#00AAFF" }}>
+                      {post.tag}
+                    </span>
+                    <span style={{ fontSize: 12, color: "#475569" }}>{post.date}</span>
+                    <span style={{ fontSize: 12, color: "#475569" }}>· {post.readTime}</span>
+                  </div>
+                  <h2 style={{ fontSize: "clamp(1rem, 2.5vw, 1.25rem)", fontWeight: 700, color: "white", marginBottom: 10, lineHeight: 1.3 }}>
+                    {post.title}
+                  </h2>
+                  <p style={{ fontSize: 14, color: "#6B7A94", lineHeight: 1.7, margin: 0 }}>
+                    {post.excerpt}
+                  </p>
+                  <div style={{ marginTop: 14, fontSize: 13, fontWeight: 600, color: "#00AAFF" }}>
+                    Read article →
+                  </div>
+                </div>
+              </article>
+            </Link>
+          ))}
         </div>
       </section>
     </>
