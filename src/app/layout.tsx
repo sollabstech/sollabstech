@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -52,7 +52,7 @@ export default function RootLayout({
     "name": "Sollabs Tech",
     "description": "Software development company and laptop sales in India",
     "url": "https://www.sollabstech.com",
-    "telephone": "+919384199108",
+    "telephone": "+919003850743",
     "email": "sollabstech@gmail.com",
     "address": { "@type": "PostalAddress", "addressCountry": "IN" },
     "sameAs": [],

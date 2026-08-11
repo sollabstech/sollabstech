@@ -173,7 +173,7 @@ export default function LaptopDetailPage() {
           {/* CTA */}
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             <a
-              href={`https://wa.me/919384199108?text=Hi, I'm interested in buying the ${product.name} for ₹${product.price.toLocaleString("en-IN")}`}
+              href={`https://wa.me/919003850743?text=Hi, I'm interested in buying the ${product.name} for ₹${product.price.toLocaleString("en-IN")}`}
               target="_blank" rel="noopener noreferrer"
               className="btn-primary"
               style={{ fontSize: 15, padding: "14px 24px", textAlign: "center", justifyContent: "center" }}
@@ -181,7 +181,7 @@ export default function LaptopDetailPage() {
               Buy Now on WhatsApp
             </a>
             <a
-              href={`https://wa.me/919384199108?text=Hi, I need more details about the ${product.name}`}
+              href={`https://wa.me/919003850743?text=Hi, I need more details about the ${product.name}`}
               target="_blank" rel="noopener noreferrer"
               className="btn-outline"
               style={{ fontSize: 15, padding: "13px 24px", textAlign: "center", justifyContent: "center" }}

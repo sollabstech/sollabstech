@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -94,7 +94,7 @@ export default function ComputersPreview() {
             <div style={{ fontSize: 48, marginBottom: 12 }}>🔄</div>
             <h3 style={{ fontSize: 18, fontWeight: 700, color: "white", marginBottom: 8 }}>Real Inventory Coming Soon</h3>
             <p style={{ color: "#475569", fontSize: 14, marginBottom: 20 }}>We're adding our actual laptops & computers. WhatsApp to see what's available today.</p>
-            <a href="https://wa.me/919384199108?text=Hi, what laptops are available?" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ fontSize: 13, padding: "9px 20px" }}>💬 WhatsApp Us</a>
+            <a href="https://wa.me/919003850743?text=Hi, what laptops are available?" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ fontSize: 13, padding: "9px 20px" }}>💬 WhatsApp Us</a>
           </div>
         ) : loading ? (
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: 20 }}>
@@ -173,14 +173,14 @@ export default function ComputersPreview() {
 
                   <div style={{ display: "flex", gap: 8 }}>
                     <a
-                      href={`https://wa.me/919384199108?text=Hi, I'm interested in ${product.name}`}
+                      href={`https://wa.me/919003850743?text=Hi, I'm interested in ${product.name}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-primary"
                       style={{ fontSize: 13, padding: "8px 16px", flex: 1, textAlign: "center", justifyContent: "center" }}
                     >Buy Now</a>
                     <a
-                      href={`https://wa.me/919384199108?text=Hi, I need more info about ${product.name}`}
+                      href={`https://wa.me/919003850743?text=Hi, I need more info about ${product.name}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-outline"

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -132,7 +132,7 @@ export default function ComputersClient() {
               <div style={{ fontSize: 56, marginBottom: 16 }}>🔄</div>
               <h3 style={{ fontSize: 20, fontWeight: 700, color: "white", marginBottom: 8 }}>Real Products Coming Soon</h3>
               <p style={{ color: "#475569", fontSize: 15, marginBottom: 24 }}>We're uploading our actual inventory right now. WhatsApp us to see what's available today.</p>
-              <a href="https://wa.me/919384199108?text=Hi, what laptops do you have available?" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ fontSize: 14, padding: "10px 24px" }}>
+              <a href="https://wa.me/919003850743?text=Hi, what laptops do you have available?" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ fontSize: 14, padding: "10px 24px" }}>
                 💬 Ask on WhatsApp
               </a>
             </div>
@@ -199,13 +199,13 @@ export default function ComputersClient() {
 
                     <div style={{ display: "flex", gap: 8 }}>
                       <a
-                        href={`https://wa.me/919384199108?text=Hi, I'm interested in buying the ${product.name} for ₹${product.price.toLocaleString("en-IN")}`}
+                        href={`https://wa.me/919003850743?text=Hi, I'm interested in buying the ${product.name} for ₹${product.price.toLocaleString("en-IN")}`}
                         target="_blank" rel="noopener noreferrer"
                         className="btn-primary"
                         style={{ fontSize: 13, padding: "9px 16px", flex: 1, textAlign: "center", justifyContent: "center" }}
                       >Buy Now</a>
                       <a
-                        href={`https://wa.me/919384199108?text=Hi, I need more details about ${product.name}`}
+                        href={`https://wa.me/919003850743?text=Hi, I need more details about ${product.name}`}
                         target="_blank" rel="noopener noreferrer"
                         className="btn-outline"
                         style={{ fontSize: 13, padding: "9px 14px" }}
@@ -261,7 +261,7 @@ export default function ComputersClient() {
             Can&apos;t Find What You&apos;re Looking For?
           </h2>
           <p style={{ color: "#6B7A94", marginBottom: 24 }}>Tell us your budget and requirements — we&apos;ll source the perfect machine for you.</p>
-          <a href="https://wa.me/919384199108?text=Hi, I need a custom laptop recommendation" target="_blank" rel="noopener noreferrer" className="btn-primary">
+          <a href="https://wa.me/919003850743?text=Hi, I need a custom laptop recommendation" target="_blank" rel="noopener noreferrer" className="btn-primary">
             💬 Get Custom Recommendation
           </a>
         </div>

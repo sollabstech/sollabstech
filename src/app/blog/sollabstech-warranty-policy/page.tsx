@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -118,7 +118,7 @@ export default function WarrantyBlogPost() {
           <li>Your warranty status, coverage period, and purchase details appear instantly</li>
         </ol>
         <p style={{ fontSize: 15, color: "#94A3B8", lineHeight: 1.8, marginBottom: 40 }}>
-          If you don't have your serial number, WhatsApp us at <strong style={{ color: "#CBD5E1" }}>+91 93841 99108</strong> with your order details and we'll look it up for you.
+          If you don't have your serial number, WhatsApp us at <strong style={{ color: "#CBD5E1" }}>+91 90038 50743</strong> with your order details and we'll look it up for you.
         </p>
 
         {/* Section 4 */}
@@ -129,7 +129,7 @@ export default function WarrantyBlogPost() {
           Claiming your Sollabs Tech laptop warranty is straightforward:
         </p>
         <ol style={{ paddingLeft: 20, fontSize: 15, color: "#94A3B8", lineHeight: 2, marginBottom: 40 }}>
-          <li>WhatsApp us at <strong style={{ color: "#CBD5E1" }}>+91 93841 99108</strong> describing the issue</li>
+          <li>WhatsApp us at <strong style={{ color: "#CBD5E1" }}>+91 90038 50743</strong> describing the issue</li>
           <li>Send photos or a short video of the problem</li>
           <li>We'll guide you to either: ship the laptop to us, or visit our service center</li>
           <li>We repair or replace the faulty component at no cost within the warranty period</li>
@@ -199,7 +199,7 @@ export default function WarrantyBlogPost() {
               Check Warranty Status
             </Link>
             <a
-              href="https://wa.me/919384199108?text=Hi, I need help with my Sollabs Tech laptop warranty"
+              href="https://wa.me/919003850743?text=Hi, I need help with my Sollabs Tech laptop warranty"
               target="_blank"
               rel="noopener noreferrer"
               style={{ padding: "12px 28px", borderRadius: 10, fontSize: 14, fontWeight: 700, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", color: "white", textDecoration: "none" }}

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
@@ -6,7 +6,7 @@ import { db } from "@/lib/firebase";
 
 const contactInfo = [
   { icon: "📧", label: "Email", value: "sollabstech@gmail.com", href: "mailto:sollabstech@gmail.com" },
-  { icon: "💬", label: "WhatsApp", value: "+91 93841 99108", href: "https://wa.me/919384199108" },
+  { icon: "💬", label: "WhatsApp", value: "+91 90038 50743", href: "https://wa.me/919003850743" },
   { icon: "📍", label: "Location", value: "India", href: "#" },
   { icon: "🕐", label: "Business Hours", value: "Mon–Sat, 9AM–8PM IST", href: "#" },
 ];
@@ -73,7 +73,7 @@ export default function ContactClient() {
             </div>
 
             <a
-              href="https://wa.me/919384199108?text=Hi Sollabs Tech, I'd like to discuss a project!"
+              href="https://wa.me/919003850743?text=Hi Sollabs Tech, I'd like to discuss a project!"
               target="_blank" rel="noopener noreferrer"
               className="btn-primary"
               style={{ width: "100%", justifyContent: "center", fontSize: 15, padding: "14px" }}

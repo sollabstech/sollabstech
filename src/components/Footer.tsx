@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 
@@ -29,7 +29,7 @@ const footerLinks = {
 const socialLinks = [
   { label: "Instagram (Laptops & PC)", href: "https://www.instagram.com/sollabs_tech_laptop__custom_pc/", icon: "📸", tooltip: "Laptops & Custom PC" },
   { label: "Instagram (Software)", href: "https://www.instagram.com/sollabstech", icon: "📸", tooltip: "Software & Apps" },
-  { label: "WhatsApp", href: "https://wa.me/919384199108", icon: "💬", tooltip: "Chat on WhatsApp" },
+  { label: "WhatsApp", href: "https://wa.me/919003850743", icon: "💬", tooltip: "Chat on WhatsApp" },
   { label: "LinkedIn", href: "#", icon: "💼", tooltip: "LinkedIn (coming soon)" },
   { label: "YouTube", href: "#", icon: "▶️", tooltip: "YouTube (coming soon)" },
 ];
@@ -54,7 +54,7 @@ export default function Footer() {
           <div className="footer-cta-btns" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/contact" className="btn-primary">Start a Project</Link>
             <a
-              href="https://wa.me/919384199108"
+              href="https://wa.me/919003850743"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-outline"

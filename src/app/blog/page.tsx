@@ -13,6 +13,15 @@ export const metadata = {
 
 const posts = [
   {
+    slug: "sollabs-tech-laptop-warranty-replacement",
+    tag: "Customer Story",
+    date: "August 2, 2026",
+    title: "When Our Customer's Laptop Was Damaged During Travel — How Sollabs Tech Responded",
+    excerpt: "A customer's laptop was accidentally damaged during travel. Instead of turning them away, Sollabs Tech provided an MSI replacement. A real after-sales support story.",
+    readTime: "6 min read",
+    icon: "🤝",
+  },
+  {
     slug: "sollabstech-warranty-policy",
     tag: "Warranty",
     date: "August 2, 2026",
