@@ -13,6 +13,15 @@ export const metadata = {
 
 const posts = [
   {
+    slug: "how-to-check-laptop-warranty-sollabstech",
+    tag: "Video Guide",
+    date: "August 12, 2026",
+    title: "How to Check Your Laptop Warranty – Sollabs Tech Step-by-Step Guide",
+    excerpt: "Check your Sollabs Tech laptop warranty in under 10 seconds using your serial number. Includes step-by-step video guide on YouTube and Instagram.",
+    readTime: "4 min read",
+    icon: "📹",
+  },
+  {
     slug: "sollabs-tech-laptop-warranty-replacement",
     tag: "Customer Story",
     date: "August 2, 2026",
