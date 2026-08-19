@@ -13,6 +13,15 @@ export const metadata = {
 
 const posts = [
   {
+    slug: "what-is-sollabs-tech",
+    tag: "About Us",
+    date: "August 17, 2026",
+    title: "What Is Sollabs Tech? (Also Known as Sollab Tech, Solabs Tech) – Madurai, India",
+    excerpt: "Searched for 'Sollab Tech', 'Solabs Tech', or 'Sollabstech'? You found the right place. Here's who we are, the correct spelling, and how to contact us.",
+    readTime: "5 min read",
+    icon: "🔍",
+  },
+  {
     slug: "how-to-check-laptop-warranty-sollabstech",
     tag: "Video Guide",
     date: "August 12, 2026",
