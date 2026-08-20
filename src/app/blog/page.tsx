@@ -13,6 +13,33 @@ export const metadata = {
 
 const posts = [
   {
+    slug: "sollabs-tech-social-media",
+    tag: "Official Profiles",
+    date: "August 20, 2026",
+    title: "Sollabs Tech Official Social Media – LinkedIn, Facebook & Instagram (All Links)",
+    excerpt: "Looking for Sollabs Tech on LinkedIn or Facebook? This page lists every official Sollabs Tech social media profile with direct links. We are NOT SolTech InfoLabs.",
+    readTime: "3 min read",
+    icon: "📲",
+  },
+  {
+    slug: "website-development-cost-india",
+    tag: "Web Development",
+    date: "August 20, 2026",
+    title: "How Much Does Website Development Cost in India? (2025 Complete Guide)",
+    excerpt: "Clear, honest pricing for every type of website — landing pages to full web applications. Know exactly what you'll pay before you talk to any developer.",
+    readTime: "8 min read",
+    icon: "🌐",
+  },
+  {
+    slug: "custom-software-development-india",
+    tag: "Software Development",
+    date: "August 20, 2026",
+    title: "Why Indian Businesses Need Custom Software in 2025 (Not Off-the-Shelf)",
+    excerpt: "Still using WhatsApp and Excel to run your business? Here are 5 signs your business is ready for custom software — and what Sollabs Tech builds for you.",
+    readTime: "7 min read",
+    icon: "💻",
+  },
+  {
     slug: "what-is-sollabs-tech",
     tag: "About Us",
     date: "August 17, 2026",

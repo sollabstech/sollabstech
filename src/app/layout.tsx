@@ -55,7 +55,13 @@ export default function RootLayout({
     "telephone": "+919003850743",
     "email": "sollabstech@gmail.com",
     "address": { "@type": "PostalAddress", "addressCountry": "IN" },
-    "sameAs": [],
+    "sameAs": [
+      "https://www.linkedin.com/company/sollabstech/",
+      "https://www.facebook.com/sollabstech/",
+      "https://www.facebook.com/profile.php?id=61561012517343",
+      "https://www.instagram.com/sollabstech",
+      "https://www.instagram.com/sollabs_tech_laptop__custom_pc/",
+    ],
     "offers": [
       { "@type": "Offer", "name": "Software Development", "url": "https://www.sollabstech.com/software" },
       { "@type": "Offer", "name": "Laptops & Custom PCs", "url": "https://www.sollabstech.com/computers" },

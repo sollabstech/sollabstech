@@ -30,7 +30,8 @@ const socialLinks = [
   { label: "Instagram (Laptops & PC)", href: "https://www.instagram.com/sollabs_tech_laptop__custom_pc/", icon: "📸", tooltip: "Laptops & Custom PC" },
   { label: "Instagram (Software)", href: "https://www.instagram.com/sollabstech", icon: "📸", tooltip: "Software & Apps" },
   { label: "WhatsApp", href: "https://wa.me/919003850743", icon: "💬", tooltip: "Chat on WhatsApp" },
-  { label: "LinkedIn", href: "#", icon: "💼", tooltip: "LinkedIn (coming soon)" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/sollabstech/", icon: "💼", tooltip: "LinkedIn" },
+  { label: "Facebook", href: "https://www.facebook.com/sollabstech/", icon: "📘", tooltip: "Facebook" },
   { label: "YouTube", href: "#", icon: "▶️", tooltip: "YouTube (coming soon)" },
 ];
 
