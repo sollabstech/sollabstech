@@ -54,7 +54,13 @@ export default function RootLayout({
     "url": "https://www.sollabstech.com",
     "telephone": "+919003850743",
     "email": "sollabstech@gmail.com",
-    "address": { "@type": "PostalAddress", "addressCountry": "IN" },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Madurai",
+      "addressRegion": "Tamil Nadu",
+      "postalCode": "625402",
+      "addressCountry": "IN"
+    },
     "sameAs": [
       "https://www.linkedin.com/company/sollabstech/",
       "https://www.facebook.com/sollabstech/",

@@ -17,6 +17,7 @@ import PortfolioPreview from "@/components/sections/PortfolioPreview";
 import ComputersPreview from "@/components/sections/ComputersPreview";
 import ReviewsSection from "@/components/sections/ReviewsSection";
 import WhyUs from "@/components/sections/WhyUs";
+import BlogPreview from "@/components/sections/BlogPreview";
 
 export default function Home() {
   return (
@@ -33,6 +34,8 @@ export default function Home() {
       <WhyUs />
       <div style={{ height: 1, background: "linear-gradient(90deg, transparent, rgba(0,102,255,0.2), transparent)" }} />
       <ReviewsSection />
+      <div style={{ height: 1, background: "linear-gradient(90deg, transparent, rgba(0,102,255,0.2), transparent)" }} />
+      <BlogPreview />
     </>
   );
 }
