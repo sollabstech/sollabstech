@@ -13,6 +13,15 @@ export const metadata = {
 
 const posts = [
   {
+    slug: "sollabs-tech-founder-bala-murugan",
+    tag: "Founder",
+    date: "August 20, 2026",
+    title: "Who Founded Sollabs Tech? Meet T Bala Murugan – Madurai, Tamil Nadu",
+    excerpt: "Sollabs Tech was founded by T Bala Murugan in Madurai, Tamil Nadu in 2020. Learn about the founder's story, vision, and what makes Sollabs Tech different.",
+    readTime: "4 min read",
+    icon: "👤",
+  },
+  {
     slug: "sollabs-tech-social-media",
     tag: "Official Profiles",
     date: "August 20, 2026",

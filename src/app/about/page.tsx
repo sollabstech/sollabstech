@@ -1,12 +1,14 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = {
-  title: "About Us – Sollabs Tech",
-  description: "Learn about Sollabs Tech — a dual-brand Indian tech company building software and delivering laptops. Our mission, values, and story.",
+  title: "About Sollabs Tech – Founded by T Bala Murugan, Madurai",
+  description: "Sollabs Tech was founded by T Bala Murugan in Madurai, Tamil Nadu. Learn about the founder, mission, and story behind India's trusted software & laptop company.",
   alternates: { canonical: "/about" },
+  keywords: ["T Bala Murugan", "Sollabs Tech founder", "who owns Sollabs Tech", "Sollabs Tech owner", "Bala Murugan Madurai", "Sollabstech founder"],
   openGraph: {
-    title: "About Sollabs Tech",
-    description: "The story behind India's trusted software development and laptop company.",
+    title: "About Sollabs Tech – Founded by T Bala Murugan",
+    description: "Sollabs Tech was founded by T Bala Murugan in Madurai, Tamil Nadu. Software development & laptop company.",
     url: "https://www.sollabstech.com/about",
   },
 };
@@ -28,8 +30,40 @@ const values = [
 ];
 
 export default function AboutPage() {
+  const founderLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "T Bala Murugan",
+    "givenName": "Bala Murugan",
+    "familyName": "T",
+    "jobTitle": "Founder & CEO",
+    "image": "https://www.sollabstech.com/t-bala-murugan-founder-sollabs-tech.jpg",
+    "description": "T Bala Murugan, son of Thandapani, is the Founder & CEO of Sollabs Tech, a software development and laptop company based in Madurai, Tamil Nadu, India.",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Sollabs Tech",
+      "url": "https://www.sollabstech.com"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Madurai",
+      "addressRegion": "Tamil Nadu",
+      "addressCountry": "IN"
+    },
+    "url": "https://www.sollabstech.com/about",
+    "sameAs": [
+      "https://www.linkedin.com/in/sollabstech/",
+      "https://www.linkedin.com/company/sollabstech/",
+      "https://www.facebook.com/sollabstech/"
+    ]
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(founderLd) }}
+      />
       {/* Hero */}
       <section style={{ paddingTop: 120, paddingBottom: 80, paddingLeft: 24, paddingRight: 24, textAlign: "center", position: "relative" }}>
         <div style={{
@@ -151,6 +185,45 @@ export default function AboutPage() {
               <div style={{ fontSize: 13, color: "#6B7A94", marginTop: 4 }}>{s.label}</div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Founder */}
+      <section style={{ padding: "80px 24px" }}>
+        <div style={{ maxWidth: 780, margin: "0 auto" }}>
+          <h2 style={{ textAlign: "center", fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)", fontWeight: 800, marginBottom: 48 }}>
+            Meet the <span className="gradient-text-blue">Founder</span>
+          </h2>
+          <div style={{
+            display: "flex", alignItems: "center", gap: 40, flexWrap: "wrap",
+            padding: "40px 36px", borderRadius: 24,
+            background: "rgba(10,22,40,0.7)", border: "1px solid rgba(0,102,255,0.2)",
+          }}>
+            {/* Avatar */}
+            <div style={{ width: 90, height: 90, borderRadius: "50%", flexShrink: 0, overflow: "hidden", border: "3px solid rgba(0,102,255,0.4)" }}>
+              <Image
+                src="/t-bala-murugan-founder-sollabs-tech.jpg"
+                alt="T Bala Murugan – Founder & CEO of Sollabs Tech, Madurai"
+                width={90}
+                height={90}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            </div>
+            <div style={{ flex: 1, minWidth: 220 }}>
+              <div style={{ fontSize: 22, fontWeight: 800, color: "white", marginBottom: 4 }}>
+                T Bala Murugan
+              </div>
+              <div style={{ fontSize: 14, fontWeight: 600, color: "#00AAFF", marginBottom: 14 }}>
+                Founder &amp; CEO — Sollabs Tech
+              </div>
+              <p style={{ color: "#6B7A94", fontSize: 15, lineHeight: 1.75, margin: 0 }}>
+                T Bala Murugan founded Sollabs Tech in Madurai, Tamil Nadu with a clear vision: to build
+                high-quality, affordable technology solutions for Indian businesses. From custom software
+                to laptops, every product and service at Sollabs Tech reflects his commitment to quality,
+                honesty, and direct support — no middlemen, no compromises.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

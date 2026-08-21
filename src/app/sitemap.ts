@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/about`,          lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/reviews`,        lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/blog`,                                          lastModified: new Date(), changeFrequency: "weekly",  priority: 0.6 },
+    { url: `${base}/blog/sollabs-tech-founder-bala-murugan`,       lastModified: new Date(), changeFrequency: "monthly", priority: 1.0 },
     { url: `${base}/blog/sollabs-tech-social-media`,               lastModified: new Date(), changeFrequency: "monthly", priority: 1.0 },
     { url: `${base}/blog/website-development-cost-india`,          lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/blog/custom-software-development-india`,       lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },

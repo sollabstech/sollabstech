@@ -61,6 +61,14 @@ export default function RootLayout({
       "postalCode": "625402",
       "addressCountry": "IN"
     },
+    "founder": {
+      "@type": "Person",
+      "name": "T Bala Murugan",
+      "jobTitle": "Founder & CEO",
+      "image": "https://www.sollabstech.com/t-bala-murugan-founder-sollabs-tech.jpg",
+      "description": "T Bala Murugan, son of Thandapani, Founder & CEO of Sollabs Tech, Madurai, Tamil Nadu.",
+      "worksFor": { "@type": "Organization", "name": "Sollabs Tech" }
+    },
     "sameAs": [
       "https://www.linkedin.com/company/sollabstech/",
       "https://www.facebook.com/sollabstech/",
