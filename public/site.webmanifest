@@ -1,1 +1,15 @@
-{"name":"","short_name":"","icons":[{"src":"/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}
+{
+  "name": "Sollabs Tech",
+  "short_name": "Sollabs Tech",
+  "description": "Software development and premium laptops & custom PCs, delivered across India.",
+  "start_url": "/",
+  "id": "/",
+  "display": "standalone",
+  "theme_color": "#050A18",
+  "background_color": "#050A18",
+  "lang": "en",
+  "icons": [
+    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

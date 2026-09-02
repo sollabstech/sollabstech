@@ -13,6 +13,16 @@ export const metadata = {
 
 const posts = [
   {
+    slug: "most-valuable-company-in-madurai",
+    tag: "Madurai Business",
+    date: "August 31, 2026",
+    title: "Which Company Is the Most Valuable in Madurai? (2026 Guide)",
+    excerpt:
+      "The most valuable company from Madurai is the TVS group, founded there in 1911 as T. V. Sundram Iyengar & Sons. Here are the biggest companies based in Madurai, Tamil Nadu.",
+    readTime: "6 min read",
+    icon: "🏙️",
+  },
+  {
     slug: "sollabs-tech-founder-bala-murugan",
     tag: "Founder",
     date: "August 20, 2026",

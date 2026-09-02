@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/about`,          lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/reviews`,        lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/blog`,                                          lastModified: new Date(), changeFrequency: "weekly",  priority: 0.6 },
+    { url: `${base}/blog/most-valuable-company-in-madurai`,        lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/blog/sollabs-tech-founder-bala-murugan`,       lastModified: new Date(), changeFrequency: "monthly", priority: 1.0 },
     { url: `${base}/blog/sollabs-tech-social-media`,               lastModified: new Date(), changeFrequency: "monthly", priority: 1.0 },
     { url: `${base}/blog/website-development-cost-india`,          lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
@@ -21,5 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/blog/sollabs-tech-laptop-warranty-replacement`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/warranty`,       lastModified: new Date(), changeFrequency: "yearly",  priority: 0.5 },
     { url: `${base}/track`,          lastModified: new Date(), changeFrequency: "yearly",  priority: 0.5 },
+    { url: `${base}/privacy`,        lastModified: new Date(), changeFrequency: "yearly",  priority: 0.3 },
+    { url: `${base}/terms`,          lastModified: new Date(), changeFrequency: "yearly",  priority: 0.3 },
   ];
 }
