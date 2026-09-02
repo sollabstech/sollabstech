@@ -13,6 +13,16 @@ export const metadata = {
 
 const posts = [
   {
+    slug: "t-bala-murugan-founder-qa",
+    tag: "Founder Q&A",
+    date: "September 2, 2026",
+    title: "T Bala Murugan on Building Sollabs Tech: A Founder Q&A",
+    excerpt:
+      "A condensed Q&A with Sollabs Tech founder T Bala Murugan — starting solo in Madurai in 2020, moving into software and hardware, the 2024 award, and advice for first-time founders.",
+    readTime: "6 min read",
+    icon: "🎙️",
+  },
+  {
     slug: "bala-murugan-founder-story",
     tag: "Founder Story",
     date: "September 2, 2026",
