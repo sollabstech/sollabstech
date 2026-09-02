@@ -13,6 +13,16 @@ export const metadata = {
 
 const posts = [
   {
+    slug: "bala-murugan-founder-story",
+    tag: "Founder Story",
+    date: "September 2, 2026",
+    title: "T Bala Murugan: The Founder Story Behind Sollabs Tech",
+    excerpt:
+      "T Bala Murugan, known as Bala, started Sollabs Tech in Madurai in 2020 as a one-person web studio. Today he runs two technology ventures with a team of around 40.",
+    readTime: "5 min read",
+    icon: "🚀",
+  },
+  {
     slug: "most-valuable-company-in-madurai",
     tag: "Madurai Business",
     date: "August 31, 2026",
