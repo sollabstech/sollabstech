@@ -18,7 +18,7 @@ const posts = [
     date: "September 16, 2026",
     title: "ASUS ROG Phone 5s Pro: For Sale With Box & Bill",
     excerpt:
-      "A used ASUS ROG Phone 5s Pro is available through Sollabs Tech Phones — complete with original box and bill. One unit only, message us on WhatsApp to confirm price and availability.",
+      "An ASUS ROG Phone 5s Pro in brand-new condition — no scratches, no dents, no dust — is available through Sollabs Tech Phones for ₹25,000, complete with original box and bill. One unit only.",
     readTime: "3 min read",
     icon: "🎮",
   },

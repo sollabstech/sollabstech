@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "ASUS ROG Phone 5s Pro: For Sale With Box & Bill",
   description:
-    "A used ASUS ROG Phone 5s Pro gaming phone is available through Sollabs Tech Phones, complete with its original box and bill. Message us on WhatsApp to confirm price and availability.",
+    "An ASUS ROG Phone 5s Pro gaming phone in brand-new condition (no scratches) is available through Sollabs Tech Phones for ₹25,000, complete with its original box and bill.",
   keywords: [
     "asus rog phone 5s pro price",
     "asus rog phone 5s pro used",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ASUS ROG Phone 5s Pro: For Sale With Box & Bill",
     description:
-      "A used ASUS ROG Phone 5s Pro is available through Sollabs Tech Phones, with box and original bill. Message us on WhatsApp to confirm price and availability.",
+      "An ASUS ROG Phone 5s Pro in brand-new condition — no scratches — is available through Sollabs Tech Phones for ₹25,000, with box and original bill.",
     url: "https://www.sollabstech.com/blog/asus-rog-phone-5s-pro-price-madurai",
     type: "article",
     images: [{ url: "/logo.png", width: 512, height: 512, alt: "Sollabs Tech" }],
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 const PUBLISHED_ISO = "2026-09-16";
 const PUBLISHED_HUMAN = "16 September 2026";
 const CANONICAL = "https://www.sollabstech.com/blog/asus-rog-phone-5s-pro-price-madurai";
-const PRICE_INR = 7000;
+const PRICE_INR = 25000;
 const WHATSAPP = "https://wa.me/919003850743?text=Hi, I'm interested in the ASUS ROG Phone 5s Pro listed on your blog";
 
 const pStyle = { fontSize: 15, color: "#94A3B8", lineHeight: 1.85, marginBottom: 12 } as const;
@@ -44,12 +44,16 @@ const specs: { label: string; value: string }[] = [
 
 const highlights: { title: string; desc: string }[] = [
   {
+    title: "Brand-new condition",
+    desc: "Not a single scratch, dent or speck of dust — this unit looks and feels exactly like a factory-new phone.",
+  },
+  {
     title: "Complete box",
     desc: "The original retail box is included — useful if you ever want to resell the phone yourself.",
   },
   {
     title: "Original bill",
-    desc: "Comes with the purchase invoice, which confirms the phone is genuine and not reported lost or stolen.",
+    desc: "Comes with the purchase invoice, which confirms the phone is genuine, not reported lost or stolen, and helps establish any remaining manufacturer warranty.",
   },
   {
     title: "One unit only",
@@ -60,7 +64,7 @@ const highlights: { title: string; desc: string }[] = [
 const faqs: { q: string; a: string }[] = [
   {
     q: "Is this ASUS ROG Phone 5s Pro new or used?",
-    a: "It is a used ASUS ROG Phone 5s Pro, sold with its original box and bill (purchase invoice).",
+    a: "This unit is in brand-new condition — not a single scratch, dent or speck of dust. It is available through Sollabs Tech Phones with its original box and bill (purchase invoice).",
   },
   {
     q: "What does “with box and bill” mean?",
@@ -68,7 +72,7 @@ const faqs: { q: string; a: string }[] = [
   },
   {
     q: "What is the price?",
-    a: "It is listed at ₹7,000. Message us on WhatsApp to confirm the current price and exact condition before you travel or pay anything.",
+    a: "It is listed at ₹25,000, including the original box and bill. Message us on WhatsApp to confirm it is still available before you travel or pay anything.",
   },
   {
     q: "How do I buy or reserve it?",
@@ -76,7 +80,7 @@ const faqs: { q: string; a: string }[] = [
   },
   {
     q: "Is there a warranty on this phone?",
-    a: "Warranty and exact condition for this specific unit will be confirmed when you enquire on WhatsApp — ask us directly before purchase.",
+    a: "The original bill is included, which can be used to check any remaining ASUS manufacturer warranty. Ask us on WhatsApp to confirm the warranty status before you buy.",
   },
   {
     q: "Is this related to Sollabs Tech Phones?",
@@ -88,10 +92,10 @@ export default function AsusRogPhone5sProListingPage() {
   const productLd = {
     "@context": "https://schema.org",
     "@type": "Product",
-    name: "ASUS ROG Phone 5s Pro (Used, with box & bill)",
+    name: "ASUS ROG Phone 5s Pro (Brand-new condition, with box & bill)",
     brand: { "@type": "Brand", name: "ASUS" },
     description:
-      "Used ASUS ROG Phone 5s Pro gaming phone, sold with its original box and bill, available through Sollabs Tech Phones.",
+      "ASUS ROG Phone 5s Pro gaming phone in brand-new condition — no scratches, no dents, no dust — sold with its original box and bill, available through Sollabs Tech Phones.",
     offers: {
       "@type": "Offer",
       price: String(PRICE_INR),
@@ -107,7 +111,7 @@ export default function AsusRogPhone5sProListingPage() {
     "@type": "BlogPosting",
     headline: "ASUS ROG Phone 5s Pro: For Sale With Box & Bill",
     description:
-      "A used ASUS ROG Phone 5s Pro is available through Sollabs Tech Phones, complete with box and original bill.",
+      "An ASUS ROG Phone 5s Pro in brand-new condition is available through Sollabs Tech Phones for ₹25,000, complete with box and original bill.",
     author: { "@type": "Organization", name: "Sollabs Tech", url: "https://www.sollabstech.com" },
     publisher: {
       "@type": "Organization",
@@ -172,9 +176,9 @@ export default function AsusRogPhone5sProListingPage() {
         </h1>
 
         <p style={{ fontSize: 17, color: "#94A3B8", lineHeight: 1.85, marginBottom: 8 }}>
-          {"A used "}
+          {"An "}
           <strong style={{ color: "#fff" }}>ASUS ROG Phone 5s Pro</strong>
-          {" is available through "}
+          {" in brand-new condition — no scratches, no dents, no dust — is available through "}
           <Link href="/blog/sollabs-tech-phones-coming-soon" style={{ color: "#00AAFF", textDecoration: "none" }}>
             Sollabs Tech Phones
           </Link>
@@ -190,11 +194,12 @@ export default function AsusRogPhone5sProListingPage() {
             <span style={{ fontSize: 34, fontWeight: 800, color: "#fff" }}>
               ₹{PRICE_INR.toLocaleString("en-IN")}
             </span>
-            <span style={{ fontSize: 13, color: "#94A3B8" }}>listed price — confirm on WhatsApp</span>
+            <span style={{ fontSize: 13, color: "#94A3B8" }}>brand-new condition · box &amp; bill included</span>
           </div>
           <p style={{ fontSize: 14, color: "#CBD5E1", lineHeight: 1.7, margin: 0 }}>
-            ASUS ROG Phone 5s Pro, used, sold with the original box and bill. One unit only. Message us on WhatsApp
-            to confirm the current price and exact condition before you travel or pay anything.
+            ASUS ROG Phone 5s Pro in brand-new condition — no scratches, no dents, no dust — sold with the original
+            box and bill. One unit only. Message us on WhatsApp to confirm it is still available before you travel
+            or pay anything.
           </p>
         </div>
 
@@ -222,8 +227,8 @@ export default function AsusRogPhone5sProListingPage() {
           ))}
         </div>
         <p style={{ ...pStyle, fontSize: 13, color: "#64748B", fontStyle: "italic" }}>
-          These are the model&apos;s general specifications. Exact configuration, battery health and cosmetic
-          condition of this specific unit will be confirmed when you message us.
+          These are the model&apos;s general specifications. This unit is in brand-new condition — no scratches, no
+          dents, no dust; exact RAM/storage configuration will be confirmed when you message us.
         </p>
 
         <h2 style={h2Style}>Why buy through Sollabs Tech</h2>
@@ -248,8 +253,8 @@ export default function AsusRogPhone5sProListingPage() {
             Interested in this phone?
           </h2>
           <p style={{ fontSize: 14, color: "#CBD5E1", lineHeight: 1.8, marginBottom: 18 }}>
-            It is a single unit, so message us as soon as you can. We will confirm the current price, condition and
-            pickup/shipping details on WhatsApp.
+            ₹25,000, brand-new condition — no scratches, no dents, no dust — box and bill included. It is a single
+            unit, so message us as soon as you can to confirm availability and pickup/shipping details.
           </p>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
             <a
