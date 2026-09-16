@@ -13,6 +13,16 @@ export const metadata = {
 
 const posts = [
   {
+    slug: "sollabs-tech-phones-coming-soon",
+    tag: "Coming Soon",
+    date: "September 16, 2026",
+    title: "Sollabs Tech Phones: Coming Soon — iPhone, ROG & Rugged Phones",
+    excerpt:
+      "Sollabs Tech is launching a phone-sales venture: quality-checked used, second-hand, refurbished and demo phones — curated to high-end models only, like iPhone, ASUS ROG and rugged phones.",
+    readTime: "4 min read",
+    icon: "📱",
+  },
+  {
     slug: "t-bala-murugan-founder-qa",
     tag: "Founder Q&A",
     date: "September 2, 2026",
