@@ -2,13 +2,23 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "About Sollabs Tech – Founded by T Bala Murugan, Madurai",
-  description: "Sollabs Tech was founded by T Bala Murugan in Madurai, Tamil Nadu. Learn about the founder, mission, and story behind India's trusted software & laptop company.",
+  title: "About Sollabs Tech – Three Ventures, One Brand | Founded by T Bala Murugan",
+  description: "Sollabs Tech is a three-venture technology company founded by T Bala Murugan in Madurai, Tamil Nadu — software development, laptop & PC sales, and quality-checked phones under one trusted brand.",
   alternates: { canonical: "/about" },
-  keywords: ["T Bala Murugan", "Sollabs Tech founder", "who owns Sollabs Tech", "Sollabs Tech owner", "Bala Murugan Madurai", "Sollabstech founder"],
+  keywords: [
+    "T Bala Murugan",
+    "Sollabs Tech founder",
+    "who owns Sollabs Tech",
+    "Sollabs Tech owner",
+    "Bala Murugan Madurai",
+    "Sollabstech founder",
+    "sollabs tech phones",
+    "sollabs tech laptops",
+    "software development madurai",
+  ],
   openGraph: {
-    title: "About Sollabs Tech – Founded by T Bala Murugan",
-    description: "Sollabs Tech was founded by T Bala Murugan in Madurai, Tamil Nadu. Software development & laptop company.",
+    title: "About Sollabs Tech – Three Ventures, One Brand",
+    description: "Software development, laptop & PC sales, and quality-checked phones — founded by T Bala Murugan in Madurai, Tamil Nadu.",
     url: "https://www.sollabstech.com/about",
   },
 };
@@ -20,6 +30,7 @@ const timeline = [
   { year: "2023", title: "Expansion", desc: "Expanded to custom PC builds, pan-India shipping, and AI-powered software solutions." },
   { year: "2024", title: "500+ Laptops Sold", desc: "Crossed 500 laptops sold with a 5-star average rating across all platforms." },
   { year: "2025", title: "200+ Software Projects", desc: "Serving 150+ software clients with dedicated support teams and 99% satisfaction rate." },
+  { year: "2026", title: "Sollabs Tech Phones", desc: "Launched a third venture — Sollabs Tech Phones — selling quality-checked used and new high-end phones: iPhone, ASUS ROG, and rugged models." },
 ];
 
 const values = [
@@ -38,7 +49,7 @@ export default function AboutPage() {
     "familyName": "T",
     "jobTitle": "Founder & CEO",
     "image": "https://www.sollabstech.com/t-bala-murugan-founder-sollabs-tech.jpg",
-    "description": "T Bala Murugan, son of Thandapani, is the Founder & CEO of Sollabs Tech, a software development and laptop company based in Madurai, Tamil Nadu, India.",
+    "description": "T Bala Murugan, son of Thandapani, is the Founder & CEO of Sollabs Tech — a three-venture technology company based in Madurai, Tamil Nadu, India, covering software development, laptop & PC sales, and quality-checked phone sales.",
     "worksFor": {
       "@type": "Organization",
       "name": "Sollabs Tech",
@@ -79,8 +90,8 @@ export default function AboutPage() {
             <br /><span className="gradient-text">We&apos;re Dreamers.</span>
           </h1>
           <p style={{ color: "#6B7A94", fontSize: 18, lineHeight: 1.8, maxWidth: 620, margin: "0 auto" }}>
-            Sollabs Tech is a dual-brand technology company from India — combining world-class software development
-            with premium laptop & custom PC services under one trusted roof.
+            Sollabs Tech is a three-venture technology company from Madurai, India — software development,
+            premium laptops & custom PCs, and quality-checked phones, all under one trusted brand.
           </p>
         </div>
       </section>
@@ -93,23 +104,65 @@ export default function AboutPage() {
             <div style={{ fontSize: 36, marginBottom: 14 }}>🎯</div>
             <h2 style={{ fontSize: 24, fontWeight: 800, color: "white", marginBottom: 12 }}>Our Mission</h2>
             <p style={{ color: "#6B7A94", fontSize: 16, lineHeight: 1.75 }}>
-              To empower Indian businesses with premium technology — whether through software that automates growth
-              or hardware that powers productivity — making cutting-edge tech accessible to everyone.
+              To empower Indian businesses and individuals with premium technology — software that automates growth, hardware that powers productivity, and quality-checked phones at honest prices — all from one trusted source.
             </p>
           </div>
           <div className="glass" style={{ borderRadius: 20, padding: "36px 32px", border: "1px solid rgba(0,170,255,0.2)" }}>
             <div style={{ fontSize: 36, marginBottom: 14 }}>🔭</div>
             <h2 style={{ fontSize: 24, fontWeight: 800, color: "white", marginBottom: 12 }}>Our Vision</h2>
             <p style={{ color: "#6B7A94", fontSize: 16, lineHeight: 1.75 }}>
-              To become India&apos;s most trusted technology brand — the go-to partner for software solutions
-              and premium computing hardware, known for exceptional quality and unmatched support.
+              To become India&apos;s most trusted technology brand — the go-to partner for software, laptops & PCs, and quality-checked phones, known across India for honest pricing and direct customer support.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Values */}
+      {/* Three Ventures */}
       <section style={{ padding: "80px 24px" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <h2 style={{ textAlign: "center", fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)", fontWeight: 800, marginBottom: 12 }}>
+            Our Three <span className="gradient-text-blue">Ventures</span>
+          </h2>
+          <p style={{ textAlign: "center", color: "#6B7A94", fontSize: 16, marginBottom: 48, maxWidth: 580, margin: "0 auto 48px" }}>
+            One brand, three businesses — built on the same promise of quality, honest pricing, and direct support.
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }} className="ventures-grid">
+            <div className="glass" style={{ borderRadius: 20, padding: "36px 28px", border: "1px solid rgba(0,102,255,0.2)", display: "flex", flexDirection: "column", gap: 14 }}>
+              <div style={{ fontSize: 44 }}>💻</div>
+              <h3 style={{ fontSize: 20, fontWeight: 800, color: "white", margin: 0 }}>Sollabs Tech — Software</h3>
+              <p style={{ color: "#6B7A94", fontSize: 14, lineHeight: 1.75, margin: 0 }}>
+                Mobile apps, websites, e-commerce platforms, ERP & CRM systems, and AI-powered tools — built for Indian businesses of every size.
+              </p>
+              <Link href="/software" style={{ color: "#00AAFF", fontWeight: 600, fontSize: 14, textDecoration: "none", marginTop: "auto" }}>
+                View Software Services →
+              </Link>
+            </div>
+            <div className="glass" style={{ borderRadius: 20, padding: "36px 28px", border: "1px solid rgba(0,170,255,0.2)", display: "flex", flexDirection: "column", gap: 14 }}>
+              <div style={{ fontSize: 44 }}>🖥️</div>
+              <h3 style={{ fontSize: 20, fontWeight: 800, color: "white", margin: 0 }}>Sollabs Tech — Laptops & PCs</h3>
+              <p style={{ color: "#6B7A94", fontSize: 14, lineHeight: 1.75, margin: 0 }}>
+                Quality-checked second-hand laptops, custom gaming PCs, and workstations — shipped pan-India with warranty and direct support.
+              </p>
+              <Link href="/computers" style={{ color: "#00AAFF", fontWeight: 600, fontSize: 14, textDecoration: "none", marginTop: "auto" }}>
+                View Laptops & PCs →
+              </Link>
+            </div>
+            <div className="glass" style={{ borderRadius: 20, padding: "36px 28px", border: "1px solid rgba(0,255,170,0.15)", display: "flex", flexDirection: "column", gap: 14 }}>
+              <div style={{ fontSize: 44 }}>📱</div>
+              <h3 style={{ fontSize: 20, fontWeight: 800, color: "white", margin: 0 }}>Sollabs Tech — Phones</h3>
+              <p style={{ color: "#6B7A94", fontSize: 14, lineHeight: 1.75, margin: 0 }}>
+                Used, second-hand, refurbished and new high-end phones — iPhone, ASUS ROG gaming phones, and rugged models. Quality-checked before every sale.
+              </p>
+              <Link href="/blog/sollabs-tech-phones-coming-soon" style={{ color: "#00FFAA", fontWeight: 600, fontSize: 14, textDecoration: "none", marginTop: "auto" }}>
+                Learn About Sollabs Tech Phones →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section style={{ padding: "80px 24px", background: "rgba(0,0,0,0.2)" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <h2 style={{ textAlign: "center", fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)", fontWeight: 800, marginBottom: 48 }}>
             What We <span className="gradient-text-blue">Stand For</span>
@@ -218,9 +271,9 @@ export default function AboutPage() {
               </div>
               <p style={{ color: "#6B7A94", fontSize: 15, lineHeight: 1.75, margin: 0 }}>
                 T Bala Murugan founded Sollabs Tech in Madurai, Tamil Nadu with a clear vision: to build
-                high-quality, affordable technology solutions for Indian businesses. From custom software
-                to laptops, every product and service at Sollabs Tech reflects his commitment to quality,
-                honesty, and direct support — no middlemen, no compromises.
+                high-quality, affordable technology for Indian businesses and individuals. From custom software
+                to laptops and now phones, every product and service at Sollabs Tech reflects his commitment
+                to quality, honest pricing, and direct support — no middlemen, no compromises.
               </p>
             </div>
           </div>
@@ -234,7 +287,7 @@ export default function AboutPage() {
             Let&apos;s Work <span className="gradient-text-blue">Together</span>
           </h2>
           <p style={{ color: "#6B7A94", marginBottom: 24 }}>
-            Whether you need software, a laptop, or just some tech advice — we&apos;re here.
+            Whether you need software, a laptop, a phone, or just some tech advice — we&apos;re here.
           </p>
           <Link href="/contact" className="btn-primary">Get in Touch →</Link>
         </div>
@@ -242,10 +295,17 @@ export default function AboutPage() {
 
       <style>{`
         .mv-grid { grid-template-columns: 1fr 1fr !important; }
+        .ventures-grid { grid-template-columns: repeat(3, 1fr) !important; }
         .stats-grid { grid-template-columns: repeat(4, 1fr) !important; }
+        @media (max-width: 900px) {
+          .ventures-grid { grid-template-columns: 1fr 1fr !important; }
+        }
         @media (max-width: 768px) {
           .mv-grid { grid-template-columns: 1fr !important; }
           .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 560px) {
+          .ventures-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </>

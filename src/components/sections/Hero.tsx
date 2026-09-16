@@ -115,11 +115,11 @@ export default function Hero() {
           margin: "0 auto 48px",
           lineHeight: 1.7,
         }}>
-          We build modern software and deliver high-quality laptops & custom PCs from one trusted brand.
+          Software development, laptops & custom PCs, and quality-checked phones — three ventures, one trusted brand from Madurai, India.
         </p>
 
-        {/* Two cards */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, maxWidth: 720, margin: "0 auto 56px" }}
+        {/* Three venture cards */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 20, maxWidth: 1020, margin: "0 auto 56px" }}
           className="hero-cards">
 
           {/* Software card */}
@@ -169,6 +169,30 @@ export default function Hero() {
               </span>
             </div>
           </Link>
+
+          {/* Phones card */}
+          <Link href="/blog/sollabs-tech-phones-coming-soon" style={{ textDecoration: "none" }}>
+            <div className="glass card-hover" style={{
+              borderRadius: 20,
+              padding: "32px 28px",
+              textAlign: "left",
+              cursor: "pointer",
+              border: "1px solid rgba(0,255,170,0.15)",
+              background: "rgba(0,255,170,0.03)",
+            }}>
+              <div style={{ fontSize: 40, marginBottom: 14 }}>📱</div>
+              <h3 style={{ fontSize: 20, fontWeight: 700, color: "white", marginBottom: 8 }}>Phones</h3>
+              <p style={{ color: "#6B7A94", fontSize: 14, lineHeight: 1.6, marginBottom: 20 }}>
+                Quality-checked used & new iPhones, ROG gaming phones, and rugged phones — high-end only.
+              </p>
+              <span style={{ color: "#00FFAA", fontWeight: 600, fontSize: 14, display: "flex", alignItems: "center", gap: 6 }}>
+                Explore Phones
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
+            </div>
+          </Link>
         </div>
 
         {/* Stats */}
@@ -197,9 +221,12 @@ export default function Hero() {
       }} />
 
       <style>{`
-        .hero-cards { grid-template-columns: 1fr 1fr !important; }
+        .hero-cards { grid-template-columns: 1fr 1fr 1fr !important; }
         .hero-content { padding: 120px 24px 80px !important; }
         .hero-stats  { gap: 40px !important; }
+        @media (max-width: 900px) {
+          .hero-cards { grid-template-columns: 1fr 1fr !important; }
+        }
         @media (max-width: 768px) {
           .hero-content { padding: 110px 20px 60px !important; }
           .hero-stats  { gap: 24px !important; }

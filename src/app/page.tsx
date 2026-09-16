@@ -2,12 +2,24 @@ import type { Metadata } from "next";
 import Hero from "@/components/sections/Hero";
 
 export const metadata: Metadata = {
-  title: "Sollabs Tech – Software Development & Laptops in India",
-  description: "Sollabs Tech builds modern mobile apps, websites, ERP & CRM software, and delivers laptops & custom PCs across India. Free quote. Responds in 2 hours.",
+  title: "Sollabs Tech – Software, Laptops & Phones in India",
+  description: "Sollabs Tech builds modern mobile apps, websites, ERP & CRM software, delivers laptops & custom PCs, and sells quality-checked used and new phones across India. Free quote. Responds in 2 hours.",
   alternates: { canonical: "/" },
+  keywords: [
+    "sollabs tech",
+    "software development india",
+    "laptop sales madurai",
+    "custom pc madurai",
+    "used phones madurai",
+    "second hand iphone madurai",
+    "rog phone madurai",
+    "sollabs tech phones",
+    "mobile app development india",
+    "web development madurai",
+  ],
   openGraph: {
-    title: "Sollabs Tech – Technology That Builds Businesses",
-    description: "Software development and laptop sales in India. 200+ projects, 500+ laptops delivered.",
+    title: "Sollabs Tech – Software, Laptops & Phones in India",
+    description: "Software development, laptop & PC sales, and quality-checked phones — three ventures, one trusted brand from Madurai, India.",
     url: "https://www.sollabstech.com",
   },
 };
