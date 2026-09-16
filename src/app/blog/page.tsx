@@ -13,6 +13,26 @@ export const metadata = {
 
 const posts = [
   {
+    slug: "buy-second-hand-mobile-madurai",
+    tag: "Phones",
+    date: "September 16, 2026",
+    title: "Buy Second Hand Mobile in Madurai – Used iPhones, ROG Phones & More",
+    excerpt:
+      "Looking to buy a second hand or used phone in Madurai? Sollabs Tech sells quality-checked used iPhones, ASUS ROG gaming phones, and rugged phones — with box & bill, shipped across India.",
+    readTime: "5 min read",
+    icon: "📱",
+  },
+  {
+    slug: "sollabs-tech-mobile-phone-madurai",
+    tag: "Phones",
+    date: "September 16, 2026",
+    title: "Sollabs Tech Now Sells Phones – Used iPhones, ROG & More",
+    excerpt:
+      "Searched for 'Sollabs Tech mobile' or 'Sollabs Tech phone'? Yes — Sollabs Tech now sells quality-checked used iPhones, ASUS ROG gaming phones, and rugged mobiles from Madurai.",
+    readTime: "4 min read",
+    icon: "📲",
+  },
+  {
     slug: "asus-rog-phone-5s-pro-price-madurai",
     tag: "For Sale",
     date: "September 16, 2026",
