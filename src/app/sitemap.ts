@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/about`,          lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/reviews`,        lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/blog`,                                          lastModified: new Date(), changeFrequency: "weekly",  priority: 0.6 },
+    { url: `${base}/blog/asus-rog-phone-5s-pro-price-madurai`,     lastModified: new Date(), changeFrequency: "daily",   priority: 0.9 },
     { url: `${base}/blog/sollabs-tech-phones-coming-soon`,         lastModified: new Date(), changeFrequency: "weekly",  priority: 0.9 },
     { url: `${base}/blog/bala-murugan-founder-story`,              lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/blog/t-bala-murugan-founder-qa`,               lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },

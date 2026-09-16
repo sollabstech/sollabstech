@@ -13,6 +13,16 @@ export const metadata = {
 
 const posts = [
   {
+    slug: "asus-rog-phone-5s-pro-price-madurai",
+    tag: "For Sale",
+    date: "September 16, 2026",
+    title: "ASUS ROG Phone 5s Pro: For Sale With Box & Bill",
+    excerpt:
+      "A used ASUS ROG Phone 5s Pro is available through Sollabs Tech Phones — complete with original box and bill. One unit only, message us on WhatsApp to confirm price and availability.",
+    readTime: "3 min read",
+    icon: "🎮",
+  },
+  {
     slug: "sollabs-tech-phones-coming-soon",
     tag: "Coming Soon",
     date: "September 16, 2026",
