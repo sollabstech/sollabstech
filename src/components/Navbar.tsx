@@ -8,6 +8,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/software", label: "Software" },
   { href: "/computers", label: "Computers" },
+  { href: "/mobile", label: "📱 Mobiles" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/warranty", label: "🛡️ Warranty" },
   { href: "/blog", label: "Blog" },

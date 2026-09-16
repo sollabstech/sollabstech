@@ -50,7 +50,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Sollabs Tech",
-    "description": "Software development company and laptop sales in India",
+    "description": "Software development, laptop & PC sales, and mobile phone sales — three ventures from Madurai, Tamil Nadu, India",
     "url": "https://www.sollabstech.com",
     "telephone": "+919003850743",
     "email": "sollabstech@gmail.com",
@@ -79,7 +79,14 @@ export default function RootLayout({
     "offers": [
       { "@type": "Offer", "name": "Software Development", "url": "https://www.sollabstech.com/software" },
       { "@type": "Offer", "name": "Laptops & Custom PCs", "url": "https://www.sollabstech.com/computers" },
+      { "@type": "Offer", "name": "Mobile Phones — New & Second-Hand", "url": "https://www.sollabstech.com/mobile" },
     ],
+    "subOrganization": {
+      "@type": "Organization",
+      "name": "Sollabs Tech Mobile",
+      "url": "https://www.sollabstech.com/mobile",
+      "description": "Sollabs Tech Mobile — new and second-hand iPhones, ASUS ROG gaming phones, and rugged phones, shipped across India from Madurai."
+    },
   };
 
   return (

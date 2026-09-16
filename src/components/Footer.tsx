@@ -17,6 +17,13 @@ const footerLinks = {
     { label: "Laptop Repairs", href: "/computers#repairs" },
     { label: "Accessories", href: "/computers#accessories" },
   ],
+  Mobiles: [
+    { label: "Sollabs Tech Mobile", href: "/mobile" },
+    { label: "New Phones", href: "/mobile/new" },
+    { label: "Second-Hand Phones", href: "/mobile/second-hand" },
+    { label: "ROG Phone 5s Pro — ₹25k", href: "/blog/asus-rog-phone-5s-pro-price-madurai" },
+    { label: "Phones Coming Soon", href: "/blog/sollabs-tech-phones-coming-soon" },
+  ],
   Company: [
     { label: "Portfolio", href: "/portfolio" },
     { label: "Reviews", href: "/reviews" },
@@ -27,9 +34,10 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { label: "Instagram (Laptops & PC)", href: "https://www.instagram.com/sollabs_tech_laptop__custom_pc/", icon: "📸", tooltip: "Laptops & Custom PC" },
-  { label: "Instagram (Software)", href: "https://www.instagram.com/sollabstech", icon: "📸", tooltip: "Software & Apps" },
-  { label: "WhatsApp", href: "https://wa.me/919003850743", icon: "💬", tooltip: "Chat on WhatsApp" },
+  { label: "Instagram (Software)", href: "https://www.instagram.com/sollabstech", icon: "📸", tooltip: "Instagram — Software & Apps" },
+  { label: "Instagram (Laptops & PC)", href: "https://www.instagram.com/sollabs_tech_laptop__custom_pc/", icon: "📸", tooltip: "Instagram — Laptops & Custom PC" },
+  { label: "Instagram (Mobile)", href: "#", icon: "📱", tooltip: "Instagram — Sollabs Tech Mobile (coming soon)" },
+  { label: "WhatsApp", href: "https://wa.me/919003850743", icon: "💬", tooltip: "WhatsApp — all enquiries" },
   { label: "LinkedIn", href: "https://www.linkedin.com/company/sollabstech/", icon: "💼", tooltip: "LinkedIn" },
   { label: "Facebook", href: "https://www.facebook.com/sollabstech/", icon: "📘", tooltip: "Facebook" },
   { label: "YouTube", href: "#", icon: "▶️", tooltip: "YouTube (coming soon)" },
@@ -68,7 +76,7 @@ export default function Footer() {
 
       {/* Main Footer */}
       <div className="footer-main" style={{ maxWidth: 1280, margin: "0 auto", padding: "60px 24px 40px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 40, marginBottom: 48 }}
+        <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr 1fr", gap: 32, marginBottom: 48 }}
           className="footer-grid">
 
           {/* Brand */}
@@ -78,7 +86,7 @@ export default function Footer() {
               <div style={{ fontSize: 10, color: "#00AAFF", letterSpacing: 3, marginTop: 4 }}>CODE. CREATE. CONNECT.</div>
             </div>
             <p style={{ color: "#6B7A94", fontSize: 14, lineHeight: 1.7, maxWidth: 280, marginBottom: 20 }}>
-              One trusted brand for modern software development and premium laptops & custom PCs across India.
+              Software development · Laptops & Custom PCs · Mobile phones — three ventures, one trusted brand from Madurai, India.
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               {socialLinks.map((s) => (
@@ -150,7 +158,7 @@ export default function Footer() {
       </div>
 
       <style>{`
-        .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr !important; }
+        .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr 1fr !important; }
         .footer-cta-band { padding: 60px 24px !important; }
         .footer-main { padding: 60px 24px 40px !important; }
         .footer-bottom { flex-direction: row !important; }
