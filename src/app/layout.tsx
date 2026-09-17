@@ -5,9 +5,9 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.sollabstech.com"),
-  title: "Sollabs Tech – Software Development & Laptops in India",
-  description: "Sollabs Tech builds modern software (mobile apps, websites, ERP, CRM) and delivers high-quality laptops & custom PCs across India. One trusted brand for all your technology needs.",
-  keywords: ["software development India", "mobile app development", "buy laptop India", "custom PC build", "web development", "ERP CRM software", "Sollabs Tech"],
+  title: "Sollabs Tech – Software, Laptops & Mobile Phones in India",
+  description: "Sollabs Tech sells new and second-hand mobile phones (iPhones, ASUS ROG, rugged phones), builds modern software (apps, websites, ERP, CRM), and delivers laptops & custom PCs across India — three ventures, one trusted brand from Madurai.",
+  keywords: ["software development India", "mobile app development", "buy laptop India", "custom PC build", "buy mobile phone India", "second hand phone Madurai", "used iPhone Madurai", "new phone Madurai", "sollabs tech mobile", "Sollabs Tech"],
   authors: [{ name: "Sollabs Tech", url: "https://www.sollabstech.com" }],
   creator: "Sollabs Tech",
   publisher: "Sollabs Tech",
@@ -29,14 +29,14 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://www.sollabstech.com",
     siteName: "Sollabs Tech",
-    title: "Sollabs Tech – Software Development & Laptops in India",
-    description: "Software that builds businesses. Laptops delivered across India. One trusted brand.",
+    title: "Sollabs Tech – Software, Laptops & Mobile Phones in India",
+    description: "Sollabs Tech sells new & used mobile phones, builds software, and delivers laptops across India. Three ventures, one trusted brand from Madurai.",
     images: [{ url: "/logo.png", width: 512, height: 512, alt: "Sollabs Tech" }],
   },
   twitter: {
     card: "summary",
     title: "Sollabs Tech",
-    description: "Software Development & Laptop Sales in India",
+    description: "Software Development, Laptop Sales & Mobile Phone Sales in India",
     images: ["/logo.png"],
   },
 };

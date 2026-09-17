@@ -115,7 +115,7 @@ export default function Hero() {
           margin: "0 auto 48px",
           lineHeight: 1.7,
         }}>
-          Software development, laptops & custom PCs, and quality-checked phones — three ventures, one trusted brand from Madurai, India.
+          We build software, sell laptops &amp; custom PCs, and sell new &amp; used mobile phones — three ventures, one trusted brand from Madurai, India.
         </p>
 
         {/* Three venture cards */}
@@ -171,22 +171,22 @@ export default function Hero() {
           </Link>
 
           {/* Phones card */}
-          <Link href="/blog/sollabs-tech-phones-coming-soon" style={{ textDecoration: "none" }}>
+          <Link href="/mobile" style={{ textDecoration: "none" }}>
             <div className="glass card-hover" style={{
               borderRadius: 20,
               padding: "32px 28px",
               textAlign: "left",
               cursor: "pointer",
-              border: "1px solid rgba(0,255,170,0.15)",
-              background: "rgba(0,255,170,0.03)",
+              border: "1px solid rgba(0,230,118,0.25)",
+              background: "rgba(0,230,118,0.05)",
             }}>
               <div style={{ fontSize: 40, marginBottom: 14 }}>📱</div>
-              <h3 style={{ fontSize: 20, fontWeight: 700, color: "white", marginBottom: 8 }}>Phones</h3>
+              <h3 style={{ fontSize: 20, fontWeight: 700, color: "white", marginBottom: 8 }}>Mobile Phones — Buy Now</h3>
               <p style={{ color: "#6B7A94", fontSize: 14, lineHeight: 1.6, marginBottom: 20 }}>
-                Quality-checked used & new iPhones, ROG gaming phones, and rugged phones — high-end only.
+                We sell new &amp; second-hand iPhones, ASUS ROG gaming phones, and rugged phones — quality-checked, shipped across India.
               </p>
-              <span style={{ color: "#00FFAA", fontWeight: 600, fontSize: 14, display: "flex", alignItems: "center", gap: 6 }}>
-                Explore Phones
+              <span style={{ color: "#00E676", fontWeight: 600, fontSize: 14, display: "flex", alignItems: "center", gap: 6 }}>
+                Shop Phones Now
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
@@ -201,6 +201,7 @@ export default function Hero() {
             { value: "200+", label: "Projects" },
             { value: "150+", label: "Clients" },
             { value: "500+", label: "Laptops Sold" },
+            { value: "50+", label: "Phones Sold" },
             { value: "5★", label: "Rating" },
           ].map((stat) => (
             <div key={stat.label} style={{ textAlign: "center" }}>
