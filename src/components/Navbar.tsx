@@ -6,11 +6,6 @@ import { usePathname } from "next/navigation";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/software", label: "Software" },
-  { href: "/computers", label: "Computers" },
-  { href: "/mobile", label: "📱 Mobiles" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/warranty", label: "🛡️ Warranty" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
@@ -25,6 +20,14 @@ export default function Navbar() {
     window.addEventListener("scroll", handler);
     return () => window.removeEventListener("scroll", handler);
   }, []);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
+  const isProductsActive = pathname.startsWith("/products");
 
   return (
     <nav
@@ -54,7 +57,92 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <div style={{ display: "flex", alignItems: "center", gap: 4 }} className="hidden-mobile">
-            {navLinks.map((link) => (
+            {/* Home */}
+            <Link
+              href="/"
+              style={{
+                padding: "8px 14px",
+                borderRadius: 8,
+                fontSize: 14,
+                fontWeight: 500,
+                textDecoration: "none",
+                color: pathname === "/" ? "#00AAFF" : "#C4D0E0",
+                background: pathname === "/" ? "rgba(0,102,255,0.1)" : "transparent",
+                transition: "all 0.2s",
+              }}
+              onMouseEnter={(e) => {
+                if (pathname !== "/") {
+                  (e.currentTarget as HTMLAnchorElement).style.color = "#fff";
+                  (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.05)";
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (pathname !== "/") {
+                  (e.currentTarget as HTMLAnchorElement).style.color = "#C4D0E0";
+                  (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
+                }
+              }}
+            >
+              Home
+            </Link>
+
+            {/* Products */}
+            <Link
+              href="/products"
+              style={{
+                padding: "8px 14px",
+                borderRadius: 8,
+                fontSize: 14,
+                fontWeight: 500,
+                textDecoration: "none",
+                color: isProductsActive ? "#00AAFF" : "#C4D0E0",
+                background: isProductsActive ? "rgba(0,102,255,0.1)" : "transparent",
+                transition: "all 0.2s",
+              }}
+              onMouseEnter={(e) => {
+                if (!isProductsActive) {
+                  (e.currentTarget as HTMLAnchorElement).style.color = "#fff";
+                  (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.05)";
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!isProductsActive) {
+                  (e.currentTarget as HTMLAnchorElement).style.color = "#C4D0E0";
+                  (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
+                }
+              }}
+            >
+              Products
+            </Link>
+
+            {/* Clients */}
+            <Link
+              href="/clients"
+              style={{
+                padding: "8px 14px", borderRadius: 8, fontSize: 14, fontWeight: 500,
+                textDecoration: "none",
+                color: pathname.startsWith("/clients") ? "#00AAFF" : "#C4D0E0",
+                background: pathname.startsWith("/clients") ? "rgba(0,102,255,0.1)" : "transparent",
+                transition: "all 0.2s",
+              }}
+              onMouseEnter={(e) => {
+                if (!pathname.startsWith("/clients")) {
+                  (e.currentTarget as HTMLAnchorElement).style.color = "#fff";
+                  (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.05)";
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!pathname.startsWith("/clients")) {
+                  (e.currentTarget as HTMLAnchorElement).style.color = "#C4D0E0";
+                  (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
+                }
+              }}
+            >
+              Clients
+            </Link>
+
+            {/* Blog & Contact */}
+            {navLinks.slice(1).map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -84,6 +172,7 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+
             <Link href="/contact" className="btn-primary" style={{ marginLeft: 8, padding: "8px 20px", fontSize: 14 }}>
               Get Quote
             </Link>
@@ -99,9 +188,7 @@ export default function Navbar() {
               {menuOpen ? (
                 <path d="M4 4L18 18M18 4L4 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
               ) : (
-                <>
-                  <path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                </>
+                <path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
               )}
             </svg>
           </button>
@@ -116,7 +203,56 @@ export default function Navbar() {
             flexDirection: "column",
             gap: 2,
           }}>
-            {navLinks.map((link) => (
+            {/* Home */}
+            <Link
+              href="/"
+              onClick={() => setMenuOpen(false)}
+              style={{
+                padding: "12px 16px",
+                borderRadius: 8,
+                fontSize: 15,
+                fontWeight: 500,
+                textDecoration: "none",
+                color: pathname === "/" ? "#00AAFF" : "#C4D0E0",
+                background: pathname === "/" ? "rgba(0,102,255,0.1)" : "transparent",
+              }}
+            >
+              Home
+            </Link>
+
+            {/* Products */}
+            <Link
+              href="/products"
+              onClick={() => setMenuOpen(false)}
+              style={{
+                padding: "12px 16px",
+                borderRadius: 8,
+                fontSize: 15,
+                fontWeight: 500,
+                textDecoration: "none",
+                color: isProductsActive ? "#00AAFF" : "#C4D0E0",
+                background: isProductsActive ? "rgba(0,102,255,0.1)" : "transparent",
+              }}
+            >
+              Products
+            </Link>
+
+            {/* Clients */}
+            <Link
+              href="/clients"
+              onClick={() => setMenuOpen(false)}
+              style={{
+                padding: "12px 16px", borderRadius: 8, fontSize: 15, fontWeight: 500,
+                textDecoration: "none",
+                color: pathname.startsWith("/clients") ? "#00AAFF" : "#C4D0E0",
+                background: pathname.startsWith("/clients") ? "rgba(0,102,255,0.1)" : "transparent",
+              }}
+            >
+              Clients
+            </Link>
+
+            {/* Blog & Contact */}
+            {navLinks.slice(1).map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -134,6 +270,7 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+
             <Link href="/contact" className="btn-primary" style={{ marginTop: 8, textAlign: "center" }}>
               Get a Quote
             </Link>
@@ -148,7 +285,6 @@ export default function Navbar() {
           .hidden-mobile { display: none !important; }
           .show-mobile { display: block !important; }
         }
-        /* Mobile menu */
         .mobile-menu {
           max-height: 80vh;
           overflow-y: auto;

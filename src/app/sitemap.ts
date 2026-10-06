@@ -1,19 +1,35 @@
 import type { MetadataRoute } from "next";
+import { fetchAllSlugs } from "@/lib/products";
+import { clients } from "@/lib/clients";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = "https://www.sollabstech.com";
+
+  const slugs = await fetchAllSlugs();
+  const productUrls: MetadataRoute.Sitemap = slugs.map((slug) => ({
+    url: `${base}/products/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.85,
+  }));
+
+  const clientUrls: MetadataRoute.Sitemap = clients.map((c) => ({
+    url: `${base}/clients/${c.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
   return [
     { url: base,                     lastModified: new Date(), changeFrequency: "weekly",  priority: 1.0 },
-    { url: `${base}/software`,       lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
-    { url: `${base}/computers`,      lastModified: new Date(), changeFrequency: "weekly",  priority: 0.9 },
-    { url: `${base}/portfolio`,      lastModified: new Date(), changeFrequency: "weekly",  priority: 0.8 },
+    { url: `${base}/products`,       lastModified: new Date(), changeFrequency: "weekly",  priority: 0.95 },
+    ...productUrls,
+    { url: `${base}/clients`,        lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
+    ...clientUrls,
     { url: `${base}/contact`,        lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/about`,          lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/reviews`,        lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${base}/blog`,                                          lastModified: new Date(), changeFrequency: "weekly",  priority: 0.6 },
-    { url: `${base}/mobile`,                                         lastModified: new Date(), changeFrequency: "weekly",  priority: 1.0 },
-    { url: `${base}/mobile/new`,                                     lastModified: new Date(), changeFrequency: "weekly",  priority: 0.9 },
-    { url: `${base}/mobile/second-hand`,                             lastModified: new Date(), changeFrequency: "weekly",  priority: 0.9 },
+    { url: `${base}/blog`,           lastModified: new Date(), changeFrequency: "weekly",  priority: 0.9 },
     { url: `${base}/blog/buy-second-hand-mobile-madurai`,           lastModified: new Date(), changeFrequency: "weekly",  priority: 0.9 },
     { url: `${base}/blog/sollabs-tech-mobile-phone-madurai`,       lastModified: new Date(), changeFrequency: "weekly",  priority: 0.9 },
     { url: `${base}/blog/asus-rog-phone-5s-pro-price-madurai`,     lastModified: new Date(), changeFrequency: "daily",   priority: 0.9 },
@@ -28,7 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/blog/how-to-check-laptop-warranty-sollabstech`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/blog/sollabstech-warranty-policy`,          lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/blog/sollabs-tech-laptop-warranty-replacement`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
-    { url: `${base}/warranty`,       lastModified: new Date(), changeFrequency: "yearly",  priority: 0.5 },
+    { url: `${base}/warranty`,       lastModified: new Date(), changeFrequency: "yearly",  priority: 0.6 },
     { url: `${base}/track`,          lastModified: new Date(), changeFrequency: "yearly",  priority: 0.5 },
     { url: `${base}/privacy`,        lastModified: new Date(), changeFrequency: "yearly",  priority: 0.3 },
     { url: `${base}/terms`,          lastModified: new Date(), changeFrequency: "yearly",  priority: 0.3 },

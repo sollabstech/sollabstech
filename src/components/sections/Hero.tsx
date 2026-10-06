@@ -123,7 +123,7 @@ export default function Hero() {
           className="hero-cards">
 
           {/* Software card */}
-          <Link href="/software" style={{ textDecoration: "none" }}>
+          <Link href="/contact" style={{ textDecoration: "none" }}>
             <div className="glass card-hover" style={{
               borderRadius: 20,
               padding: "32px 28px",
@@ -147,7 +147,7 @@ export default function Hero() {
           </Link>
 
           {/* Computers card */}
-          <Link href="/computers" style={{ textDecoration: "none" }}>
+          <Link href="/products?category=laptop" style={{ textDecoration: "none" }}>
             <div className="glass card-hover" style={{
               borderRadius: 20,
               padding: "32px 28px",
@@ -171,7 +171,7 @@ export default function Hero() {
           </Link>
 
           {/* Phones card */}
-          <Link href="/mobile" style={{ textDecoration: "none" }}>
+          <Link href="/products?category=mobile" style={{ textDecoration: "none" }}>
             <div className="glass card-hover" style={{
               borderRadius: 20,
               padding: "32px 28px",

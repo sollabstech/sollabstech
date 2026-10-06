@@ -3,29 +3,12 @@
 import Link from "next/link";
 
 const footerLinks = {
-  Software: [
-    { label: "Mobile Apps", href: "/software#mobile" },
-    { label: "Web Development", href: "/software#web" },
-    { label: "E-commerce", href: "/software#ecommerce" },
-    { label: "AI Integration", href: "/software#ai" },
-    { label: "API Development", href: "/software#api" },
-  ],
-  Computers: [
-    { label: "Gaming Laptops", href: "/computers#gaming" },
-    { label: "Business Laptops", href: "/computers#business" },
-    { label: "Custom PCs", href: "/computers#custom" },
-    { label: "Laptop Repairs", href: "/computers#repairs" },
-    { label: "Accessories", href: "/computers#accessories" },
-  ],
-  Mobiles: [
-    { label: "Sollabs Tech Mobile", href: "/mobile" },
-    { label: "New Phones", href: "/mobile/new" },
-    { label: "Second-Hand Phones", href: "/mobile/second-hand" },
-    { label: "ROG Phone 5s Pro — ₹25k", href: "/blog/asus-rog-phone-5s-pro-price-madurai" },
-    { label: "Phones Coming Soon", href: "/blog/sollabs-tech-phones-coming-soon" },
+  Products: [
+    { label: "All Products", href: "/products" },
+    { label: "Laptops", href: "/products?category=laptop" },
+    { label: "Mobiles", href: "/products?category=mobile" },
   ],
   Company: [
-    { label: "Portfolio", href: "/portfolio" },
     { label: "Reviews", href: "/reviews" },
     { label: "About Us", href: "/about" },
     { label: "Blog", href: "/blog" },
@@ -76,7 +59,7 @@ export default function Footer() {
 
       {/* Main Footer */}
       <div className="footer-main" style={{ maxWidth: 1280, margin: "0 auto", padding: "60px 24px 40px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr 1fr", gap: 32, marginBottom: 48 }}
+        <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: 32, marginBottom: 48 }}
           className="footer-grid">
 
           {/* Brand */}
@@ -158,7 +141,7 @@ export default function Footer() {
       </div>
 
       <style>{`
-        .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr 1fr !important; }
+        .footer-grid { grid-template-columns: 2fr 1fr 1fr !important; }
         .footer-cta-band { padding: 60px 24px !important; }
         .footer-main { padding: 60px 24px 40px !important; }
         .footer-bottom { flex-direction: row !important; }
