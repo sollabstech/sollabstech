@@ -1,11 +1,14 @@
 import Link from "next/link";
-import { getFeaturedClients, getLinkType, type ClientProject, type ServiceType } from "@/lib/clients";
+import Image from "next/image";
+import { fetchFeaturedClients, getLinkType, type ClientProject, type ServiceType } from "@/lib/clients";
 
 const SERVICE_CONFIG: Record<ServiceType, { label: string; color: string; bg: string }> = {
-  mobile:  { label: "Mobile App",      color: "#00AAFF", bg: "rgba(0,170,255,0.1)" },
-  website: { label: "Website",         color: "#22C55E", bg: "rgba(34,197,94,0.1)" },
-  windows: { label: "Windows App",     color: "#A855F7", bg: "rgba(168,85,247,0.1)" },
-  custom:  { label: "Custom Software", color: "#F59E0B", bg: "rgba(245,158,11,0.1)" },
+  mobile:    { label: "Mobile App",      color: "#00AAFF", bg: "rgba(0,170,255,0.1)" },
+  website:   { label: "Website",         color: "#22C55E", bg: "rgba(34,197,94,0.1)" },
+  windows:   { label: "Windows App",     color: "#A855F7", bg: "rgba(168,85,247,0.1)" },
+  custom:    { label: "Custom Software", color: "#F59E0B", bg: "rgba(245,158,11,0.1)" },
+  ecommerce: { label: "E-Commerce",      color: "#F97316", bg: "rgba(249,115,22,0.1)" },
+  admin:     { label: "Admin Panel",     color: "#8B5CF6", bg: "rgba(139,92,246,0.1)" },
 };
 
 function StarRating({ rating }: { rating: number }) {
@@ -20,8 +23,20 @@ function StarRating({ rating }: { rating: number }) {
   );
 }
 
-function Avatar({ name }: { name: string }) {
-  const initials = name.split(" ").slice(0, 2).map((w) => w[0]).join("").toUpperCase();
+function ClientLogo({ project }: { project: ClientProject }) {
+  const initials = project.companyName.split(" ").slice(0, 2).map((w) => w[0]).join("").toUpperCase();
+  if (project.logo) {
+    return (
+      <div style={{
+        width: 44, height: 44, borderRadius: 12, flexShrink: 0, overflow: "hidden",
+        background: project.logoBackground === "dark" ? "#1E293B" : project.logoBackground === "white" ? "white" : "transparent",
+        border: "1px solid rgba(255,255,255,0.1)",
+        display: "flex", alignItems: "center", justifyContent: "center",
+      }}>
+        <Image src={project.logo} alt={project.companyName} width={44} height={44} style={{ objectFit: "contain", width: "100%", height: "100%" }} />
+      </div>
+    );
+  }
   return (
     <div style={{
       width: 44, height: 44, borderRadius: 12, flexShrink: 0,
@@ -55,7 +70,7 @@ function ClientCard({ project }: { project: ClientProject }) {
       }}>
         {/* Header */}
         <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 16 }}>
-          <Avatar name={project.companyName} />
+          <ClientLogo project={project} />
           <div>
             <h3 style={{ fontSize: 15, fontWeight: 800, color: "white", marginBottom: 2 }}>{project.companyName}</h3>
             <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
@@ -71,6 +86,7 @@ function ClientCard({ project }: { project: ClientProject }) {
         <div style={{ display: "flex", flexWrap: "wrap", gap: 5, marginBottom: 14 }}>
           {project.serviceTypes.map((s) => {
             const cfg = SERVICE_CONFIG[s];
+            if (!cfg) return null;
             return (
               <span key={s} style={{
                 fontSize: 10, fontWeight: 700, padding: "2px 9px", borderRadius: 100,
@@ -87,7 +103,7 @@ function ClientCard({ project }: { project: ClientProject }) {
 
         {/* Review snippet */}
         <p style={{ fontSize: 13, color: "#6B7A94", lineHeight: 1.65, flex: 1, marginBottom: 16 }}>
-          "{project.review.slice(0, 110)}…"
+          &ldquo;{project.review.slice(0, 110)}&hellip;&rdquo;
         </p>
 
         {/* Footer */}
@@ -106,8 +122,8 @@ function ClientCard({ project }: { project: ClientProject }) {
   );
 }
 
-export default function FeaturedClients() {
-  const featured = getFeaturedClients(6);
+export default async function FeaturedClients() {
+  const featured = await fetchFeaturedClients(6);
   if (featured.length === 0) return null;
 
   return (

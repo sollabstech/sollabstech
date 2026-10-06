@@ -1,10 +1,12 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import {
-  clients,
+  fetchAllClients,
+  SEED_CLIENTS,
   getLinkType,
   formatCompletedDate,
   type ClientProject,
@@ -64,13 +66,17 @@ const SERVICE_TABS = [
   { key: "website", label: "Websites" },
   { key: "windows", label: "Windows Apps" },
   { key: "custom", label: "Custom Software" },
+  { key: "ecommerce", label: "E-Commerce" },
+  { key: "admin", label: "Admin Panels" },
 ];
 
 const SERVICE_CONFIG: Record<ServiceType, { label: string; color: string; bg: string; border: string }> = {
-  mobile: { label: "Mobile App", color: "#00AAFF", bg: "rgba(0,170,255,0.1)", border: "rgba(0,170,255,0.25)" },
-  website: { label: "Website", color: "#22C55E", bg: "rgba(34,197,94,0.1)", border: "rgba(34,197,94,0.25)" },
-  windows: { label: "Windows App", color: "#A855F7", bg: "rgba(168,85,247,0.1)", border: "rgba(168,85,247,0.25)" },
-  custom: { label: "Custom Software", color: "#F59E0B", bg: "rgba(245,158,11,0.1)", border: "rgba(245,158,11,0.25)" },
+  mobile:    { label: "Mobile App",      color: "#00AAFF", bg: "rgba(0,170,255,0.1)",   border: "rgba(0,170,255,0.25)" },
+  website:   { label: "Website",         color: "#22C55E", bg: "rgba(34,197,94,0.1)",   border: "rgba(34,197,94,0.25)" },
+  windows:   { label: "Windows App",     color: "#A855F7", bg: "rgba(168,85,247,0.1)",  border: "rgba(168,85,247,0.25)" },
+  custom:    { label: "Custom Software", color: "#F59E0B", bg: "rgba(245,158,11,0.1)",  border: "rgba(245,158,11,0.25)" },
+  ecommerce: { label: "E-Commerce",      color: "#F97316", bg: "rgba(249,115,22,0.1)",  border: "rgba(249,115,22,0.25)" },
+  admin:     { label: "Admin Panel",     color: "#8B5CF6", bg: "rgba(139,92,246,0.1)",  border: "rgba(139,92,246,0.25)" },
 };
 
 const LINK_CONFIG = {
@@ -96,8 +102,20 @@ function Stars({ rating }: { rating: number }) {
   );
 }
 
-function Avatar({ companyName }: { companyName: string }) {
-  const initials = companyName.split(" ").slice(0, 2).map((w) => w[0]).join("").toUpperCase();
+function ClientLogo({ project }: { project: ClientProject }) {
+  const initials = project.companyName.split(" ").slice(0, 2).map((w) => w[0]).join("").toUpperCase();
+  if (project.logo) {
+    return (
+      <div style={{
+        width: 46, height: 46, borderRadius: 12, flexShrink: 0, overflow: "hidden",
+        background: project.logoBackground === "dark" ? "#1E293B" : project.logoBackground === "white" ? "white" : "transparent",
+        border: "1px solid rgba(255,255,255,0.1)",
+        display: "flex", alignItems: "center", justifyContent: "center",
+      }}>
+        <Image src={project.logo} alt={project.companyName} width={46} height={46} style={{ objectFit: "contain", width: "100%", height: "100%" }} />
+      </div>
+    );
+  }
   return (
     <div style={{
       width: 46, height: 46, borderRadius: 12, flexShrink: 0,
@@ -126,7 +144,7 @@ function ClientCard({ project }: { project: ClientProject }) {
       {/* Top */}
       <div style={{ padding: "22px 22px 16px" }}>
         <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 10, marginBottom: 14 }}>
-          <Avatar companyName={project.companyName} />
+          <ClientLogo project={project} />
           <div style={{ display: "flex", gap: 5, flexWrap: "wrap", justifyContent: "flex-end" }}>
             {project.serviceTypes.map((s) => {
               const cfg = SERVICE_CONFIG[s];
@@ -254,11 +272,16 @@ export default function ClientsClient() {
   const [activeService, setActiveService] = useState(
     SERVICE_TABS.some((t) => t.key === serviceParam) ? serviceParam : "all"
   );
+  const [allClients, setAllClients] = useState<ClientProject[]>(SEED_CLIENTS);
+
+  useEffect(() => {
+    fetchAllClients().then(setAllClients).catch(() => {});
+  }, []);
 
   const filtered = useMemo(() => {
     let list = activeService === "all"
-      ? [...clients]
-      : clients.filter((c) => c.serviceTypes.includes(activeService as ServiceType));
+      ? [...allClients]
+      : allClients.filter((c) => c.serviceTypes.includes(activeService as ServiceType));
 
     if (search.trim()) {
       const q = search.toLowerCase();
@@ -271,7 +294,7 @@ export default function ClientsClient() {
     }
 
     return list.sort((a, b) => new Date(b.completedDate).getTime() - new Date(a.completedDate).getTime());
-  }, [activeService, search]);
+  }, [activeService, search, allClients]);
 
   function setTab(key: string) {
     setActiveService(key);

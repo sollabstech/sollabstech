@@ -1,19 +1,17 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { clients, getClientBySlug, getRelatedClients, formatCompletedDate } from "@/lib/clients";
+import { fetchClientBySlug, fetchRelatedClients, formatCompletedDate } from "@/lib/clients";
 import ClientDetailClient from "./ClientDetailClient";
 
-export function generateStaticParams() {
-  return clients.map((c) => ({ slug: c.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const project = getClientBySlug(slug);
+  const project = await fetchClientBySlug(slug);
   if (!project) return {};
   return {
     title: `${project.companyName} – Sollabs Tech`,
-    description: `${project.serviceTypes.map(s => s).join(" & ")} project for ${project.companyName} in ${project.location}. ${project.duration} · Completed ${formatCompletedDate(project.completedDate)}.`,
+    description: `${project.serviceTypes.join(" & ")} project for ${project.companyName} in ${project.location}. ${project.duration} · Completed ${formatCompletedDate(project.completedDate)}.`,
     alternates: { canonical: `/clients/${slug}` },
     openGraph: {
       title: `${project.companyName} – Sollabs Tech`,
@@ -25,8 +23,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ClientDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const project = getClientBySlug(slug);
+  const project = await fetchClientBySlug(slug);
   if (!project) notFound();
-  const related = getRelatedClients(slug, project.serviceTypes);
+  const related = await fetchRelatedClients(slug, project.serviceTypes);
   return <ClientDetailClient project={project} related={related} />;
 }

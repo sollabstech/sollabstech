@@ -58,10 +58,12 @@ function LockIcon() {
 // ─── Config ───────────────────────────────────────────────────────────────────
 
 const SERVICE_CONFIG: Record<ServiceType, { label: string; color: string; bg: string; border: string }> = {
-  mobile:  { label: "Mobile App",      color: "#00AAFF", bg: "rgba(0,170,255,0.1)",   border: "rgba(0,170,255,0.25)" },
-  website: { label: "Website",         color: "#22C55E", bg: "rgba(34,197,94,0.1)",   border: "rgba(34,197,94,0.25)" },
-  windows: { label: "Windows App",     color: "#A855F7", bg: "rgba(168,85,247,0.1)",  border: "rgba(168,85,247,0.25)" },
-  custom:  { label: "Custom Software", color: "#F59E0B", bg: "rgba(245,158,11,0.1)",  border: "rgba(245,158,11,0.25)" },
+  mobile:    { label: "Mobile App",      color: "#00AAFF", bg: "rgba(0,170,255,0.1)",   border: "rgba(0,170,255,0.25)" },
+  website:   { label: "Website",         color: "#22C55E", bg: "rgba(34,197,94,0.1)",   border: "rgba(34,197,94,0.25)" },
+  windows:   { label: "Windows App",     color: "#A855F7", bg: "rgba(168,85,247,0.1)",  border: "rgba(168,85,247,0.25)" },
+  custom:    { label: "Custom Software", color: "#F59E0B", bg: "rgba(245,158,11,0.1)",  border: "rgba(245,158,11,0.25)" },
+  ecommerce: { label: "E-Commerce",      color: "#F97316", bg: "rgba(249,115,22,0.1)",  border: "rgba(249,115,22,0.25)" },
+  admin:     { label: "Admin Panel",     color: "#8B5CF6", bg: "rgba(139,92,246,0.1)",  border: "rgba(139,92,246,0.25)" },
 };
 
 const LINK_CONFIG = {
@@ -86,8 +88,22 @@ function Stars({ rating }: { rating: number }) {
   );
 }
 
-function Avatar({ companyName }: { companyName: string }) {
-  const initials = companyName.split(" ").slice(0, 2).map((w) => w[0]).join("").toUpperCase();
+function ClientLogo({ project }: { project: ClientProject }) {
+  const initials = project.companyName.split(" ").slice(0, 2).map((w) => w[0]).join("").toUpperCase();
+  if (project.logo) {
+    return (
+      <div style={{
+        width: 72, height: 72, borderRadius: 18, flexShrink: 0, overflow: "hidden",
+        background: project.logoBackground === "dark" ? "#1E293B" : project.logoBackground === "white" ? "white" : "rgba(255,255,255,0.05)",
+        border: "2px solid rgba(255,255,255,0.1)",
+        boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
+        display: "flex", alignItems: "center", justifyContent: "center",
+        padding: 6,
+      }}>
+        <Image src={project.logo} alt={project.companyName} width={72} height={72} style={{ objectFit: "contain", width: "100%", height: "100%" }} />
+      </div>
+    );
+  }
   return (
     <div style={{
       width: 72, height: 72, borderRadius: 18, flexShrink: 0,
@@ -176,7 +192,7 @@ export default function ClientDetailClient({
             {/* Left */}
             <div>
               <div style={{ display: "flex", alignItems: "flex-start", gap: 20, marginBottom: 24 }}>
-                <Avatar companyName={project.companyName} />
+                <ClientLogo project={project} />
                 <div>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 10 }}>
                     {project.serviceTypes.map((s) => {
