@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Hero from "@/components/sections/Hero";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Sollabs Tech – Software, Laptops & Phones in India",
   description: "Sollabs Tech builds modern mobile apps, websites, ERP & CRM software, delivers laptops & custom PCs, and sells quality-checked used and new phones across India. Free quote. Responds in 2 hours.",

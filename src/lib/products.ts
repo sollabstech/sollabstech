@@ -218,20 +218,17 @@ export async function fetchProductBySlug(slug: string): Promise<Product | null> 
 }
 
 export async function fetchFeaturedProducts(count = 4): Promise<Product[]> {
+  // Single-field orderBy only — no composite index needed
   const q = query(
     collection(db, "products"),
-    where("status", "==", "available"),
     orderBy("createdAt", "desc"),
-    limit(count)
+    limit(count * 3)
   );
   const snap = await getDocs(q);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const results = snap.docs.map((d) => mapDoc(d.id, d.data() as Record<string, any>));
-  if (results.length === 0) {
-    const all = await fetchProducts();
-    return all.slice(0, count);
-  }
-  return results;
+  const available = results.filter((p) => p.inStock);
+  return (available.length >= count ? available : results).slice(0, count);
 }
 
 export async function fetchRelatedProducts(current: Product, count = 3): Promise<Product[]> {
