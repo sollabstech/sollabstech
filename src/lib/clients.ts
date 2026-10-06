@@ -3,7 +3,7 @@ import { db } from "./firebase";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-export type ServiceType = "mobile" | "website" | "windows" | "custom" | "ecommerce" | "admin";
+export type ServiceType = "mobile" | "website" | "windows" | "custom" | "ecommerce" | "admin" | "vendor";
 export type LinkType = "playstore" | "appstore" | "website" | "windows" | "other";
 
 export interface ProjectLink {
@@ -156,7 +156,7 @@ function mapFirestoreDoc(id: string, data: Record<string, any>): ClientProject {
     published: data.published !== false,
     showCompanyInfo: data.showCompanyInfo !== false,
     displayOrder: typeof data.displayOrder === "number" ? data.displayOrder : 999,
-    createdAt: data.createdAt || null,
+    createdAt: data.createdAt ? { seconds: Number(data.createdAt.seconds) } : null,
   };
 }
 

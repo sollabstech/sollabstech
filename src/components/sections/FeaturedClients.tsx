@@ -9,6 +9,7 @@ const SERVICE_CONFIG: Record<ServiceType, { label: string; color: string; bg: st
   custom:    { label: "Custom Software", color: "#F59E0B", bg: "rgba(245,158,11,0.1)" },
   ecommerce: { label: "E-Commerce",      color: "#F97316", bg: "rgba(249,115,22,0.1)" },
   admin:     { label: "Admin Panel",     color: "#8B5CF6", bg: "rgba(139,92,246,0.1)" },
+  vendor:    { label: "Vendor Website",  color: "#10B981", bg: "rgba(16,185,129,0.1)" },
 };
 
 function StarRating({ rating }: { rating: number }) {
