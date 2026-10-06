@@ -5,7 +5,6 @@ import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import {
   clients,
-  getClientsStats,
   getLinkType,
   formatCompletedDate,
   type ClientProject,
@@ -256,8 +255,6 @@ export default function ClientsClient() {
     SERVICE_TABS.some((t) => t.key === serviceParam) ? serviceParam : "all"
   );
 
-  const stats = useMemo(() => getClientsStats(), []);
-
   const filtered = useMemo(() => {
     let list = activeService === "all"
       ? [...clients]
@@ -296,32 +293,6 @@ export default function ClientsClient() {
           <p style={{ color: "#6B7A94", fontSize: 17, lineHeight: 1.7 }}>
             Real projects. Real reviews. Mobile apps, websites, Windows software, and custom solutions delivered across India.
           </p>
-        </div>
-      </section>
-
-      {/* Stats strip */}
-      <section style={{ padding: "0 24px 64px" }}>
-        <div style={{ maxWidth: 900, margin: "0 auto" }}>
-          <div style={{
-            display: "grid", gridTemplateColumns: "repeat(4,1fr)",
-            background: "rgba(10,22,40,0.7)", border: "1px solid rgba(0,102,255,0.15)",
-            borderRadius: 18, overflow: "hidden",
-          }} className="stats-grid">
-            {[
-              { value: stats.totalProjects, label: "Projects Delivered" },
-              { value: stats.happyClients, label: "Happy Clients" },
-              { value: stats.cities, label: "Cities Served" },
-              { value: stats.avgRating + " ⭐", label: "Average Rating" },
-            ].map((s, i) => (
-              <div key={s.label} style={{
-                padding: "28px 20px", textAlign: "center",
-                borderRight: i < 3 ? "1px solid rgba(255,255,255,0.05)" : "none",
-              }}>
-                <div style={{ fontSize: 30, fontWeight: 900, color: "white", marginBottom: 4 }}>{s.value}</div>
-                <div style={{ fontSize: 12, color: "#475569", fontWeight: 600 }}>{s.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -392,12 +363,8 @@ export default function ClientsClient() {
 
       <style>{`
         .clients-grid { grid-template-columns: repeat(3,1fr) !important; }
-        .stats-grid { grid-template-columns: repeat(4,1fr) !important; }
         @media (max-width: 1024px) { .clients-grid { grid-template-columns: repeat(2,1fr) !important; } }
-        @media (max-width: 640px) {
-          .clients-grid { grid-template-columns: 1fr !important; }
-          .stats-grid { grid-template-columns: repeat(2,1fr) !important; }
-        }
+        @media (max-width: 640px)  { .clients-grid { grid-template-columns: 1fr !important; } }
       `}</style>
     </>
   );
