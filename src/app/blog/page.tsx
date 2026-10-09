@@ -13,6 +13,36 @@ export const metadata = {
 
 const posts = [
   {
+    slug: "used-laptop-with-warranty-madurai",
+    tag: "Warranty",
+    date: "October 9, 2026",
+    title: "Used Laptop With Warranty in Madurai: 7-Day Refund, 1-Month Exchange & 1-Year Free Service",
+    excerpt:
+      "Buying a used or refurbished laptop? Every Sollabs Tech laptop and mobile comes with a 7-day refund, 1-month exchange, 6-month upgrade offer and 1 year of free service. Here's how each step works.",
+    readTime: "6 min read",
+    icon: "🛡️",
+  },
+  {
+    slug: "laptop-ram-ssd-upgrade-madurai",
+    tag: "Upgrade Offer",
+    date: "October 9, 2026",
+    title: "Laptop RAM & SSD Upgrade in Madurai: Pay Only 90% of Parts Cost, Free Installation",
+    excerpt:
+      "Laptop slow or out of space? Within 6 months of buying from Sollabs Tech, upgrade RAM or SSD at 90% of the parts cost with free installation. Learn which upgrade you need and how to claim it.",
+    readTime: "5 min read",
+    icon: "⚡",
+  },
+  {
+    slug: "sollabs-tech-services-madurai",
+    tag: "Services",
+    date: "October 9, 2026",
+    title: "Laptop Shop, Service Centre & Software Company in Madurai: Every Sollabs Tech Service Explained",
+    excerpt:
+      "Laptops, gaming laptops, custom PCs, used phones, servicing and upgrades, plus mobile apps, websites and custom software for businesses. Everything Sollabs Tech does, in one guide.",
+    readTime: "6 min read",
+    icon: "🧰",
+  },
+  {
     slug: "buy-second-hand-mobile-madurai",
     tag: "Phones",
     date: "September 16, 2026",
