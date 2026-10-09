@@ -77,14 +77,14 @@ export default function RootLayout({
       "https://www.instagram.com/sollabs_tech_laptop__custom_pc/",
     ],
     "offers": [
-      { "@type": "Offer", "name": "Software Development", "url": "https://www.sollabstech.com/software" },
-      { "@type": "Offer", "name": "Laptops & Custom PCs", "url": "https://www.sollabstech.com/computers" },
-      { "@type": "Offer", "name": "Mobile Phones — New & Second-Hand", "url": "https://www.sollabstech.com/mobile" },
+      { "@type": "Offer", "name": "Software Development", "url": "https://www.sollabstech.com/blog/sollabs-tech-services-madurai" },
+      { "@type": "Offer", "name": "Laptops & Custom PCs", "url": "https://www.sollabstech.com/products" },
+      { "@type": "Offer", "name": "Mobile Phones — New & Second-Hand", "url": "https://www.sollabstech.com/blog/buy-second-hand-mobile-madurai" },
     ],
     "subOrganization": {
       "@type": "Organization",
       "name": "Sollabs Tech Mobile",
-      "url": "https://www.sollabstech.com/mobile",
+      "url": "https://www.sollabstech.com/blog/sollabs-tech-mobile-phone-madurai",
       "description": "Sollabs Tech Mobile — new and second-hand iPhones, ASUS ROG gaming phones, and rugged phones, shipped across India from Madurai."
     },
   };

@@ -20,6 +20,8 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       // Old pages removed in the redesign that Google still shows in search
+      { source: "/portfolio", destination: "/clients", permanent: true },
+      { source: "/software", destination: "/blog/sollabs-tech-services-madurai", permanent: true },
       { source: "/computers", destination: "/products", permanent: true },
       { source: "/computers/:id", destination: "/products", permanent: true },
       { source: "/mobile", destination: "/blog/sollabs-tech-mobile-phone-madurai", permanent: true },

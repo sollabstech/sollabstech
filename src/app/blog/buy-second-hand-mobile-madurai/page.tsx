@@ -176,15 +176,6 @@ export default function BuySecondHandMobileMaduraiPage() {
       addressCountry: "IN",
     },
     areaServed: { "@type": "Country", name: "India" },
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Used & Second Hand Phones",
-      itemListElement: [
-        { "@type": "Offer", itemOffered: { "@type": "Product", name: "Used iPhones" } },
-        { "@type": "Offer", itemOffered: { "@type": "Product", name: "ASUS ROG Gaming Phones" } },
-        { "@type": "Offer", itemOffered: { "@type": "Product", name: "Rugged / Tank Phones" } },
-      ],
-    },
   };
 
   return (
