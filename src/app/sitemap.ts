@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { fetchAllSlugs } from "@/lib/products";
-import { clients } from "@/lib/clients";
+import { fetchAllClients } from "@/lib/clients";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = "https://www.sollabstech.com";
@@ -13,6 +13,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.85,
   }));
 
+  const clients = await fetchAllClients();
   const clientUrls: MetadataRoute.Sitemap = clients.map((c) => ({
     url: `${base}/clients/${c.slug}`,
     lastModified: new Date(),
