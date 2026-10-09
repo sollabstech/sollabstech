@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { fetchAllSlugs } from "@/lib/products";
 import { fetchAllClients } from "@/lib/clients";
 
+export const revalidate = 3600;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = "https://www.sollabstech.com";
 
