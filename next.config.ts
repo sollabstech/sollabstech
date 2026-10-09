@@ -19,6 +19,12 @@ const nextConfig: NextConfig = {
         destination: "https://www.sollabstech.com/:path*",
         permanent: true,
       },
+      // Old pages removed in the redesign that Google still shows in search
+      { source: "/computers", destination: "/products", permanent: true },
+      { source: "/computers/:id", destination: "/products", permanent: true },
+      { source: "/mobile", destination: "/blog/sollabs-tech-mobile-phone-madurai", permanent: true },
+      { source: "/mobile/new", destination: "/blog/sollabs-tech-mobile-phone-madurai", permanent: true },
+      { source: "/mobile/second-hand", destination: "/blog/buy-second-hand-mobile-madurai", permanent: true },
     ];
   },
 };
