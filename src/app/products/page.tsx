@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
+import { fetchProducts } from "@/lib/products";
 import ProductsClient from "./ProductsClient";
 
 export const metadata: Metadata = {
@@ -24,14 +24,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ProductsPage() {
-  return (
-    <Suspense fallback={
-      <div style={{ paddingTop: 140, textAlign: "center", color: "#6B7A94" }}>
-        Loading products...
-      </div>
-    }>
-      <ProductsClient />
-    </Suspense>
-  );
+export const revalidate = 60;
+
+export default async function ProductsPage() {
+  const products = await fetchProducts().catch(() => null);
+  return <ProductsClient initialProducts={products} />;
 }

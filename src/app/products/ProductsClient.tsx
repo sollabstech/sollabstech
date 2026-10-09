@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect, useCallback } from "react";
+import { useState, useMemo, useEffect, useCallback, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -154,15 +154,21 @@ function ProductCard({ product }: { product: Product }) {
   );
 }
 
-export default function ProductsClient() {
-  const searchParams = useSearchParams();
+// Isolated so useSearchParams doesn't force the whole product grid to client-only rendering.
+function CategoryFromUrl({ onChange }: { onChange: (category: string) => void }) {
+  const category = useSearchParams().get("category") ?? "";
+  useEffect(() => { onChange(category); }, [category, onChange]);
+  return null;
+}
+
+export default function ProductsClient({ initialProducts }: { initialProducts: Product[] | null }) {
   const router = useRouter();
 
-  const categoryParam = searchParams.get("category") ?? "";
+  const [categoryParam, setCategoryParam] = useState("");
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("default");
-  const [allProducts, setAllProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [allProducts, setAllProducts] = useState<Product[]>(initialProducts ?? []);
+  const [loading, setLoading] = useState(initialProducts === null);
   const [error, setError] = useState(false);
   const [slow, setSlow] = useState(false);
   const [offline, setOffline] = useState(false);
@@ -195,12 +201,12 @@ export default function ProductsClient() {
     const goOffline = () => setOffline(true);
     window.addEventListener("online", goOnline);
     window.addEventListener("offline", goOffline);
-    load();
+    if (initialProducts === null) load();
     return () => {
       window.removeEventListener("online", goOnline);
       window.removeEventListener("offline", goOffline);
     };
-  }, [load]);
+  }, [load, initialProducts]);
 
   const filtered = useMemo(() => {
     let list = [...allProducts];
@@ -220,7 +226,7 @@ export default function ProductsClient() {
   }, [allProducts, categoryParam, search, sort]);
 
   const setCategory = (key: string) => {
-    const params = new URLSearchParams(searchParams.toString());
+    const params = new URLSearchParams(window.location.search);
     if (key) params.set("category", key);
     else params.delete("category");
     router.push(`/products${params.size ? `?${params}` : ""}`, { scroll: false });
@@ -228,6 +234,9 @@ export default function ProductsClient() {
 
   return (
     <>
+      <Suspense fallback={null}>
+        <CategoryFromUrl onChange={setCategoryParam} />
+      </Suspense>
       <section style={{ paddingTop: 100, padding: "100px 16px 80px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
 
