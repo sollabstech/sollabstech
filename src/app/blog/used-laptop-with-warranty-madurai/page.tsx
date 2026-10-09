@@ -141,8 +141,8 @@ export default function Page() {
         <li>We&apos;ll confirm what&apos;s covered and arrange the refund, exchange, upgrade or service.</li>
       </ol>
       <p style={p}>
-        Want to see your coverage first? Use our <Link href="/warranty" style={link}>warranty page</Link> or follow the{" "}
-        <Link href="/blog/how-to-check-laptop-warranty-sollabstech" style={link}>step-by-step warranty check guide</Link>.
+        Read the full terms on our <Link href="/warranty" style={link}>warranty page</Link>, or see{" "}
+        <Link href="/blog/sollabstech-warranty-policy" style={link}>how to check which warranty step applies to you</Link>.
       </p>
 
       <h2 style={h2}>Checklist: what to look at when buying any used laptop</h2>

@@ -94,7 +94,7 @@ export default function Page() {
 
       <h2 style={h2}>1. Laptops: refurbished, budget, business and gaming</h2>
       <p style={p}>
-        Our core business is <strong style={strong}>quality-checked laptops</strong> at prices that make sense. Each one is checked before it&apos;s listed, sold with a bill, and covered by our after-sales warranty. Typical buyers:
+        Our core business is <strong style={strong}>quality-checked laptops</strong>{" "}at prices that make sense. Each one is checked before it&apos;s listed, sold with a bill, and covered by our after-sales warranty. Typical buyers:
       </p>
       <ul style={list}>
         <li><strong style={strong}>Students:</strong> reliable laptops for classes, coding and projects.</li>
@@ -107,13 +107,13 @@ export default function Page() {
 
       <h2 style={h2}>2. Custom PCs and gaming rigs</h2>
       <p style={p}>
-        A pre-built PC rarely matches your exact needs. We build <strong style={strong}>custom PCs</strong> around what you actually run, whether that&apos;s competitive games, video editing, or a quiet office machine. Tell us your budget and software, and we&apos;ll recommend parts that balance performance and price.
+        A pre-built PC rarely matches your exact needs. We build <strong style={strong}>custom PCs</strong>{" "}around what you actually run, whether that&apos;s competitive games, video editing, or a quiet office machine. Tell us your budget and software, and we&apos;ll recommend parts that balance performance and price.
       </p>
 
       <h2 style={h2}>3. Phones</h2>
       <p style={p}>
         Sollabs Tech also sells <strong style={strong}>quality-checked used phones</strong>, focused on high-end models like iPhone, ASUS ROG gaming phones and rugged phones. Stock changes often, so read our{" "}
-        <Link href="/blog/buy-second-hand-mobile-madurai" style={link}>second-hand mobile guide</Link> or message us for what&apos;s available today.
+        <Link href="/blog/buy-second-hand-mobile-madurai" style={link}>second-hand mobile guide</Link>{" "}or message us for what&apos;s available today.
       </p>
 
       <h2 style={h2}>4. Laptop service, repairs and upgrades</h2>

@@ -9,6 +9,7 @@ export interface BlogArticleProps {
   slug: string;
   tag: string;
   datePublished: string; // ISO, e.g. "2026-10-09"
+  dateModified?: string;
   title: string;
   description: string;
   breadcrumb: string;
@@ -69,7 +70,7 @@ export function Table({ head, rows }: { head: string[]; rows: string[][] }) {
   );
 }
 
-export default function BlogArticle({ slug, tag, datePublished, title, description, breadcrumb, intro, faqs, cta, children }: BlogArticleProps) {
+export default function BlogArticle({ slug, tag, datePublished, dateModified, title, description, breadcrumb, intro, faqs, cta, children }: BlogArticleProps) {
   const url = `${SITE}/blog/${slug}`;
   const displayDate = new Date(datePublished).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
   const jsonLd = [
@@ -79,7 +80,7 @@ export default function BlogArticle({ slug, tag, datePublished, title, descripti
       headline: title,
       description,
       datePublished,
-      dateModified: datePublished,
+      dateModified: dateModified ?? datePublished,
       mainEntityOfPage: url,
       url,
       image: `${SITE}/logo.png`,
@@ -117,6 +118,11 @@ export default function BlogArticle({ slug, tag, datePublished, title, descripti
         <div style={{ display: "flex", gap: 10, alignItems: "center", marginBottom: 18 }}>
           <span style={{ padding: "4px 12px", borderRadius: 100, fontSize: 12, fontWeight: 600, background: "rgba(0,102,255,0.15)", border: "1px solid rgba(0,102,255,0.3)", color: "#00AAFF" }}>{tag}</span>
           <time dateTime={datePublished} style={{ fontSize: 13, color: "#475569" }}>{displayDate}</time>
+          {dateModified && (
+            <span style={{ fontSize: 13, color: "#475569" }}>
+              · Updated <time dateTime={dateModified}>{new Date(dateModified).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })}</time>
+            </span>
+          )}
         </div>
 
         <h1 style={{ fontSize: "clamp(1.8rem, 4vw, 2.7rem)", fontWeight: 800, color: "white", lineHeight: 1.2, marginBottom: 20 }}>{title}</h1>
