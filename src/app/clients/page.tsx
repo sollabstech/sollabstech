@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
+import { fetchAllClients } from "@/lib/clients";
 import ClientsClient from "./ClientsClient";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Our Clients & Projects – Sollabs Tech",
@@ -15,12 +17,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ClientsPage() {
-  return (
-    <Suspense fallback={
-      <div style={{ paddingTop: 160, textAlign: "center", color: "#334155" }}>Loading projects...</div>
-    }>
-      <ClientsClient />
-    </Suspense>
-  );
+export default async function ClientsPage() {
+  const clients = await fetchAllClients();
+  return <ClientsClient clients={clients} />;
 }

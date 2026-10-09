@@ -1,11 +1,10 @@
 "use client";
 
 import { useState, useMemo, useEffect, useRef } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  fetchAllClients,
   getLinkType,
   formatCompletedDate,
   type ClientProject,
@@ -317,20 +316,15 @@ function ClientMarquee({ clients }: { clients: ClientProject[] }) {
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
-export default function ClientsClient() {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-
-  const serviceParam = searchParams.get("service") ?? "all";
+export default function ClientsClient({ clients: allClients }: { clients: ClientProject[] }) {
   const [search, setSearch] = useState("");
-  const [activeService, setActiveService] = useState<string>(
-    SERVICE_TABS.some((t) => t.key === serviceParam) ? serviceParam : "all"
-  );
-  const [loaded, setLoaded] = useState<ClientProject[] | null>(null);
-  const allClients = useMemo(() => loaded ?? [], [loaded]);
+  const [activeService, setActiveService] = useState<string>("all");
 
   useEffect(() => {
-    fetchAllClients().then(setLoaded).catch(() => setLoaded([]));
+    const param = new URLSearchParams(window.location.search).get("service");
+    // Read after hydration so server HTML and first client render match.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (param && SERVICE_TABS.some((t) => t.key === param)) setActiveService(param);
   }, []);
 
   const counts = useMemo(() => {
@@ -368,10 +362,10 @@ export default function ClientsClient() {
 
   function setTab(key: string) {
     setActiveService(key);
-    const params = new URLSearchParams(searchParams.toString());
-    if (key === "all") params.delete("service");
-    else params.set("service", key);
-    router.replace(`/clients${params.size ? `?${params}` : ""}`, { scroll: false });
+    const url = new URL(window.location.href);
+    if (key === "all") url.searchParams.delete("service");
+    else url.searchParams.set("service", key);
+    window.history.replaceState(null, "", url);
   }
 
   return (
@@ -446,26 +440,26 @@ export default function ClientsClient() {
             </div>
 
             <p style={{ fontSize: 13, color: "#64748B", margin: "0 0 22px" }} aria-live="polite">
-              {loaded === null ? "Loading projects…" : <>Showing <strong style={{ color: "#E2E8F0" }}>{filtered.length}</strong> project{filtered.length !== 1 ? "s" : ""}</>}
-              {loaded !== null && activeService !== "all" && <> in <strong style={{ color: SERVICE_CONFIG[activeService as ServiceType]?.color }}>{SERVICE_TABS.find((t) => t.key === activeService)?.label}</strong></>}
+              Showing <strong style={{ color: "#E2E8F0" }}>{filtered.length}</strong> project{filtered.length !== 1 ? "s" : ""}
+              {activeService !== "all" && <> in <strong style={{ color: SERVICE_CONFIG[activeService as ServiceType]?.color }}>{SERVICE_TABS.find((t) => t.key === activeService)?.label}</strong></>}
               {search.trim() && <> matching &ldquo;{search.trim()}&rdquo;</>}
             </p>
 
             {/* Grid */}
-            {loaded === null ? (
-              <div className="clients-grid" aria-busy="true">
-                {[0, 1, 2].map((i) => <div key={i} className="card-skeleton" />)}
-              </div>
-            ) : filtered.length === 0 ? (
+            {filtered.length === 0 ? (
               <div style={{ ...revealAnim(0), textAlign: "center", padding: "72px 24px", borderRadius: 24, border: "1px dashed rgba(255,255,255,0.1)", background: "rgba(10,22,40,0.5)" }}>
                 <div style={{ width: 64, height: 64, borderRadius: 20, margin: "0 auto 18px", display: "grid", placeItems: "center", background: "rgba(0,170,255,0.1)", color: "#00AAFF" }}>
                   <SearchIcon />
                 </div>
-                <p style={{ fontSize: 16, color: "#CBD5E1", fontWeight: 600, marginBottom: 6 }}>No projects found</p>
-                <p style={{ fontSize: 13.5, color: "#64748B" }}>Try a different name or city, or browse all categories.</p>
-                <button onClick={() => { setSearch(""); setTab("all"); }} className="btn-outline" style={{ marginTop: 20, fontSize: 13, padding: "9px 20px" }}>
+                <p style={{ fontSize: 16, color: "#CBD5E1", fontWeight: 600, marginBottom: 6 }}>
+                  {allClients.length === 0 ? "Projects coming soon" : "No projects found"}
+                </p>
+                <p style={{ fontSize: 13.5, color: "#64748B" }}>
+                  {allClients.length === 0 ? "We're adding our latest client work. Check back shortly." : "Try a different name or city, or browse all categories."}
+                </p>
+                {allClients.length > 0 && <button onClick={() => { setSearch(""); setTab("all"); }} className="btn-outline" style={{ marginTop: 20, fontSize: 13, padding: "9px 20px" }}>
                   Clear filters
-                </button>
+                </button>}
               </div>
             ) : (
               <div key={activeService} className="clients-grid">
@@ -575,12 +569,6 @@ export default function ClientsClient() {
         }
 
         /* Grid + cards */
-        .card-skeleton {
-          height: 420px; border-radius: 22px; border: 1px solid rgba(255,255,255,0.06);
-          background: linear-gradient(100deg, rgba(14,26,48,0.8) 30%, rgba(30,48,80,0.8) 50%, rgba(14,26,48,0.8) 70%);
-          background-size: 200% 100%; animation: shimmer 1.6s linear infinite;
-        }
-        .clients-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
         .client-card {
           position: relative; height: 100%; display: flex; flex-direction: column; overflow: hidden;
           border-radius: 22px; cursor: pointer; outline: none;

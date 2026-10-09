@@ -124,7 +124,7 @@ function ClientCard({ project }: { project: ClientProject }) {
 }
 
 export default async function FeaturedClients() {
-  const featured = await fetchFeaturedClients(6);
+  const featured = await fetchFeaturedClients(6).catch(() => []);
   if (featured.length === 0) return null;
 
   return (

@@ -3,7 +3,11 @@ import { notFound } from "next/navigation";
 import { fetchClientBySlug, fetchRelatedClients, formatCompletedDate } from "@/lib/clients";
 import ClientDetailClient from "./ClientDetailClient";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
+
+export function generateStaticParams() {
+  return [];
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;

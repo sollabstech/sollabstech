@@ -13,7 +13,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.85,
   }));
 
-  const clients = await fetchAllClients();
+  const clients = await fetchAllClients().catch(() => []);
   const clientUrls: MetadataRoute.Sitemap = clients.map((c) => ({
     url: `${base}/clients/${c.slug}`,
     lastModified: new Date(),

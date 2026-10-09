@@ -482,7 +482,7 @@ export default function ClientDetailClient({
                   position: "absolute", top: 12, right: 20, fontSize: 80, color: primaryColor,
                   opacity: 0.07, fontFamily: "Georgia, serif", lineHeight: 1, pointerEvents: "none",
                   userSelect: "none",
-                }}>"</div>
+                }}>&ldquo;</div>
                 <h2 style={{ fontSize: 18, fontWeight: 700, color: "white", marginBottom: 16 }}>Client Review</h2>
                 <Stars rating={project.rating} size={18} />
                 <p style={{
