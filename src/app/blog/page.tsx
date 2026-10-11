@@ -13,6 +13,16 @@ export const metadata = {
 
 const posts = [
   {
+    slug: "custom-laptop-custom-pc-india",
+    tag: "Buying Guide",
+    date: "October 11, 2026",
+    title: "Custom Laptop vs Custom PC in India: What You Can Customise and How to Order",
+    excerpt:
+      "What can you really customise on a laptop, and when is a custom-built PC the better buy? A plain-English guide, plus how to get either configured by Sollabs Tech in Madurai.",
+    readTime: "5 min read",
+    icon: "🖥️",
+  },
+  {
     slug: "used-laptop-with-warranty-madurai",
     tag: "Warranty",
     date: "October 9, 2026",
@@ -149,12 +159,12 @@ const posts = [
   },
   {
     slug: "how-to-check-laptop-warranty-sollabstech",
-    tag: "Video Guide",
+    tag: "Warranty Guide",
     date: "August 12, 2026",
-    title: "How to Check Your Laptop Warranty – Sollabs Tech Step-by-Step Guide",
-    excerpt: "Check your Sollabs Tech laptop warranty in under 10 seconds using your serial number. Includes step-by-step video guide on YouTube and Instagram.",
+    title: "How to Check Laptop Warranty Online: HP, Dell, Lenovo, ASUS, Acer & Apple (Step-by-Step)",
+    excerpt: "Find your serial number, then use the official HP, Dell, Lenovo, ASUS, Acer, Apple or MSI warranty checker. Plus how to check the warranty on a Sollabs Tech laptop.",
     readTime: "4 min read",
-    icon: "📹",
+    icon: "🔍",
   },
   {
     slug: "sollabs-tech-laptop-warranty-replacement",

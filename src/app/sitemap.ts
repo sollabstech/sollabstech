@@ -33,6 +33,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${base}/about`,          lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/reviews`,        lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/blog`,           lastModified: new Date(), changeFrequency: "weekly",  priority: 0.9 },
+    { url: `${base}/blog/custom-laptop-custom-pc-india`,           lastModified: new Date("2026-10-11"), changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/blog/used-laptop-with-warranty-madurai`,       lastModified: new Date("2026-10-09"), changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/blog/laptop-ram-ssd-upgrade-madurai`,          lastModified: new Date("2026-10-09"), changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/blog/sollabs-tech-services-madurai`,           lastModified: new Date("2026-10-09"), changeFrequency: "monthly", priority: 0.9 },

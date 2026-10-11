@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Warranty Policy – Sollabs Tech",
+  title: "Laptop & Mobile Warranty – 7-Day Refund, 1-Year Free Service | Sollabs Tech",
   description:
     "Sollabs Tech warranty policy — 1 week refund, 1 month exchange, 6 month upgrade, 1 year free service. Full after-sales protection on every laptop and mobile we sell.",
   alternates: { canonical: "/warranty" },
   openGraph: {
-    title: "Warranty Policy – Sollabs Tech",
+    title: "Laptop & Mobile Warranty – 7-Day Refund, 1-Year Free Service | Sollabs Tech",
     description:
       "1 week refund · 1 month exchange · 6 month upgrade · 1 year free service. Every product we sell is backed by our full after-sales warranty.",
     url: "https://www.sollabstech.com/warranty",

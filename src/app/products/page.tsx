@@ -3,9 +3,9 @@ import { fetchProducts } from "@/lib/products";
 import ProductsClient from "./ProductsClient";
 
 export const metadata: Metadata = {
-  title: "Products – Laptops & Mobiles | Sollabs Tech",
+  title: "Buy Laptops, Custom PCs & Phones in Madurai | Sollabs Tech",
   description:
-    "Buy laptops and mobile phones from Sollabs Tech, Madurai. New and refurbished laptops, iPhones, ASUS ROG gaming phones — quality checked, with warranty. Enquire on WhatsApp.",
+    "Buy quality-checked laptops, gaming laptops, custom PCs and phones from Sollabs Tech, Madurai. Delivered across India with a 7-day refund and 1-year free service. Enquire on WhatsApp.",
   alternates: { canonical: "/products" },
   keywords: [
     "buy laptop madurai",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     "asus rog phone madurai",
   ],
   openGraph: {
-    title: "Products – Laptops & Mobiles | Sollabs Tech",
+    title: "Buy Laptops, Custom PCs & Phones in Madurai | Sollabs Tech",
     description:
       "New and refurbished laptops, iPhones, and gaming phones — quality checked with warranty from Sollabs Tech, Madurai.",
     url: "https://www.sollabstech.com/products",
