@@ -100,7 +100,8 @@ export default function Page() {
 
       <h3 style={h3}>1. 7-day full refund</h3>
       <p style={p}>
-        Not happy with the laptop? Return it within <strong style={strong}>7 days of purchase</strong> and get a <strong style={strong}>100% refund</strong> of the amount you paid. The device must be in its original condition, with all accessories and the box. Refunds are processed within <strong style={strong}>2–3 business days</strong>.
+        Not happy with the laptop? Return it within <strong style={strong}>7 days of purchase</strong> and get a <strong style={strong}>100% refund</strong> of the amount you paid. The device must be in its original condition, with all accessories and the box. Refunds are processed within <strong style={strong}>2–3 business days</strong>. See{" "}
+        <Link href="/blog/laptop-refund-policy-7-days" style={link}>how the 7-day refund works</Link>.
       </p>
 
       <h3 style={h3}>2. 1-month exchange</h3>
@@ -111,6 +112,7 @@ export default function Page() {
         <li><strong style={strong}>Higher model:</strong> pay only the price difference.</li>
         <li><strong style={strong}>Lower model:</strong> we refund you the balance.</li>
         <li>Exchanges are within the same category (laptop for laptop, mobile for mobile).</li>
+        <li>Read the full <Link href="/blog/laptop-exchange-offer-madurai" style={link}>laptop exchange offer guide</Link>.</li>
       </ul>
 
       <h3 style={h3}>3. 6-month upgrade offer: pay only 90%</h3>
@@ -128,6 +130,7 @@ export default function Page() {
         <li>Free software servicing</li>
         <li>Free general maintenance</li>
         <li>Hardware repair: you pay only for the part, never for the labour</li>
+        <li>More in the <Link href="/blog/free-laptop-service-madurai" style={link}>1-year free service guide</Link></li>
       </ul>
 
       <Callout icon="⚠️" title="What's not covered" color="#F59E0B">

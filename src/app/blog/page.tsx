@@ -13,6 +13,56 @@ export const metadata = {
 
 const posts = [
   {
+    slug: "used-phone-warranty-madurai",
+    tag: "Phone Warranty",
+    date: "October 11, 2026",
+    title: "Used Phone With Warranty in Madurai: 7-Day Refund, 1-Month Exchange and 1-Year Free Service",
+    excerpt:
+      "Buying a second-hand iPhone or gaming phone? Every Sollabs Tech phone includes a 7-day refund, 1-month exchange and 1 year of free service, plus a checklist for testing a used phone.",
+    readTime: "6 min read",
+    icon: "📱",
+  },
+  {
+    slug: "free-laptop-service-madurai",
+    tag: "Free Service",
+    date: "October 11, 2026",
+    title: "Free Laptop Service for 1 Year in Madurai: What's Included After You Buy",
+    excerpt:
+      "Diagnostics, software servicing and maintenance are free for a year on every Sollabs Tech laptop. What's covered, warning signs your laptop needs a service, and how to book.",
+    readTime: "5 min read",
+    icon: "🛠️",
+  },
+  {
+    slug: "how-much-ram-do-i-need-laptop",
+    tag: "Buying Guide",
+    date: "October 11, 2026",
+    title: "How Much RAM Do You Need in a Laptop? 8GB vs 16GB vs 32GB Explained",
+    excerpt:
+      "A plain-English guide to choosing laptop RAM for study, office work, coding, gaming and editing, how to check your RAM usage, and when an upgrade is worth it.",
+    readTime: "6 min read",
+    icon: "🧠",
+  },
+  {
+    slug: "laptop-exchange-offer-madurai",
+    tag: "Exchange Offer",
+    date: "October 11, 2026",
+    title: "Laptop Exchange Offer in Madurai: Swap Your Laptop Within 1 Month and Settle the Difference",
+    excerpt:
+      "Need more power, a lighter laptop or a bigger screen? Within 1 month, exchange your laptop for a higher model (pay the difference) or a lower one (get the balance back).",
+    readTime: "5 min read",
+    icon: "🔁",
+  },
+  {
+    slug: "laptop-refund-policy-7-days",
+    tag: "Refund Policy",
+    date: "October 11, 2026",
+    title: "7-Day Laptop Refund Policy: How to Return a Laptop and Get 100% of Your Money Back",
+    excerpt:
+      "Not happy with your laptop? Return it within 7 days for a full refund. What counts as original condition, what to test in those 7 days, and how to request your refund.",
+    readTime: "5 min read",
+    icon: "💸",
+  },
+  {
     slug: "custom-laptop-custom-pc-india",
     tag: "Buying Guide",
     date: "October 11, 2026",
