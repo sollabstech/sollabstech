@@ -1,0 +1,18 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Keep in sync with isAdmin() in firestore.rules.
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email_verified == true
+        && request.auth.token.email in ['sollabstech@gmail.com'];
+    }
+
+    // Product, client and portfolio images are shown on the public website.
+    match /{allPaths=**} {
+      allow read: if true;
+      allow write: if isAdmin()
+        && (request.resource == null || request.resource.size < 15 * 1024 * 1024);
+    }
+  }
+}

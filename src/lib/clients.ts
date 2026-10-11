@@ -1,4 +1,4 @@
-import { collection, getDocs, query, orderBy, where, limit } from "firebase/firestore";
+import { collection, getDocs, query, where, limit } from "firebase/firestore";
 import { cache } from "react";
 import { db } from "./firebase";
 
@@ -168,12 +168,13 @@ function mapFirestoreDoc(id: string, data: Record<string, any>): ClientProject {
 const toProject = (d: { id: string; data: () => any }) => mapFirestoreDoc(d.id, d.data());
 
 export const fetchAllClients = cache(async (): Promise<ClientProject[]> => {
-  const snap = await getDocs(query(collection(db, "clients"), orderBy("createdAt", "desc")));
+  // Security rules only allow reading published clients, so the query must filter on it.
+  const snap = await getDocs(query(collection(db, "clients"), where("published", "==", true)));
   return sortedByDate(snap.docs.map(toProject).filter((c) => c.published !== false));
 });
 
 export const fetchClientBySlug = cache(async (slug: string): Promise<ClientProject | null> => {
-  const snap = await getDocs(query(collection(db, "clients"), where("slug", "==", slug), limit(1)));
+  const snap = await getDocs(query(collection(db, "clients"), where("slug", "==", slug), where("published", "==", true), limit(1)));
   const project = snap.empty ? null : toProject(snap.docs[0]);
   return project && project.published !== false ? project : null;
 });

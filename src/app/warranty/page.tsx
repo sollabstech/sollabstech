@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import WarrantyChecker from "./WarrantyChecker";
 
 export const metadata: Metadata = {
   title: "Laptop & Mobile Warranty – 7-Day Refund, 1-Year Free Service | Sollabs Tech",
   description:
-    "Sollabs Tech warranty policy — 1 week refund, 1 month exchange, 6 month upgrade, 1 year free service. Full after-sales protection on every laptop and mobile we sell.",
+    "Check your Sollabs Tech warranty online with your serial number. Every laptop and mobile includes a 1 week refund, 1 month exchange, 6 month upgrade offer and 1 year free service.",
   alternates: { canonical: "/warranty" },
   openGraph: {
     title: "Laptop & Mobile Warranty – 7-Day Refund, 1-Year Free Service | Sollabs Tech",
@@ -92,6 +93,8 @@ export default function WarrantyPage() {
           </p>
         </div>
       </section>
+
+      <WarrantyChecker />
 
       {/* Timeline cards */}
       <section style={{ padding: "0 24px 100px" }}>

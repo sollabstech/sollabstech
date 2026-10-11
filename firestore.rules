@@ -2,32 +2,77 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // Public clients — anyone can read published ones; only admins can write
-    match /clients/{clientId} {
-      allow read: if resource.data.published == true;
-      allow write: if request.auth != null && request.auth.token.admin == true;
+    // Admins sign in to the admin panel with Google. Keep this list in sync with
+    // ADMIN_EMAILS in the admin panel (src/lib/adminAuth.tsx) and storage.rules.
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email_verified == true
+        && request.auth.token.email in ['sollabstech@gmail.com'];
     }
 
-    // Private client data — admin only, never public
-    match /clientsPrivate/{clientId} {
-      allow read, write: if request.auth != null && request.auth.token.admin == true;
+    function isShortString(field, max) {
+      return request.resource.data[field] is string && request.resource.data[field].size() <= max;
     }
 
-    // Products — public reads; admin writes only
+    // Products: public catalogue
     match /products/{productId} {
       allow read: if true;
-      allow write: if request.auth != null && request.auth.token.admin == true;
+      allow write: if isAdmin();
 
-      // IMEI and private product data — admin only
+      // IMEI and other private product data
       match /private/{doc} {
-        allow read, write: if request.auth != null && request.auth.token.admin == true;
+        allow read, write: if isAdmin();
       }
     }
 
-    // Contact messages — anyone can create; admin can read
+    // Client projects: public only once published
+    match /clients/{clientId} {
+      allow read: if isAdmin() || resource.data.published == true;
+      allow write: if isAdmin();
+    }
+
+    // Private client data (email, phone, project value, notes)
+    match /clientsPrivate/{clientId} {
+      allow read, write: if isAdmin();
+    }
+
+    match /portfolio/{id} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /blog/{id} {
+      allow read, write: if isAdmin();
+    }
+
+    // Full warranty records hold customer name, phone, city, price, IMEI and notes
+    match /warranty/{id} {
+      allow read, write: if isAdmin();
+    }
+
+    // Public warranty checker: one record at a time by exact serial, never listable
+    match /warrantyPublic/{serial} {
+      allow get: if true;
+      allow list: if isAdmin();
+      allow write: if isAdmin();
+    }
+
+    // Contact form: anyone can send; only admins can read or manage
     match /messages/{messageId} {
-      allow create: if true;
-      allow read, update, delete: if request.auth != null && request.auth.token.admin == true;
+      allow create: if request.resource.data.keys().hasOnly(['name', 'email', 'phone', 'type', 'message', 'read', 'createdAt'])
+        && isShortString('name', 200)
+        && isShortString('email', 200)
+        && isShortString('phone', 40)
+        && isShortString('type', 40)
+        && isShortString('message', 5000)
+        && request.resource.data.read == false
+        && request.resource.data.createdAt == request.time;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Everything else is closed
+    match /{document=**} {
+      allow read, write: if false;
     }
   }
 }

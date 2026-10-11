@@ -64,7 +64,7 @@ const faqs: Faq[] = [
   },
   {
     q: "How do I check the warranty on a laptop bought from Sollabs Tech?",
-    a: "Check the purchase date on your Sollabs Tech bill: up to 7 days you can get a full refund, up to 1 month an exchange, up to 6 months the 90% upgrade offer, and up to 1 year free service. To confirm, WhatsApp +91 90038 50743 with your bill or the serial number on the Sollabs Tech sticker.",
+    a: "Enter the serial number from your Sollabs Tech warranty sticker at sollabstech.com/warranty to see your warranty end date and days left. Benefits by purchase date: up to 7 days full refund, up to 1 month exchange, up to 6 months the 90% upgrade offer, and up to 1 year free service.",
   },
 ];
 
@@ -88,7 +88,7 @@ export default function Page() {
         title: "Bought your laptop from Sollabs Tech?",
         text: "Send us your bill or the serial number on your Sollabs Tech sticker and we'll confirm your warranty and next steps.",
         whatsappText: "Hi Sollabs Tech, I'd like to check my laptop warranty. Serial number: ",
-        primary: { href: "/blog/sollabstech-warranty-policy", label: "Sollabs Tech Warranty Policy" },
+        primary: { href: "/warranty#check", label: "Check Sollabs Tech Warranty" },
       }}
     >
       <h2 style={h2}>Step 1: Find your laptop&apos;s serial number</h2>
@@ -145,7 +145,8 @@ export default function Page() {
 
       <h2 style={h2}>How to check the warranty on a Sollabs Tech laptop</h2>
       <p style={p}>
-        Laptops sold by Sollabs Tech carry a <strong style={strong}>Sollabs Tech warranty sticker</strong> with a short serial number (for example 197979). Your Sollabs Tech warranty depends on how long ago you bought the laptop:
+        Laptops sold by Sollabs Tech carry a <strong style={strong}>Sollabs Tech warranty sticker</strong> with a short serial number (for example 197979). Enter it in the{" "}
+        <Link href="/warranty#check" style={link}>Sollabs Tech warranty checker</Link> to see your device, purchase date, warranty end date and days left. Your after-sales benefits depend on how long ago you bought it:
       </p>
       <Table
         head={["Time since purchase", "What you can still use"]}
@@ -157,7 +158,7 @@ export default function Page() {
         ]}
       />
       <p style={p}>
-        To confirm your status, WhatsApp <strong style={strong}>+91 90038 50743</strong> with your bill or the serial number from the sticker. Full details are in the{" "}
+        Serial not found, or no sticker? WhatsApp <strong style={strong}>+91 90038 50743</strong> with your bill. Full details are in the{" "}
         <Link href="/blog/sollabstech-warranty-policy" style={link}>Sollabs Tech warranty policy</Link>.
       </p>
 
