@@ -140,6 +140,8 @@ export default function PrivacyPage() {
           <Link href="/terms" style={{ color: "#00AAFF", textDecoration: "none" }}>Terms &amp; Conditions</Link>
           <span style={{ color: "#475569" }}> &middot; </span>
           <Link href="/contact" style={{ color: "#00AAFF", textDecoration: "none" }}>Contact us</Link>
+          <span style={{ color: "#475569" }}> &middot; </span>
+          <Link href="/lokkho/privacy-policy" style={{ color: "#00AAFF", textDecoration: "none" }}>Lokkho app privacy policy</Link>
         </div>
       </div>
     </article>
