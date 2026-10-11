@@ -166,7 +166,7 @@ export default function BuySecondHandMobileMaduraiPage() {
     name: "Sollabs Tech Phones",
     image: "https://www.sollabstech.com/logo.png",
     description: "Quality-checked used, second-hand, refurbished and demo high-end phones — iPhone, ASUS ROG, and rugged models — sold from Madurai, Tamil Nadu.",
-    url: "https://www.sollabstech.com/blog/sollabs-tech-phones-coming-soon",
+    url: "https://www.sollabstech.com/blog/sollabs-tech-mobile-phone-madurai",
     telephone: "+91-90038-50743",
     priceRange: "₹₹",
     address: {
@@ -213,7 +213,7 @@ export default function BuySecondHandMobileMaduraiPage() {
           {"Looking for a "}
           <strong style={{ color: "#fff" }}>second hand mobile in Madurai</strong>
           {"? "}
-          <Link href="/blog/sollabs-tech-phones-coming-soon" style={{ color: "#00FFAA", textDecoration: "none" }}>
+          <Link href="/blog/sollabs-tech-mobile-phone-madurai" style={{ color: "#00FFAA", textDecoration: "none" }}>
             Sollabs Tech Phones
           </Link>
           {" sells quality-checked used, second-hand, refurbished, and demo phones — high-end models only: iPhone, ASUS ROG gaming phones, and rugged phones. With box and bill wherever available."}
@@ -330,7 +330,7 @@ export default function BuySecondHandMobileMaduraiPage() {
             <Link href="/blog/asus-rog-phone-5s-pro-price-madurai" style={{ padding: "10px 20px", borderRadius: 10, fontSize: 14, fontWeight: 700, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", color: "white", textDecoration: "none" }}>
               ROG Phone 5s Pro — ₹25,000
             </Link>
-            <Link href="/computers" style={{ padding: "10px 20px", borderRadius: 10, fontSize: 14, fontWeight: 700, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", color: "white", textDecoration: "none" }}>
+            <Link href="/products" style={{ padding: "10px 20px", borderRadius: 10, fontSize: 14, fontWeight: 700, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", color: "white", textDecoration: "none" }}>
               Browse Laptops & PCs
             </Link>
           </div>

@@ -277,7 +277,7 @@ export default function BalaMuruganFounderStoryPage() {
             <Link href="/blog/sollabs-tech-founder-bala-murugan" style={{ padding: "10px 20px", borderRadius: 10, fontSize: 14, fontWeight: 700, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", color: "white", textDecoration: "none" }}>
               Who founded Sollabs Tech
             </Link>
-            <Link href="/software" style={{ padding: "10px 20px", borderRadius: 10, fontSize: 14, fontWeight: 700, background: "linear-gradient(135deg,#0066FF,#0099FF)", color: "white", textDecoration: "none" }}>
+            <Link href="/blog/sollabs-tech-services-madurai" style={{ padding: "10px 20px", borderRadius: 10, fontSize: 14, fontWeight: 700, background: "linear-gradient(135deg,#0066FF,#0099FF)", color: "white", textDecoration: "none" }}>
               Software services
             </Link>
           </div>

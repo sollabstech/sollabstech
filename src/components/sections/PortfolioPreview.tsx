@@ -145,7 +145,7 @@ export default function PortfolioPreview() {
         )}
 
         <div style={{ textAlign: "center", marginTop: 48 }}>
-          <Link href="/portfolio" className="btn-outline">View All Projects →</Link>
+          <Link href="/clients" className="btn-outline">View All Projects →</Link>
         </div>
       </div>
       <style>{`@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }`}</style>

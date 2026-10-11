@@ -133,7 +133,7 @@ export default function AboutPage() {
               <p style={{ color: "#6B7A94", fontSize: 14, lineHeight: 1.75, margin: 0 }}>
                 Mobile apps, websites, e-commerce platforms, ERP & CRM systems, and AI-powered tools — built for Indian businesses of every size.
               </p>
-              <Link href="/software" style={{ color: "#00AAFF", fontWeight: 600, fontSize: 14, textDecoration: "none", marginTop: "auto" }}>
+              <Link href="/blog/sollabs-tech-services-madurai" style={{ color: "#00AAFF", fontWeight: 600, fontSize: 14, textDecoration: "none", marginTop: "auto" }}>
                 View Software Services →
               </Link>
             </div>
@@ -143,7 +143,7 @@ export default function AboutPage() {
               <p style={{ color: "#6B7A94", fontSize: 14, lineHeight: 1.75, margin: 0 }}>
                 Quality-checked second-hand laptops, custom gaming PCs, and workstations — shipped pan-India with warranty and direct support.
               </p>
-              <Link href="/computers" style={{ color: "#00AAFF", fontWeight: 600, fontSize: 14, textDecoration: "none", marginTop: "auto" }}>
+              <Link href="/products" style={{ color: "#00AAFF", fontWeight: 600, fontSize: 14, textDecoration: "none", marginTop: "auto" }}>
                 View Laptops & PCs →
               </Link>
             </div>
@@ -153,7 +153,7 @@ export default function AboutPage() {
               <p style={{ color: "#6B7A94", fontSize: 14, lineHeight: 1.75, margin: 0 }}>
                 Used, second-hand, refurbished and new high-end phones — iPhone, ASUS ROG gaming phones, and rugged models. Quality-checked before every sale.
               </p>
-              <Link href="/blog/sollabs-tech-phones-coming-soon" style={{ color: "#00FFAA", fontWeight: 600, fontSize: 14, textDecoration: "none", marginTop: "auto" }}>
+              <Link href="/blog/sollabs-tech-mobile-phone-madurai" style={{ color: "#00FFAA", fontWeight: 600, fontSize: 14, textDecoration: "none", marginTop: "auto" }}>
                 Learn About Sollabs Tech Phones →
               </Link>
             </div>

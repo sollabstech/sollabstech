@@ -27,6 +27,7 @@ const nextConfig: NextConfig = {
       { source: "/mobile", destination: "/blog/sollabs-tech-mobile-phone-madurai", permanent: true },
       { source: "/mobile/new", destination: "/blog/sollabs-tech-mobile-phone-madurai", permanent: true },
       { source: "/mobile/second-hand", destination: "/blog/buy-second-hand-mobile-madurai", permanent: true },
+      { source: "/blog/sollabs-tech-phones-coming-soon", destination: "/blog/sollabs-tech-mobile-phone-madurai", permanent: true },
     ];
   },
 };

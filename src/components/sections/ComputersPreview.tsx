@@ -194,7 +194,7 @@ export default function ComputersPreview() {
         )}
 
         <div style={{ textAlign: "center", marginTop: 48 }}>
-          <Link href="/computers" className="btn-outline">Browse All Machines →</Link>
+          <Link href="/products" className="btn-outline">Browse All Machines →</Link>
         </div>
       </div>
       <style>{`@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }`}</style>

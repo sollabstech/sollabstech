@@ -179,7 +179,7 @@ export default function AsusRogPhone5sProListingPage() {
           {"An "}
           <strong style={{ color: "#fff" }}>ASUS ROG Phone 5s Pro</strong>
           {" in brand-new condition — no scratches, no dents, no dust — is available through "}
-          <Link href="/blog/sollabs-tech-phones-coming-soon" style={{ color: "#00AAFF", textDecoration: "none" }}>
+          <Link href="/blog/sollabs-tech-mobile-phone-madurai" style={{ color: "#00AAFF", textDecoration: "none" }}>
             Sollabs Tech Phones
           </Link>
           {" — complete with its original box and bill."}
@@ -265,7 +265,7 @@ export default function AsusRogPhone5sProListingPage() {
             >
               💬 Ask about this phone
             </a>
-            <Link href="/blog/sollabs-tech-phones-coming-soon" style={{ padding: "10px 20px", borderRadius: 10, fontSize: 14, fontWeight: 700, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", color: "white", textDecoration: "none" }}>
+            <Link href="/blog/sollabs-tech-mobile-phone-madurai" style={{ padding: "10px 20px", borderRadius: 10, fontSize: 14, fontWeight: 700, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", color: "white", textDecoration: "none" }}>
               About Sollabs Tech Phones
             </Link>
             <Link href="/contact" style={{ padding: "10px 20px", borderRadius: 10, fontSize: 14, fontWeight: 700, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", color: "white", textDecoration: "none" }}>

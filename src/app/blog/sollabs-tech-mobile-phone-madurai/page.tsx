@@ -185,7 +185,7 @@ export default function SollabsTechMobilePhonePage() {
           {" or "}
           <strong style={{ color: "#fff" }}>Sollabs Tech phone</strong>
           {" — yes, you found the right place. Sollabs Tech now sells phones through "}
-          <Link href="/blog/sollabs-tech-phones-coming-soon" style={{ color: "#00FFAA", textDecoration: "none" }}>
+          <Link href="/products?category=mobile" style={{ color: "#00FFAA", textDecoration: "none" }}>
             Sollabs Tech Phones
           </Link>
           {", a dedicated phone-sales venture from the same team that already sells laptops and custom PCs."}
@@ -276,8 +276,8 @@ export default function SollabsTechMobilePhonePage() {
             <Link href="/blog/asus-rog-phone-5s-pro-price-madurai" style={{ padding: "10px 20px", borderRadius: 10, fontSize: 14, fontWeight: 700, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", color: "white", textDecoration: "none" }}>
               ROG Phone 5s Pro — ₹25,000
             </Link>
-            <Link href="/blog/sollabs-tech-phones-coming-soon" style={{ padding: "10px 20px", borderRadius: 10, fontSize: 14, fontWeight: 700, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", color: "white", textDecoration: "none" }}>
-              About Sollabs Tech Phones
+            <Link href="/products?category=mobile" style={{ padding: "10px 20px", borderRadius: 10, fontSize: 14, fontWeight: 700, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", color: "white", textDecoration: "none" }}>
+              Shop Phones
             </Link>
           </div>
         </div>

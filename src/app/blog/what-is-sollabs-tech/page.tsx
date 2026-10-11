@@ -157,13 +157,13 @@ export default function WhatIsSollabsTech() {
               icon: "💻",
               title: "Sollabs Tech – Software",
               desc: "Custom software development for Indian businesses — mobile apps, websites, ERP systems, CRM platforms, and automation tools.",
-              link: "/software",
+              link: "/blog/sollabs-tech-services-madurai",
             },
             {
               icon: "🖥️",
               title: "Sollabs Tech – Laptops",
               desc: "Quality-checked refurbished and budget laptops, gaming rigs, and custom PCs — delivered across all of India.",
-              link: "/computers",
+              link: "/products",
             },
           ].map((item) => (
             <Link key={item.title} href={item.link} style={{ textDecoration: "none" }}>
@@ -289,13 +289,13 @@ export default function WhatIsSollabsTech() {
           </p>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
             <Link
-              href="/computers"
+              href="/products"
               style={{ padding: "12px 24px", borderRadius: 10, fontSize: 14, fontWeight: 700, background: "linear-gradient(135deg,#0066FF,#0099FF)", color: "white", textDecoration: "none" }}
             >
               🖥️ Browse Laptops
             </Link>
             <Link
-              href="/software"
+              href="/blog/sollabs-tech-services-madurai"
               style={{ padding: "12px 24px", borderRadius: 10, fontSize: 14, fontWeight: 700, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", color: "white", textDecoration: "none" }}
             >
               💡 Our Software Services

@@ -223,7 +223,7 @@ export default function WarrantyReplacementStory() {
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12, marginBottom: 56 }} className="blog-cta-grid">
           {[
             { href: "/warranty", icon: "🛡️", label: "Check Warranty", desc: "Verify your device coverage" },
-            { href: "/computers", icon: "💻", label: "Browse Laptops", desc: "View our current stock" },
+            { href: "/products", icon: "💻", label: "Browse Laptops", desc: "View our current stock" },
             { href: "/contact", icon: "💬", label: "Contact Us", desc: "Reach us on WhatsApp" },
           ].map(({ href, icon, label, desc }) => (
             <Link key={href} href={href} style={{ textDecoration: "none", display: "block", padding: "18px 16px", borderRadius: 14, background: "rgba(0,102,255,0.06)", border: "1px solid rgba(0,102,255,0.15)", textAlign: "center" }}>
