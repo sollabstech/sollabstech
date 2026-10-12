@@ -33,7 +33,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${base}/about`,          lastModified: new Date("2026-10-11"), changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/reviews`,        lastModified: new Date("2026-07-31"), changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/blog`,           lastModified: new Date(), changeFrequency: "weekly",  priority: 0.9 },
-    { url: `${base}/blog/sollabs-tech-bill-tax-invoice`, lastModified: new Date("2026-10-12"), changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/blog/sollabs-tech-bill-tax-invoice`, lastModified: new Date("2026-10-12"), changeFrequency: "monthly", priority: 0.9, images: [`${base}/images/sollabstech-official-seal-madurai.webp`] },
     { url: `${base}/blog/used-phone-warranty-madurai`, lastModified: new Date("2026-10-11"), changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/blog/free-laptop-service-madurai`, lastModified: new Date("2026-10-11"), changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/blog/how-much-ram-do-i-need-laptop`, lastModified: new Date("2026-10-11"), changeFrequency: "monthly", priority: 0.9 },

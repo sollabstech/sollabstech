@@ -1,17 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import BlogArticle, { h2, h3, p, strong, link, list, Callout, Table, type Faq } from "../_components/BlogArticle";
 
 const slug = "sollabs-tech-bill-tax-invoice";
-const title = "Sollabs Tech Bill Explained: How to Read Your Tax Invoice (With Sample)";
+const title = "Sollabs Tech Bill Explained: How to Read Your Tax Invoice and Official Seal (With Sample)";
+const SEAL_URL = "https://www.sollabstech.com/images/sollabstech-official-seal-madurai.webp";
 const description =
-  "What's on a Sollabs Tech bill? See a sample tax invoice and learn what each part means: invoice number, serial number or IMEI, GST, warranty promise, seal and signature, plus how to check your bill is genuine.";
+  "What's on a Sollabs Tech bill? See a sample tax invoice and the official Sollabs Tech seal, and learn what each part means: invoice number, serial number or IMEI, GST, warranty promise, seal and signature.";
 
 export const metadata: Metadata = {
-  title: "Sollabs Tech Bill & Tax Invoice Explained (With Sample)",
+  title: "Sollabs Tech Bill, Tax Invoice & Official Seal Explained (With Sample)",
   description,
   keywords: [
     "sollabs tech bill",
+    "sollabstech seal",
+    "sollabs tech seal",
+    "sollabs tech official seal",
     "sollabstech bill",
     "sollabstech invoice",
     "sollabs tech tax invoice",
@@ -20,10 +25,17 @@ export const metadata: Metadata = {
     "laptop bill madurai",
   ],
   alternates: { canonical: `/blog/${slug}` },
-  openGraph: { type: "article", title, description, url: `https://www.sollabstech.com/blog/${slug}`, publishedTime: "2026-10-12" },
+  openGraph: {
+    type: "article", title, description, url: `https://www.sollabstech.com/blog/${slug}`, publishedTime: "2026-10-12",
+    images: [{ url: SEAL_URL, width: 1254, height: 1254, alt: "Sollabs Tech official seal, Madurai" }],
+  },
 };
 
 const faqs: Faq[] = [
+  {
+    q: "What does the Sollabs Tech seal look like?",
+    a: "The official Sollabs Tech seal is a blue circular stamp with a double outer ring, SOLLABSTECH curved around the top, MADURAI around the bottom, a star on each side, and the Sollabs Tech S logo in the centre. Every genuine Sollabs Tech bill carries it.",
+  },
   {
     q: "Do I get a bill when I buy from Sollabs Tech?",
     a: "Yes. Every laptop and mobile comes with a Sollabs Tech tax invoice showing the invoice number, date, device details, amount with GST, and the warranty promise.",
@@ -201,7 +213,47 @@ export default function Page() {
         <Link href="/blog/free-laptop-service-madurai" style={link}>1-year free service</Link>, plus what isn&apos;t covered.
       </p>
       <h3 style={h3}>7. Seal and signatures</h3>
-      <p style={p}>A genuine bill carries the Sollabs Tech seal and the authorised signature, with space for the customer&apos;s signature.</p>
+      <p style={p}>A genuine bill carries the official Sollabs Tech seal and the authorised signature, with space for the customer&apos;s signature.</p>
+
+      <h2 id="seal" style={h2}>The official Sollabs Tech seal</h2>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ImageObject",
+            name: "Sollabs Tech official seal",
+            caption: "Official Sollabs Tech seal, Madurai, used on genuine Sollabs Tech bills",
+            contentUrl: SEAL_URL,
+            width: 1254,
+            height: 1254,
+            creditText: "Sollabs Tech",
+            copyrightNotice: "© Sollabs Tech",
+            creator: { "@type": "Organization", name: "Sollabs Tech", url: "https://www.sollabstech.com" },
+          }),
+        }}
+      />
+      <figure style={{ margin: "8px 0 24px", textAlign: "center" }}>
+        <Image
+          src="/images/sollabstech-official-seal-madurai.webp"
+          alt="Sollabs Tech official seal: blue circular stamp with SOLLABSTECH at the top, MADURAI at the bottom and the Sollabs Tech S logo in the centre"
+          width={320}
+          height={320}
+          style={{ display: "block", margin: "0 auto", width: "min(320px, 80%)", height: "auto", borderRadius: 16, background: "white", padding: 12 }}
+        />
+        <figcaption style={{ fontSize: 13, color: "#64748B", marginTop: 8 }}>The official Sollabs Tech seal, Madurai</figcaption>
+      </figure>
+      <p style={p}>Every genuine Sollabs Tech bill is stamped with this seal. Here&apos;s how to recognise it:</p>
+      <ul style={list}>
+        <li>A <strong style={strong}>blue, circular</strong> stamp with a double outer ring.</li>
+        <li><strong style={strong}>SOLLABSTECH</strong> curved around the top and <strong style={strong}>MADURAI</strong> around the bottom.</li>
+        <li>A <strong style={strong}>star</strong> on each side.</li>
+        <li>The Sollabs Tech <strong style={strong}>&ldquo;S&rdquo; logo</strong> in the centre.</li>
+      </ul>
+      <p style={p}>
+        A bill without the seal and an authorised signature, or with a seal that looks different, may not be genuine. WhatsApp{" "}
+        <strong style={strong}>+91 90038 50743</strong>{" "}with the invoice number and we&apos;ll confirm it.
+      </p>
       <h3 style={h3}>8. Contact details</h3>
       <p style={p}>Phone/WhatsApp, website and Instagram, so you always know how to reach us.</p>
 
