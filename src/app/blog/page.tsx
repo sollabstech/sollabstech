@@ -13,6 +13,16 @@ export const metadata = {
 
 const posts = [
   {
+    slug: "sollabs-tech-bill-tax-invoice",
+    tag: "Billing",
+    date: "October 12, 2026",
+    title: "Sollabs Tech Bill Explained: How to Read Your Tax Invoice (With Sample)",
+    excerpt:
+      "See a sample Sollabs Tech tax invoice and what each part means: invoice number, serial number or IMEI, GST, warranty promise, seal and signature, and how to check your bill is genuine.",
+    readTime: "5 min read",
+    icon: "🧾",
+  },
+  {
     slug: "used-phone-warranty-madurai",
     tag: "Phone Warranty",
     date: "October 11, 2026",

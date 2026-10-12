@@ -56,6 +56,7 @@ export default function RootLayout({
     "email": "sollabstech@gmail.com",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "SS Colony, Bharathiyar 4th Street",
       "addressLocality": "Madurai",
       "addressRegion": "Tamil Nadu",
       "postalCode": "625402",
