@@ -5,7 +5,7 @@ import BlogArticle, { h2, h3, p, strong, link, list, Callout, CardGrid, Table, t
 const slug = "free-laptop-service-madurai";
 const title = "Free Laptop Service for 1 Year in Madurai: What's Included After You Buy";
 const description =
-  "Every laptop from Sollabs Tech includes 1 year of free servicing, diagnostics and maintenance at our Madurai service centre. What's covered, what isn't, warning signs your laptop needs a service, and how to book.";
+  "Every Sollabs Tech laptop includes 1 year of free servicing and diagnostics in Madurai. What's covered, warning signs, and how to book a service.";
 
 export const metadata: Metadata = {
   title: "Free Laptop Service for 1 Year in Madurai | Sollabs Tech",

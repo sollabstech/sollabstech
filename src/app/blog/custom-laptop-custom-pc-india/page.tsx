@@ -5,10 +5,10 @@ import BlogArticle, { h2, h3, p, strong, link, list, Callout, CardGrid, Table, t
 const slug = "custom-laptop-custom-pc-india";
 const title = "Custom Laptop vs Custom PC in India: What You Can Customise and How to Order";
 const description =
-  "Want a custom laptop in India? Learn what you can actually customise on a laptop (RAM, SSD, setup), when a custom-built PC is the better choice, and how to order one from Sollabs Tech, Madurai.";
+  "What can you really customise on a laptop, when is a custom PC better, and how to order one from Sollabs Tech in Madurai. A plain-English guide.";
 
 export const metadata: Metadata = {
-  title: "Custom Laptop & Custom PC in India – What You Can Customise | Sollabs Tech",
+  title: "Custom Laptop & Custom PC in India: What You Can Customise",
   description,
   keywords: [
     "custom laptop india",

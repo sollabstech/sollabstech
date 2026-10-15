@@ -5,10 +5,10 @@ import BlogArticle, { h2, h3, p, strong, link, list, Callout, CardGrid, Table, t
 const slug = "used-laptop-with-warranty-madurai";
 const title = "Used Laptop With Warranty in Madurai: 7-Day Refund, 1-Month Exchange & 1-Year Free Service";
 const description =
-  "Buying a used or refurbished laptop in Madurai? Sollabs Tech backs every laptop and mobile with a 7-day refund, 1-month exchange, 6-month upgrade offer and 1 year of free service.";
+  "Buying a used laptop in Madurai? Sollabs Tech gives a 7-day refund, 1-month exchange, 6-month upgrade offer and 1 year of free service.";
 
 export const metadata: Metadata = {
-  title: "Used Laptop With Warranty in Madurai – 7-Day Refund & 1-Year Free Service",
+  title: "Used Laptop With Warranty in Madurai | Sollabs Tech",
   description,
   keywords: [
     "used laptop with warranty madurai",

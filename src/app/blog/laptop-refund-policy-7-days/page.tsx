@@ -5,10 +5,10 @@ import BlogArticle, { h2, h3, p, strong, link, list, Callout, CardGrid, Table, t
 const slug = "laptop-refund-policy-7-days";
 const title = "7-Day Laptop Refund Policy: How to Return a Laptop and Get 100% of Your Money Back";
 const description =
-  "Not happy with a laptop you bought? Sollabs Tech gives a 100% refund within 7 days. What counts as original condition, what to test in those 7 days, and how to request your refund.";
+  "Not happy with your laptop? Sollabs Tech refunds 100% within 7 days. What counts as original condition, what to test, and how to request a refund.";
 
 export const metadata: Metadata = {
-  title: "7-Day Laptop Refund Policy – Return a Laptop, Get 100% Back | Sollabs Tech",
+  title: "7-Day Laptop Refund Policy – Get 100% Back | Sollabs Tech",
   description,
   keywords: [
     "laptop return policy",

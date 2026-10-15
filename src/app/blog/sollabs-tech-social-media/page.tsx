@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Sollabs Tech Official Social Media – LinkedIn, Facebook & Instagram",
+  title: "Sollabs Tech Official Social Media – LinkedIn, Facebook, Instagram",
   description: "Find Sollabs Tech on LinkedIn, Facebook, and Instagram. These are the ONLY official Sollabs Tech social media pages. Direct links and contact info inside.",
   keywords: [
     "sollabstech linkedin", "sollabs tech linkedin", "sollabstech facebook", "sollabs tech facebook",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/blog/sollabs-tech-social-media" },
   openGraph: {
-    title: "Sollabs Tech Official Social Media – LinkedIn, Facebook & Instagram",
+    title: "Sollabs Tech Official Social Media – LinkedIn, Facebook, Instagram",
     description: "These are the ONLY official Sollabs Tech social media profiles. Software development company based in Madurai, Tamil Nadu, India.",
     url: "https://www.sollabstech.com/blog/sollabs-tech-social-media",
     images: [{ url: "/logo.png", width: 512, height: 512, alt: "Sollabs Tech" }],
@@ -23,7 +23,7 @@ export default function SocialMediaPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Sollabs Tech Official Social Media – LinkedIn, Facebook & Instagram",
+    "headline": "Sollabs Tech Official Social Media – LinkedIn, Facebook, Instagram",
     "description": "Official social media profiles for Sollabs Tech — software development company in Madurai, Tamil Nadu, India.",
     "author": { "@type": "Organization", "name": "Sollabs Tech", "url": "https://www.sollabstech.com" },
     "publisher": { "@type": "Organization", "name": "Sollabs Tech", "logo": { "@type": "ImageObject", "url": "https://www.sollabstech.com/logo.png" } },

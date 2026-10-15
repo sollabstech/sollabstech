@@ -5,10 +5,10 @@ import BlogArticle, { h2, h3, p, strong, link, list, Callout, CardGrid, Table, t
 const slug = "used-phone-warranty-madurai";
 const title = "Used Phone With Warranty in Madurai: 7-Day Refund, 1-Month Exchange and 1-Year Free Service";
 const description =
-  "Buying a second-hand iPhone or gaming phone? Every phone from Sollabs Tech comes with a 7-day full refund, 1-month phone-for-phone exchange and 1 year of free service. Plus a checklist for testing a used phone.";
+  "Every second-hand iPhone or gaming phone from Sollabs Tech comes with a 7-day refund, 1-month exchange and 1-year free service, plus a test checklist.";
 
 export const metadata: Metadata = {
-  title: "Used Phone With Warranty in Madurai – Refund, Exchange & Free Service | Sollabs Tech",
+  title: "Used Phone With Warranty in Madurai | Sollabs Tech",
   description,
   keywords: [
     "used phone with warranty",

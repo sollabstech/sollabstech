@@ -6,9 +6,9 @@ const EFFECTIVE_DATE = "11 October 2026";
 const EFFECTIVE_ISO = "2026-10-11";
 
 export const metadata: Metadata = {
-  title: "Lokkho Privacy Policy – Learning App for Classes 1–12 | Sollabs Tech",
+  title: "Lokkho Privacy Policy – Learning App for Classes 1–12",
   description:
-    "Privacy Policy for Lokkho, the Sollabs Tech learning app for Classes 1–12 with MCQ tests, study videos, coins and leaderboards. What data we collect, why, and how to delete your account.",
+    "Privacy Policy for Lokkho, the Sollabs Tech learning app for Classes 1–12: what data we collect, why, and how to delete your account and data.",
   alternates: { canonical: "/lokkho/privacy-policy" },
   openGraph: {
     title: "Lokkho Privacy Policy",

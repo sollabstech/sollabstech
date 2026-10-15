@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Sollabs Tech Mobile & Phone Sales – Used iPhones, ROG & More | Madurai",
+  title: "Sollabs Tech Phones – Used iPhones, ROG & More | Madurai",
   description:
-    "Yes — Sollabs Tech now sells phones. Used iPhones, ASUS ROG gaming phones, and rugged mobiles. Quality-checked, honestly priced, with box & bill. Based in Madurai, ships across India.",
+    "Yes, Sollabs Tech sells phones: quality-checked used iPhones, ASUS ROG gaming phones and rugged mobiles, with box and bill. Ships across India.",
   keywords: [
     "sollabstech mobile",
     "sollabs tech phone",

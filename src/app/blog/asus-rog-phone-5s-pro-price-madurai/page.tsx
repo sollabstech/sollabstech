@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "ASUS ROG Phone 5s Pro: For Sale With Box & Bill",
   description:
-    "An ASUS ROG Phone 5s Pro gaming phone in brand-new condition (no scratches) is available through Sollabs Tech Phones for ₹25,000, complete with its original box and bill.",
+    "ASUS ROG Phone 5s Pro in brand-new condition, no scratches, for ₹25,000 with original box and bill. Available from Sollabs Tech Phones, Madurai.",
   keywords: [
     "asus rog phone 5s pro price",
     "asus rog phone 5s pro used",

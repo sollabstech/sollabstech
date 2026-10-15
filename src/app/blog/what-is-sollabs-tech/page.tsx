@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "What Is Sollabs Tech? (Also Known as Sollab Tech, Solabs Tech) – Madurai, India",
+  title: "What Is Sollabs Tech? (Sollab Tech, Solabs Tech) – Madurai",
   description:
-    "Searching for Sollab Tech, Solabs Tech, Sollabstech, or Solartec Madurai? You've found us. Sollabs Tech is a software development and laptop company based in Madurai, Tamil Nadu.",
+    "Searching for Sollab Tech, Solabs Tech or Sollabstech? You've found us. Sollabs Tech is a software development and laptop company in Madurai.",
   keywords: [
     "sollabs tech",
     "sollab tech",

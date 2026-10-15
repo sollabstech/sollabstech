@@ -5,10 +5,10 @@ import BlogArticle, { h2, h3, p, strong, link, list, Callout, Table, type Faq } 
 const slug = "laptop-exchange-offer-madurai";
 const title = "Laptop Exchange Offer in Madurai: Swap Your Laptop Within 1 Month and Settle the Difference";
 const description =
-  "Bought a laptop that isn't quite right? Within 1 month, exchange it at Sollabs Tech for a higher model (pay the difference) or a lower one (get the balance back). How it works, with examples.";
+  "Exchange your laptop within 1 month at Sollabs Tech, Madurai: pick a higher model and pay the difference, or a lower one and get the balance back.";
 
 export const metadata: Metadata = {
-  title: "Laptop Exchange Offer in Madurai – Swap Within 1 Month | Sollabs Tech",
+  title: "Laptop Exchange Offer in Madurai – Swap Within 1 Month",
   description,
   keywords: [
     "laptop exchange offer madurai",

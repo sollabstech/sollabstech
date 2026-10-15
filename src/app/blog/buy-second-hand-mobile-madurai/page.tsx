@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Buy Second Hand Mobile in Madurai – Used iPhones, ROG Phones & More",
+  title: "Buy Second Hand Mobile in Madurai – Used iPhones & ROG Phones",
   description:
-    "Looking to buy a second hand mobile in Madurai? Sollabs Tech sells quality-checked used iPhones, ASUS ROG gaming phones, and rugged phones — with box & bill. WhatsApp +91 90038 50743.",
+    "Buy a second hand mobile in Madurai: quality-checked used iPhones, ASUS ROG gaming phones and rugged phones from Sollabs Tech, with box and bill.",
   keywords: [
     "second hand mobile madurai",
     "used phone madurai",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/blog/buy-second-hand-mobile-madurai" },
   openGraph: {
-    title: "Buy Second Hand Mobile in Madurai – Used iPhones, ROG Phones & More",
+    title: "Buy Second Hand Mobile in Madurai – Used iPhones & ROG Phones",
     description:
       "Quality-checked used, second-hand, refurbished and demo phones in Madurai — iPhones, ASUS ROG gaming phones, rugged phones. With box & bill. Contact Sollabs Tech on WhatsApp.",
     url: "https://www.sollabstech.com/blog/buy-second-hand-mobile-madurai",
@@ -123,7 +123,7 @@ export default function BuySecondHandMobileMaduraiPage() {
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    headline: "Buy Second Hand Mobile in Madurai – Used iPhones, ROG Phones & More",
+    headline: "Buy Second Hand Mobile in Madurai – Used iPhones & ROG Phones",
     description:
       "Where to buy quality-checked second hand and used phones in Madurai — iPhones, ASUS ROG gaming phones, and rugged models. Box & bill included. Sollabs Tech Phones.",
     author: { "@type": "Organization", name: "Sollabs Tech", url: "https://www.sollabstech.com" },

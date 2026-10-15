@@ -2,8 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "About Sollabs Tech – Three Ventures, One Brand | Founded by T Bala Murugan",
-  description: "Sollabs Tech is a three-venture technology company founded by T Bala Murugan in Madurai, Tamil Nadu — software development, laptop & PC sales, and quality-checked phones under one trusted brand.",
+  title: "About Sollabs Tech – Founded by T Bala Murugan, Madurai",
+  description: "Sollabs Tech, founded by T Bala Murugan in Madurai: software development, laptop and PC sales, and quality-checked phones under one trusted brand.",
   alternates: { canonical: "/about" },
   keywords: [
     "T Bala Murugan",

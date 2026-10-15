@@ -5,10 +5,10 @@ import BlogArticle, { h2, h3, p, strong, link, list, Callout, CardGrid, type Faq
 const slug = "sollabs-tech-services-madurai";
 const title = "Laptop Shop, Service Centre & Software Company in Madurai: Every Sollabs Tech Service Explained";
 const description =
-  "Laptops, gaming laptops, custom PCs, used phones, laptop servicing and upgrades, plus mobile app, website and custom software development: all Sollabs Tech services in Madurai, in one guide.";
+  "Laptops, custom PCs, used phones, laptop service and upgrades, plus app, website and custom software development: every Sollabs Tech service.";
 
 export const metadata: Metadata = {
-  title: "Laptop Shop, Service Centre & Software Company in Madurai – Sollabs Tech Services",
+  title: "Laptop Shop & Software Company in Madurai | Sollabs Tech",
   description,
   keywords: [
     "laptop shop in madurai",

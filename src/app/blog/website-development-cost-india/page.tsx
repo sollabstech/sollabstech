@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "How Much Does Website Development Cost in India? (2025 Guide) – Sollabs Tech",
-  description: "Get clear pricing for website development in India. From simple landing pages to full web apps — what you actually pay and what you get. By Sollabs Tech, Madurai.",
+  title: "Website Development Cost in India (2025 Guide) | Sollabs Tech",
+  description: "Clear pricing for website development in India, from simple landing pages to full web apps: what you actually pay and what you get. By Sollabs Tech.",
   keywords: ["website development cost India", "web development price India", "how much website cost India", "website development Madurai", "website development Tamil Nadu", "web app cost India", "custom website price"],
   alternates: { canonical: "/blog/website-development-cost-india" },
   openGraph: {
@@ -120,7 +120,7 @@ export default function WebDevCostBlog() {
           </h1>
 
           <p style={{ fontSize: 18, color: "#8A9BB8", lineHeight: 1.8, marginBottom: 32 }}>
-            One of the most searched questions by Indian business owners: <strong style={{ color: "white" }}>&quot;How much does a website cost?&quot;</strong> The honest answer is — it depends. But this guide breaks it down clearly so you know exactly what you&apos;ll pay and what you&apos;ll get.
+            One of the most searched questions by Indian business owners: <strong style={{ color: "white" }}>&quot;How much does a website cost?&quot;</strong>{" "}The honest answer is — it depends. But this guide breaks it down clearly so you know exactly what you&apos;ll pay and what you&apos;ll get.
           </p>
 
           <div style={{ borderLeft: "3px solid #0066FF", paddingLeft: 20, marginBottom: 48 }}>

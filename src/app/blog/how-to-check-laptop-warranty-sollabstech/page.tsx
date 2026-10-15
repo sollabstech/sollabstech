@@ -5,10 +5,10 @@ import BlogArticle, { h2, h3, p, strong, link, list, Callout, Table, type Faq } 
 const slug = "how-to-check-laptop-warranty-sollabstech";
 const title = "How to Check Laptop Warranty Online: HP, Dell, Lenovo, ASUS, Acer & Apple (Step-by-Step)";
 const description =
-  "Check your laptop warranty online in under 2 minutes. Find your serial number, then use the official HP, Dell, Lenovo, ASUS, Acer, Apple or MSI checker. Plus how to check a Sollabs Tech laptop warranty.";
+  "Check your laptop warranty online in 2 minutes: find the serial number, then use the official HP, Dell, Lenovo, ASUS, Acer, Apple or MSI checker.";
 
 export const metadata: Metadata = {
-  title: "How to Check Laptop Warranty Online – HP, Dell, Lenovo, ASUS, Acer, Apple",
+  title: "How to Check Laptop Warranty Online (HP, Dell, Lenovo, ASUS)",
   description,
   keywords: [
     "laptop warranty check",

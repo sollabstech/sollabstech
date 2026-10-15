@@ -19,5 +19,10 @@ export const metadata: Metadata = {
 
 export default async function ClientsPage() {
   const clients = await fetchAllClients();
-  return <ClientsClient clients={clients} />;
+  return (
+    <>
+      <h1 className="sr-only">Sollabs Tech Clients &amp; Projects</h1>
+      <ClientsClient clients={clients} />
+    </>
+  );
 }

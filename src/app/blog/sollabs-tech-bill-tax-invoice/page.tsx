@@ -7,10 +7,10 @@ const slug = "sollabs-tech-bill-tax-invoice";
 const title = "Sollabs Tech Bill Explained: How to Read Your Tax Invoice and Official Seal (With Sample)";
 const SEAL_URL = "https://www.sollabstech.com/images/sollabstech-official-seal-madurai.webp";
 const description =
-  "What's on a Sollabs Tech bill? See a sample tax invoice and the official Sollabs Tech seal, and learn what each part means: invoice number, serial number or IMEI, GST, warranty promise, seal and signature.";
+  "See a sample Sollabs Tech tax invoice and the official seal, and what each part means: invoice number, serial or IMEI, GST and warranty promise.";
 
 export const metadata: Metadata = {
-  title: "Sollabs Tech Bill, Tax Invoice & Official Seal Explained (With Sample)",
+  title: "Sollabs Tech Bill, Tax Invoice & Official Seal Explained",
   description,
   keywords: [
     "sollabs tech bill",

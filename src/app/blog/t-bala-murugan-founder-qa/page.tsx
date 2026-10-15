@@ -5,7 +5,7 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "T Bala Murugan on Building Sollabs Tech: A Founder Q&A",
   description:
-    "Sollabs Tech founder T Bala Murugan on starting solo in Madurai in 2020, growing into software and hardware, the 2024 award, and what he would tell first-time founders.",
+    "Sollabs Tech founder T Bala Murugan on starting solo in Madurai in 2020, growing into software and hardware, and advice for first-time founders.",
   keywords: [
     "T Bala Murugan interview",
     "T Bala Murugan Q&A",

@@ -5,10 +5,10 @@ import BlogArticle, { h2, h3, p, strong, link, list, Callout, Table, type Faq } 
 const slug = "sollabstech-warranty-policy";
 const title = "Sollabs Tech Warranty Policy – What's Covered & How to Check Your Warranty Status";
 const description =
-  "Every Sollabs Tech laptop and mobile comes with a 7-day refund, 1-month exchange, 6-month upgrade offer and 1-year free service. Learn how to check your Sollabs Tech warranty status and how to claim it.";
+  "Every Sollabs Tech laptop and mobile gets a 7-day refund, 1-month exchange, 6-month upgrade offer and 1-year free service. How to check and claim it.";
 
 export const metadata: Metadata = {
-  title,
+  title: "Sollabs Tech Warranty Policy – How to Check Your Status",
   description,
   keywords: [
     "sollabs tech warranty",

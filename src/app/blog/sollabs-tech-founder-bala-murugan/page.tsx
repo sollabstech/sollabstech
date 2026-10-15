@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Who Founded Sollabs Tech? Meet T Bala Murugan – Madurai",
-  description: "Sollabs Tech was founded by T Bala Murugan in Madurai, Tamil Nadu. Learn about the founder, the company's story, and why Sollabs Tech is Madurai's trusted software & laptop brand.",
+  description: "Sollabs Tech was founded by T Bala Murugan in Madurai, Tamil Nadu. The founder, the company's story, and why it's Madurai's trusted tech brand.",
   keywords: [
     "T Bala Murugan", "Sollabs Tech founder", "who owns Sollabs Tech",
     "Sollabs Tech owner", "Bala Murugan Sollabs Tech", "Sollabstech founder",

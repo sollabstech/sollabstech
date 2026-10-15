@@ -5,7 +5,7 @@ import ProductsClient from "./ProductsClient";
 export const metadata: Metadata = {
   title: "Buy Laptops, Custom PCs & Phones in Madurai | Sollabs Tech",
   description:
-    "Buy quality-checked laptops, gaming laptops, custom PCs and phones from Sollabs Tech, Madurai. Delivered across India with a 7-day refund and 1-year free service. Enquire on WhatsApp.",
+    "Quality-checked laptops, gaming laptops, custom PCs and phones from Sollabs Tech, Madurai. Delivered across India with a 7-day refund and 1-year free service.",
   alternates: { canonical: "/products" },
   keywords: [
     "buy laptop madurai",
@@ -28,5 +28,10 @@ export const revalidate = 60;
 
 export default async function ProductsPage() {
   const products = await fetchProducts().catch(() => null);
-  return <ProductsClient initialProducts={products} />;
+  return (
+    <>
+      <h1 className="sr-only">Laptops, Custom PCs &amp; Phones for Sale in Madurai</h1>
+      <ProductsClient initialProducts={products} />
+    </>
+  );
 }

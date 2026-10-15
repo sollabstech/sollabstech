@@ -5,7 +5,7 @@ import BlogArticle, { h2, h3, p, strong, link, list, Callout, CardGrid, Table, t
 const slug = "laptop-ram-ssd-upgrade-madurai";
 const title = "Laptop RAM & SSD Upgrade in Madurai: Pay Only 90% of Parts Cost, Free Installation";
 const description =
-  "Is your laptop slow or running out of space? Bought from Sollabs Tech in the last 6 months? Upgrade RAM or SSD and pay only 90% of the parts cost, with free installation. Here's how it works.";
+  "Upgrade your laptop's RAM or SSD within 6 months of buying from Sollabs Tech and pay only 90% of the parts cost, with free installation.";
 
 export const metadata: Metadata = {
   title: "Laptop RAM & SSD Upgrade in Madurai – Pay Only 90% of Parts Cost",

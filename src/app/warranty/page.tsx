@@ -3,12 +3,12 @@ import Link from "next/link";
 import WarrantyChecker from "./WarrantyChecker";
 
 export const metadata: Metadata = {
-  title: "Laptop & Mobile Warranty – 7-Day Refund, 1-Year Free Service | Sollabs Tech",
+  title: "Warranty Check – 7-Day Refund, 1-Year Free Service | Sollabs Tech",
   description:
-    "Check your Sollabs Tech warranty online with your serial number. Every laptop and mobile includes a 1 week refund, 1 month exchange, 6 month upgrade offer and 1 year free service.",
+    "Check your Sollabs Tech warranty by serial number. Every laptop and mobile gets a 7-day refund, 1-month exchange, 6-month upgrade and 1-year free service.",
   alternates: { canonical: "/warranty" },
   openGraph: {
-    title: "Laptop & Mobile Warranty – 7-Day Refund, 1-Year Free Service | Sollabs Tech",
+    title: "Warranty Check – 7-Day Refund, 1-Year Free Service | Sollabs Tech",
     description:
       "1 week refund · 1 month exchange · 6 month upgrade · 1 year free service. Every product we sell is backed by our full after-sales warranty.",
     url: "https://www.sollabstech.com/warranty",

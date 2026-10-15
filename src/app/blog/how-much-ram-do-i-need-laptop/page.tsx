@@ -5,7 +5,7 @@ import BlogArticle, { h2, h3, p, strong, link, list, Callout, Table, type Faq } 
 const slug = "how-much-ram-do-i-need-laptop";
 const title = "How Much RAM Do You Need in a Laptop? 8GB vs 16GB vs 32GB Explained";
 const description =
-  "8GB, 16GB or 32GB? A plain-English guide to choosing laptop RAM for students, office work, coding, gaming and video editing, how to check your RAM usage, and when an upgrade is worth it.";
+  "8GB, 16GB or 32GB? How much RAM you need in a laptop for study, office work, coding, gaming and editing, and when an upgrade is worth it.";
 
 export const metadata: Metadata = {
   title: "How Much RAM Do You Need in a Laptop? 8GB vs 16GB vs 32GB",
