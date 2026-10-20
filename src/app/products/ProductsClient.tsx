@@ -4,7 +4,6 @@ import { useState, useMemo, useEffect, useCallback, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import SellDevice from "./SellDevice";
 import { fetchProducts, formatINR, type Product } from "@/lib/products";
 
 function ProductCardSkeleton() {
@@ -271,6 +270,13 @@ export default function ProductsClient({ initialProducts }: { initialProducts: P
                   {cat.label}
                 </button>
               ))}
+              <Link href="/sell" style={{
+                flexShrink: 0, padding: "8px 18px", borderRadius: 100, fontSize: 13, fontWeight: 700,
+                textDecoration: "none", whiteSpace: "nowrap", color: "white",
+                background: "linear-gradient(135deg,#16A34A,#22C55E)", boxShadow: "0 4px 16px rgba(34,197,94,0.3)",
+              }}>
+                💰 Sell Your Device
+              </Link>
             </div>
 
             {/* Search + sort row */}
@@ -370,7 +376,6 @@ export default function ProductsClient({ initialProducts }: { initialProducts: P
             </div>
           )}
 
-          <SellDevice />
         </div>
       </section>
 

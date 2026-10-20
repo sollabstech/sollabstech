@@ -70,6 +70,19 @@ service cloud.firestore {
       allow read, update, delete: if isAdmin();
     }
 
+    // Sell-your-device requests: anyone can submit; only admins can read or manage
+    match /sellRequests/{id} {
+      allow create: if request.resource.data.keys().hasOnly(['deviceType', 'name', 'phone', 'brand', 'model', 'specs', 'age', 'condition', 'accessories', 'expectedPrice', 'city', 'status', 'createdAt'])
+        && request.resource.data.deviceType in ['laptop', 'mobile']
+        && request.resource.data.phone is string && request.resource.data.phone.matches('^[6-9][0-9]{9}$')
+        && isShortString('name', 100) && isShortString('brand', 80) && isShortString('model', 120)
+        && isShortString('specs', 200) && isShortString('age', 50) && isShortString('condition', 20)
+        && isShortString('accessories', 200) && isShortString('expectedPrice', 9) && isShortString('city', 80)
+        && request.resource.data.status == 'new'
+        && request.resource.data.createdAt == request.time;
+      allow read, update, delete: if isAdmin();
+    }
+
     // Everything else is closed
     match /{document=**} {
       allow read, write: if false;
