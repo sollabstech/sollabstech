@@ -83,6 +83,11 @@ service cloud.firestore {
       allow read, update, delete: if isAdmin();
     }
 
+    // Partner laptop deals and profit split: admin only
+    match /partnerDeals/{id} {
+      allow read, write: if isAdmin();
+    }
+
     // Everything else is closed
     match /{document=**} {
       allow read, write: if false;
