@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect, useCallback, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import SellDevice from "./SellDevice";
 import { fetchProducts, formatINR, type Product } from "@/lib/products";
 
 function ProductCardSkeleton() {
@@ -369,6 +370,7 @@ export default function ProductsClient({ initialProducts }: { initialProducts: P
             </div>
           )}
 
+          <SellDevice />
         </div>
       </section>
 
