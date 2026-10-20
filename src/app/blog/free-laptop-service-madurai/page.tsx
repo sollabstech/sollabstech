@@ -65,7 +65,7 @@ export default function Page() {
         title: "Book a free service",
         text: "Send us your bill or the serial on your Sollabs Tech sticker and tell us what's wrong.",
         whatsappText: "Hi Sollabs Tech, I'd like to book a free service for my laptop. Serial: , Issue: ",
-        primary: { href: "/warranty#check", label: "Check My Warranty" },
+        primary: { href: "/warranty", label: "See Warranty Policy" },
       }}
     >
       <h2 style={h2}>What&apos;s free for 1 year</h2>
@@ -106,8 +106,7 @@ export default function Page() {
       <h2 style={h2}>How to book your free service</h2>
       <ol style={list}>
         <li>
-          Check that you&apos;re within 1 year of purchase. Enter your mobile number in the{" "}
-          <Link href="/warranty#check" style={link}>warranty checker</Link>, or look at the date on your bill.
+          Check that you&apos;re within 1 year of purchase by looking at the date on your bill.
         </li>
         <li>WhatsApp <strong style={strong}>+91 90038 50743</strong> with the serial or bill and a short description, photo or video of the problem.</li>
         <li>We&apos;ll tell you what&apos;s needed and arrange the service.</li>

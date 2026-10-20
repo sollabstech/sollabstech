@@ -65,7 +65,7 @@ export default function Page() {
         title: "Want to return a laptop?",
         text: "Message us with your bill within 7 days of purchase and we'll guide you through the return.",
         whatsappText: "Hi Sollabs Tech, I'd like to return my laptop under the 7-day refund. My bill number is ",
-        primary: { href: "/warranty#check", label: "Check My Warranty" },
+        primary: { href: "/warranty", label: "See Warranty Policy" },
       }}
     >
       <h2 style={h2}>The 7-day refund at a glance</h2>

@@ -37,7 +37,7 @@ const faqs: Faq[] = [
   },
   {
     q: "How do I check my phone's warranty?",
-    a: "Enter the mobile number you gave at purchase at sollabstech.com/warranty, or WhatsApp +91 90038 50743 with your bill.",
+    a: "WhatsApp +91 90038 50743 with your bill or the phone number you gave at purchase.",
   },
   {
     q: "What isn't covered?",
@@ -118,7 +118,7 @@ export default function Page() {
 
       <h2 style={h2}>How to check your phone&apos;s warranty</h2>
       <ol style={list}>
-        <li>Enter the mobile number you gave at purchase in the <Link href="/warranty#check" style={link}>warranty checker</Link>.</li>
+        <li>WhatsApp <strong style={strong}>+91 90038 50743</strong> with your bill or the phone number you gave at purchase.</li>
         <li>No sticker? WhatsApp <strong style={strong}>+91 90038 50743</strong> with your bill.</li>
       </ol>
       <p style={p}>

@@ -151,7 +151,7 @@ export default function TermsPage() {
 
         <div style={{ marginTop: 8, paddingTop: 24, borderTop: "1px solid rgba(255,255,255,0.06)", fontSize: 14 }}>
           <span style={{ color: "#475569" }}>Related: </span>
-          <Link href="/warranty" style={{ color: "#00AAFF", textDecoration: "none" }}>Warranty checker</Link>
+          <Link href="/warranty" style={{ color: "#00AAFF", textDecoration: "none" }}>Warranty policy</Link>
           <span style={{ color: "#475569" }}> &middot; </span>
           <Link href="/privacy" style={{ color: "#00AAFF", textDecoration: "none" }}>Privacy Policy</Link>
           <span style={{ color: "#475569" }}> &middot; </span>

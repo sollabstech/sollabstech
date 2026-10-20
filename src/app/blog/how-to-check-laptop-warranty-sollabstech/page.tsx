@@ -64,7 +64,7 @@ const faqs: Faq[] = [
   },
   {
     q: "How do I check the warranty on a laptop bought from Sollabs Tech?",
-    a: "Enter the mobile number you gave at purchase at sollabstech.com/warranty to see your warranty end date and days left. Benefits by purchase date: up to 7 days full refund, up to 1 month exchange, up to 6 months the 90% upgrade offer, and up to 1 year free service.",
+    a: "WhatsApp +91 90038 50743 with your bill or the phone number you gave at purchase and we'll confirm your warranty. Benefits by purchase date: up to 7 days full refund, up to 1 month exchange, up to 6 months the 90% upgrade offer, and up to 1 year free service.",
   },
 ];
 
@@ -88,7 +88,7 @@ export default function Page() {
         title: "Bought your laptop from Sollabs Tech?",
         text: "Send us your bill or the serial number on your Sollabs Tech sticker and we'll confirm your warranty and next steps.",
         whatsappText: "Hi Sollabs Tech, I'd like to check my laptop warranty. Serial number: ",
-        primary: { href: "/warranty#check", label: "Check Sollabs Tech Warranty" },
+        primary: { href: "/warranty", label: "Sollabs Tech Warranty Policy" },
       }}
     >
       <h2 style={h2}>Step 1: Find your laptop&apos;s serial number</h2>
@@ -145,8 +145,7 @@ export default function Page() {
 
       <h2 style={h2}>How to check the warranty on a Sollabs Tech laptop</h2>
       <p style={p}>
-        For a laptop bought from Sollabs Tech, enter the <strong style={strong}>mobile number</strong> you gave us at purchase in the{" "}
-        <Link href="/warranty#check" style={link}>Sollabs Tech warranty checker</Link> to see your device, purchase date, warranty end date and days left. Your after-sales benefits depend on how long ago you bought it:
+        For a laptop bought from Sollabs Tech, check the date on your bill, or WhatsApp <strong style={strong}>+91 90038 50743</strong>{" "}with the phone number you gave at purchase and we&apos;ll confirm it. Your after-sales benefits depend on how long ago you bought it:
       </p>
       <Table
         head={["Time since purchase", "What you can still use"]}

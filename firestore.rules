@@ -50,18 +50,12 @@ service cloud.firestore {
       allow read, write: if isAdmin();
     }
 
-    // Public warranty checker: one record at a time by exact serial, never listable
+    // Old public warranty checker (removed from the site): admin only
     match /warrantyPublic/{serial} {
-      allow get: if true;
-      allow list: if isAdmin();
-      allow write: if isAdmin();
+      allow read, write: if isAdmin();
     }
-
-    // Public warranty checker by phone: doc id is a SHA-256 of the phone, one doc at a time, never listable
     match /warrantyByPhone/{key} {
-      allow get: if true;
-      allow list: if isAdmin();
-      allow write: if isAdmin();
+      allow read, write: if isAdmin();
     }
 
     // Contact form: anyone can send; only admins can read or manage
