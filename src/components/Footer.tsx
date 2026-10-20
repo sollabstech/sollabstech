@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const footerLinks = {
   Products: [
@@ -27,10 +28,10 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const showCta = !usePathname().startsWith("/products");
   return (
     <footer style={{ background: "#03070F", borderTop: "1px solid rgba(0,102,255,0.15)" }}>
-      {/* CTA Band */}
-      <div className="footer-cta-band" style={{
+      {showCta && <div className="footer-cta-band" style={{
         background: "linear-gradient(135deg, rgba(0,102,255,0.15) 0%, rgba(0,170,255,0.08) 100%)",
         borderBottom: "1px solid rgba(0,102,255,0.15)",
         padding: "60px 24px",
@@ -55,7 +56,7 @@ export default function Footer() {
             </a>
           </div>
         </div>
-      </div>
+      </div>}
 
       {/* Main Footer */}
       <div className="footer-main" style={{ maxWidth: 1280, margin: "0 auto", padding: "60px 24px 40px" }}>

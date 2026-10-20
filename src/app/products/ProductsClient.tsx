@@ -369,26 +369,6 @@ export default function ProductsClient({ initialProducts }: { initialProducts: P
             </div>
           )}
 
-          {/* WhatsApp CTA */}
-          <div style={{
-            marginTop: 64, padding: "40px 24px", borderRadius: 20, textAlign: "center",
-            background: "linear-gradient(135deg, rgba(0,102,255,0.1) 0%, rgba(0,170,255,0.06) 100%)",
-            border: "1px solid rgba(0,102,255,0.2)",
-          }}>
-            <h3 style={{ fontSize: "clamp(1.1rem, 2.5vw, 1.5rem)", fontWeight: 700, marginBottom: 10 }}>
-              Can&apos;t find what you&apos;re looking for?
-            </h3>
-            <p style={{ color: "#6B7A94", marginBottom: 24, fontSize: "clamp(0.85rem, 2vw, 1rem)" }}>
-              Tell us your budget and requirements — we&apos;ll source the best option for you.
-            </p>
-            <a
-              href="https://wa.me/919003850743?text=Hi%20Sollabs%20Tech%2C%20I%27m%20looking%20for%20a%20product%20and%20need%20your%20help!"
-              target="_blank" rel="noopener noreferrer"
-              className="btn-primary"
-            >
-              💬 WhatsApp Us
-            </a>
-          </div>
         </div>
       </section>
 
