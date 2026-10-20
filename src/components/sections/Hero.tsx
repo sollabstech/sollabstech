@@ -123,7 +123,7 @@ export default function Hero() {
           className="hero-cards">
 
           {/* Software card */}
-          <Link href="/contact" style={{ textDecoration: "none" }}>
+          <Link href="/clients" style={{ textDecoration: "none" }}>
             <div className="glass card-hover" style={{
               borderRadius: 20,
               padding: "32px 28px",
