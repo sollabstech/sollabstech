@@ -22,29 +22,32 @@ function ImageCarousel({ images, name }: { images: string[]; name: string }) {
 
   const count = images.length;
 
+  // Centre the active thumbnail by scrolling only the strip. scrollIntoView would
+  // also scroll the page, pulling the reader back up every slideshow tick.
+  const centreThumb = useCallback((idx: number) => {
+    const strip = thumbRef.current;
+    const btn = strip?.children[idx] as HTMLElement | undefined;
+    if (!strip || !btn) return;
+    const offset = btn.getBoundingClientRect().left - strip.getBoundingClientRect().left;
+    strip.scrollTo({ left: strip.scrollLeft + offset - (strip.clientWidth - btn.offsetWidth) / 2, behavior: "smooth" });
+  }, []);
+
   const go = useCallback((idx: number) => {
     const next = ((idx % count) + count) % count;
     setCurrent(next);
-    // Auto-scroll active thumbnail into view
-    if (thumbRef.current) {
-      const btn = thumbRef.current.children[next] as HTMLElement;
-      if (btn) btn.scrollIntoView({ inline: "center", behavior: "smooth", block: "nearest" });
-    }
-  }, [count]);
+    centreThumb(next);
+  }, [count, centreThumb]);
 
   const startAuto = useCallback(() => {
     if (autoRef.current) clearInterval(autoRef.current);
     autoRef.current = setInterval(() => {
       if (!paused.current) setCurrent(c => {
         const next = (c + 1) % count;
-        if (thumbRef.current) {
-          const btn = thumbRef.current.children[next] as HTMLElement;
-          if (btn) btn.scrollIntoView({ inline: "center", behavior: "smooth", block: "nearest" });
-        }
+        centreThumb(next);
         return next;
       });
     }, 3500);
-  }, [count]);
+  }, [count, centreThumb]);
 
   useEffect(() => {
     if (count > 1) startAuto();
