@@ -123,8 +123,8 @@ export default function Hero() {
           className="hero-cards">
 
           {/* Software card */}
-          <Link href="/clients" style={{ textDecoration: "none" }}>
-            <div className="glass card-hover" style={{
+          <Link href="/clients" style={{ textDecoration: "none", display: "flex" }}>
+            <div className="glass card-hover" style={{ width: "100%", display: "flex", flexDirection: "column",
               borderRadius: 20,
               padding: "32px 28px",
               textAlign: "left",
@@ -137,7 +137,7 @@ export default function Hero() {
               <p style={{ color: "#6B7A94", fontSize: 14, lineHeight: 1.6, marginBottom: 20 }}>
                 Mobile apps, websites, e-commerce & AI solutions tailored for your business.
               </p>
-              <span style={{ color: "#00AAFF", fontWeight: 600, fontSize: 14, display: "flex", alignItems: "center", gap: 6 }}>
+              <span style={{ color: "#00AAFF", fontWeight: 600, fontSize: 14, marginTop: "auto", display: "flex", alignItems: "center", gap: 6 }}>
                 Explore Software Services
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -147,8 +147,8 @@ export default function Hero() {
           </Link>
 
           {/* Computers card */}
-          <Link href="/products?category=laptop" style={{ textDecoration: "none" }}>
-            <div className="glass card-hover" style={{
+          <Link href="/products?category=laptop" style={{ textDecoration: "none", display: "flex" }}>
+            <div className="glass card-hover" style={{ width: "100%", display: "flex", flexDirection: "column",
               borderRadius: 20,
               padding: "32px 28px",
               textAlign: "left",
@@ -161,7 +161,7 @@ export default function Hero() {
               <p style={{ color: "#6B7A94", fontSize: 14, lineHeight: 1.6, marginBottom: 20 }}>
                 Premium second-hand laptops, custom gaming PCs & workstations shipped across India.
               </p>
-              <span style={{ color: "#00AAFF", fontWeight: 600, fontSize: 14, display: "flex", alignItems: "center", gap: 6 }}>
+              <span style={{ color: "#00AAFF", fontWeight: 600, fontSize: 14, marginTop: "auto", display: "flex", alignItems: "center", gap: 6 }}>
                 Explore Computers
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -171,8 +171,8 @@ export default function Hero() {
           </Link>
 
           {/* Phones card */}
-          <Link href="/products?category=mobile" style={{ textDecoration: "none" }}>
-            <div className="glass card-hover" style={{
+          <Link href="/products?category=mobile" style={{ textDecoration: "none", display: "flex" }}>
+            <div className="glass card-hover" style={{ width: "100%", display: "flex", flexDirection: "column",
               borderRadius: 20,
               padding: "32px 28px",
               textAlign: "left",
@@ -185,7 +185,7 @@ export default function Hero() {
               <p style={{ color: "#6B7A94", fontSize: 14, lineHeight: 1.6, marginBottom: 20 }}>
                 We sell new &amp; second-hand iPhones, ASUS ROG gaming phones, and rugged phones — quality-checked, shipped across India.
               </p>
-              <span style={{ color: "#00E676", fontWeight: 600, fontSize: 14, display: "flex", alignItems: "center", gap: 6 }}>
+              <span style={{ color: "#00E676", fontWeight: 600, fontSize: 14, marginTop: "auto", display: "flex", alignItems: "center", gap: 6 }}>
                 Shop Phones Now
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
