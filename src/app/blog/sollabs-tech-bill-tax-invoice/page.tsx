@@ -50,7 +50,7 @@ const faqs: Faq[] = [
   },
   {
     q: "I lost my Sollabs Tech bill. What should I do?",
-    a: "Check your warranty online with the serial number on your Sollabs Tech sticker at sollabstech.com/warranty, or WhatsApp +91 90038 50743 with the serial number or IMEI and we'll look up your purchase.",
+    a: "Check your warranty online with your mobile number at sollabstech.com/warranty, or WhatsApp +91 90038 50743 with the serial number or IMEI and we'll look up your purchase.",
   },
   {
     q: "How do I check that my bill is genuine?",
@@ -278,7 +278,7 @@ export default function Page() {
       </ol>
 
       <Callout icon="🔍" title="Lost your bill?">
-        Enter the serial number from your Sollabs Tech warranty sticker in the <Link href="/warranty#check" style={link}>warranty checker</Link>{" "}to see your purchase date and warranty, or WhatsApp us with the serial number or IMEI and we&apos;ll look up your purchase.
+        Enter the mobile number you gave at purchase in the <Link href="/warranty#check" style={link}>warranty checker</Link>{" "}to see your purchase date and warranty, or WhatsApp us with the serial number or IMEI and we&apos;ll look up your purchase.
       </Callout>
 
       <p style={p}>

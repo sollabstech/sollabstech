@@ -64,7 +64,7 @@ const faqs: Faq[] = [
   },
   {
     q: "How do I check the warranty on a laptop bought from Sollabs Tech?",
-    a: "Enter the serial number from your Sollabs Tech warranty sticker at sollabstech.com/warranty to see your warranty end date and days left. Benefits by purchase date: up to 7 days full refund, up to 1 month exchange, up to 6 months the 90% upgrade offer, and up to 1 year free service.",
+    a: "Enter the mobile number you gave at purchase at sollabstech.com/warranty to see your warranty end date and days left. Benefits by purchase date: up to 7 days full refund, up to 1 month exchange, up to 6 months the 90% upgrade offer, and up to 1 year free service.",
   },
 ];
 
@@ -145,7 +145,7 @@ export default function Page() {
 
       <h2 style={h2}>How to check the warranty on a Sollabs Tech laptop</h2>
       <p style={p}>
-        Laptops sold by Sollabs Tech carry a <strong style={strong}>Sollabs Tech warranty sticker</strong> with a short serial number (for example 197979). Enter it in the{" "}
+        For a laptop bought from Sollabs Tech, enter the <strong style={strong}>mobile number</strong> you gave us at purchase in the{" "}
         <Link href="/warranty#check" style={link}>Sollabs Tech warranty checker</Link> to see your device, purchase date, warranty end date and days left. Your after-sales benefits depend on how long ago you bought it:
       </p>
       <Table

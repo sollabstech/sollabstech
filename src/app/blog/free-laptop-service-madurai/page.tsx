@@ -106,7 +106,7 @@ export default function Page() {
       <h2 style={h2}>How to book your free service</h2>
       <ol style={list}>
         <li>
-          Check that you&apos;re within 1 year of purchase. Enter the serial from your Sollabs Tech sticker in the{" "}
+          Check that you&apos;re within 1 year of purchase. Enter your mobile number in the{" "}
           <Link href="/warranty#check" style={link}>warranty checker</Link>, or look at the date on your bill.
         </li>
         <li>WhatsApp <strong style={strong}>+91 90038 50743</strong> with the serial or bill and a short description, photo or video of the problem.</li>

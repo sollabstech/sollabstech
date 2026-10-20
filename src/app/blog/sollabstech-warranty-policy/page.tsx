@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 const faqs: Faq[] = [
   {
     q: "How do I check my Sollabs Tech warranty status?",
-    a: "Enter the serial number from your Sollabs Tech warranty sticker at sollabstech.com/warranty. You'll see your device, purchase date, warranty end date, days left and which after-sales benefits are still open. If it isn't found, WhatsApp +91 90038 50743 with your bill.",
+    a: "Enter the mobile number you gave at purchase at sollabstech.com/warranty. You'll see your device, purchase date, warranty end date, days left and which after-sales benefits are still open. If it isn't found, WhatsApp +91 90038 50743 with your bill.",
   },
   {
     q: "How long is the Sollabs Tech warranty?",
@@ -103,8 +103,8 @@ export default function Page() {
 
       <h2 style={h2}>How to check your Sollabs Tech warranty status</h2>
       <p style={p}>
-        The quickest way: enter the serial number from your Sollabs Tech warranty sticker in our{" "}
-        <Link href="/warranty#check" style={link}>online warranty checker</Link>. Without the sticker, you can work it out from your bill, because your benefits depend on <strong style={strong}>how long ago you bought the device</strong>:
+        The quickest way: enter the mobile number you gave at purchase in our{" "}
+        <Link href="/warranty#check" style={link}>online warranty checker</Link>. You can also work it out from your bill, because your benefits depend on <strong style={strong}>how long ago you bought the device</strong>:
       </p>
       <h3 style={h3}>Step 1: Find your purchase date</h3>
       <p style={p}>The date is printed on your Sollabs Tech bill. Count the days or months since then.</p>

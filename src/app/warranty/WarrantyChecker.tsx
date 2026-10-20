@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { fetchPublicWarranty, type PublicWarranty } from "@/lib/warranty";
+import { fetchWarrantiesByPhone, normalisePhone, type PhoneWarranty } from "@/lib/warranty";
 
 type State =
   | { kind: "idle" }
   | { kind: "loading" }
-  | { kind: "not-found"; serial: string }
+  | { kind: "not-found"; phone: string }
   | { kind: "error" }
-  | { kind: "found"; record: PublicWarranty; checkedAt: number };
+  | { kind: "found"; records: PhoneWarranty[]; checkedAt: number };
 
 const DAY = 86400000;
 
@@ -22,7 +22,7 @@ function fmt(d: Date | string) {
   return new Date(d).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
 }
 
-function Result({ record, now }: { record: PublicWarranty; now: number }) {
+function Result({ record, now }: { record: PhoneWarranty; now: number }) {
   const start = new Date(record.purchaseDate).getTime();
   const end = new Date(record.warrantyEndDate).getTime();
   const daysLeft = Math.ceil((end - now) / DAY);
@@ -37,7 +37,7 @@ function Result({ record, now }: { record: PublicWarranty; now: number }) {
     { label: "1-year free service", until: addMonths(record.purchaseDate, 12) },
   ];
 
-  const whatsapp = `https://wa.me/919003850743?text=${encodeURIComponent(`Hi Sollabs Tech, I need help with my warranty. Serial: ${record.serialNumber}`)}`;
+  const whatsapp = `https://wa.me/919003850743?text=${encodeURIComponent(`Hi Sollabs Tech, I need help with the warranty for my ${record.brand ? record.brand + " " : ""}${record.deviceName} (bought ${fmt(record.purchaseDate)}).`)}`;
 
   return (
     <div style={{ marginTop: 20, borderRadius: 18, overflow: "hidden", border: `1px solid ${color}55`, background: "rgba(10,22,40,0.85)", animation: "fadeInUp 0.4s ease both", textAlign: "left" }}>
@@ -46,7 +46,7 @@ function Result({ record, now }: { record: PublicWarranty; now: number }) {
           <span style={{ fontSize: 28 }}>{record.deviceType === "mobile" ? "📱" : "💻"}</span>
           <div>
             <div style={{ fontSize: 16, fontWeight: 800, color: "white" }}>{record.deviceName}</div>
-            <div style={{ fontSize: 12.5, color: "#8193AB" }}>{record.brand ? `${record.brand} · ` : ""}Serial {record.serialNumber}</div>
+            <div style={{ fontSize: 12.5, color: "#8193AB" }}>{[record.brand, `Bought ${fmt(record.purchaseDate)}`].filter(Boolean).join(" · ")}</div>
           </div>
         </div>
         <span style={{ padding: "6px 14px", borderRadius: 100, fontSize: 13, fontWeight: 800, color, background: `${color}1f`, border: `1px solid ${color}55` }}>
@@ -94,17 +94,17 @@ function Result({ record, now }: { record: PublicWarranty; now: number }) {
 }
 
 export default function WarrantyChecker() {
-  const [serial, setSerial] = useState("");
+  const [phone, setPhone] = useState("");
   const [state, setState] = useState<State>({ kind: "idle" });
+  const valid = /^[6-9]\d{9}$/.test(normalisePhone(phone));
 
   async function check(e: React.FormEvent) {
     e.preventDefault();
-    const s = serial.trim();
-    if (!s) return;
+    if (!valid) return;
     setState({ kind: "loading" });
     try {
-      const record = await fetchPublicWarranty(s);
-      setState(record ? { kind: "found", record, checkedAt: Date.now() } : { kind: "not-found", serial: s });
+      const records = await fetchWarrantiesByPhone(phone);
+      setState(records.length ? { kind: "found", records, checkedAt: Date.now() } : { kind: "not-found", phone: normalisePhone(phone) });
     } catch {
       setState({ kind: "error" });
     }
@@ -116,27 +116,30 @@ export default function WarrantyChecker() {
         <div style={{ padding: "28px 24px", borderRadius: 22, background: "linear-gradient(160deg, rgba(0,102,255,0.12), rgba(10,22,40,0.8))", border: "1px solid rgba(0,102,255,0.3)" }}>
           <h2 style={{ fontSize: "clamp(1.3rem, 3vw, 1.7rem)", fontWeight: 800, color: "white", margin: "0 0 6px" }}>Check your warranty</h2>
           <p style={{ fontSize: 14, color: "#8193AB", margin: "0 0 18px" }}>
-            Enter the serial number on your Sollabs Tech warranty sticker.
+            Enter the mobile number you gave us when you bought it.
           </p>
           <form onSubmit={check} style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
             <input
-              value={serial}
-              onChange={(e) => setSerial(e.target.value)}
-              placeholder="e.g. 197979"
-              aria-label="Serial number"
-              autoComplete="off"
-              style={{ flex: "1 1 220px", minWidth: 0, height: 48, padding: "0 16px", borderRadius: 12, fontSize: 16, fontFamily: "monospace", color: "white", background: "rgba(3,7,18,0.6)", border: "1px solid rgba(255,255,255,0.12)", outline: "none" }}
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              placeholder="10-digit mobile number"
+              aria-label="Mobile number"
+              type="tel"
+              inputMode="numeric"
+              autoComplete="tel"
+              maxLength={16}
+              style={{ flex: "1 1 220px", minWidth: 0, height: 48, padding: "0 16px", borderRadius: 12, fontSize: 16, letterSpacing: 0.5, color: "white", background: "rgba(3,7,18,0.6)", border: "1px solid rgba(255,255,255,0.12)", outline: "none" }}
             />
-            <button type="submit" className="btn-primary" disabled={state.kind === "loading" || !serial.trim()}
-              style={{ height: 48, padding: "0 26px", justifyContent: "center", flex: "0 0 auto", opacity: state.kind === "loading" || !serial.trim() ? 0.6 : 1 }}>
+            <button type="submit" className="btn-primary" disabled={state.kind === "loading" || !valid}
+              style={{ height: 48, padding: "0 26px", justifyContent: "center", flex: "0 0 auto", opacity: state.kind === "loading" || !valid ? 0.6 : 1 }}>
               {state.kind === "loading" ? "Checking…" : "Check →"}
             </button>
           </form>
 
           {state.kind === "not-found" && (
             <div style={{ marginTop: 16, padding: "14px 16px", borderRadius: 12, fontSize: 14, lineHeight: 1.6, color: "#FBBF24", background: "rgba(251,191,36,0.08)", border: "1px solid rgba(251,191,36,0.25)" }}>
-              No warranty found for <strong style={{ fontFamily: "monospace" }}>{state.serial}</strong>. Check the number on your sticker, or{" "}
-              <a href={`https://wa.me/919003850743?text=${encodeURIComponent(`Hi Sollabs Tech, my warranty serial ${state.serial} isn't found online.`)}`} target="_blank" rel="noopener noreferrer" style={{ color: "#00AAFF" }}>
+              No warranty found for <strong>{state.phone}</strong>. Try the number you gave us at purchase, or{" "}
+              <a href={`https://wa.me/919003850743?text=${encodeURIComponent("Hi Sollabs Tech, I can't find my warranty online using my phone number.")}`} target="_blank" rel="noopener noreferrer" style={{ color: "#00AAFF" }}>
                 message us on WhatsApp
               </a>.
             </div>
@@ -144,7 +147,7 @@ export default function WarrantyChecker() {
           {state.kind === "error" && (
             <div style={{ marginTop: 16, fontSize: 14, color: "#F87171" }}>Couldn&apos;t check right now. Please try again in a moment.</div>
           )}
-          {state.kind === "found" && <Result record={state.record} now={state.checkedAt} />}
+          {state.kind === "found" && state.records.map((r, i) => <Result key={i} record={r} now={state.checkedAt} />)}
         </div>
       </div>
       <style>{`@media (max-width: 520px) { .wc-grid { grid-template-columns: 1fr !important; } }`}</style>

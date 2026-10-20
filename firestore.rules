@@ -57,6 +57,13 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
+    // Public warranty checker by phone: doc id is a SHA-256 of the phone, one doc at a time, never listable
+    match /warrantyByPhone/{key} {
+      allow get: if true;
+      allow list: if isAdmin();
+      allow write: if isAdmin();
+    }
+
     // Contact form: anyone can send; only admins can read or manage
     match /messages/{messageId} {
       allow create: if request.resource.data.keys().hasOnly(['name', 'email', 'phone', 'type', 'message', 'read', 'createdAt'])
