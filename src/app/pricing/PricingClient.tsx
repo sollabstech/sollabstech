@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { CATEGORIES, WHATSAPP, formatINR, startingPrice, type Cell } from "./packages";
+import { CATEGORIES, WHATSAPP, formatINR, type Cell } from "./packages";
 
 const BLUE = "linear-gradient(135deg,#0066FF,#00AAFF)";
 
@@ -44,54 +44,34 @@ export default function PricingClient() {
 
   return (
     <>
-      <section style={{ paddingTop: 120, paddingBottom: 40, paddingLeft: 24, paddingRight: 24, textAlign: "center" }}>
-        <div style={{ maxWidth: 720, margin: "0 auto" }}>
-          <span className="section-tag" style={{ marginBottom: 16, display: "inline-flex" }}>Pricing</span>
-          <h1 style={{ fontSize: "clamp(2rem, 5vw, 3.4rem)", fontWeight: 800, marginBottom: 16 }}>
-            Simple Packages, <span className="gradient-text" style={{ whiteSpace: "nowrap" }}>Honest Prices</span>
-          </h1>
-          <p style={{ color: "#6B7A94", fontSize: 17, lineHeight: 1.7 }}>
-            Websites, mobile apps and custom software. Choose what you need, compare packages, and pick the one that fits.
-          </p>
-          <ol className="pr-steps" aria-label="How it works">
-            {["Choose a service", "Compare packages", "Select & enquire"].map((s, i) => (
-              <li key={s}><span>{i + 1}</span>{s}</li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* Step 1: category */}
-      <section style={{ padding: "0 24px 36px" }}>
-        <div className="pr-cats" role="tablist" aria-label="Service type">
-          {CATEGORIES.map((c) => {
-            const active = c.id === cat.id;
-            return (
-              <button key={c.id} role="tab" aria-selected={active} onClick={() => chooseCategory(c.id, true)} className="pr-cat" style={{
-                background: active ? "linear-gradient(160deg, rgba(0,102,255,0.22), rgba(10,22,40,0.9))" : "rgba(10,22,40,0.7)",
-                border: `1px solid ${active ? "rgba(0,170,255,0.6)" : "rgba(255,255,255,0.08)"}`,
-                boxShadow: active ? "0 10px 40px rgba(0,102,255,0.18)" : "none",
-              }}>
-                <span className="pr-cat-icon">{c.icon}</span>
-                <span style={{ flex: 1, minWidth: 0 }}>
-                  <span style={{ display: "block", fontSize: 17, fontWeight: 700, color: "white", marginBottom: 4 }}>{c.name}</span>
-                  <span className="pr-cat-blurb">{c.blurb}</span>
-                  <span style={{ display: "block", fontSize: 13, color: "#8193AB", marginTop: 8 }}>
-                    from <strong style={{ color: active ? "#00AAFF" : "white", fontSize: 16 }}>{formatINR(startingPrice(c))}</strong>
-                  </span>
-                </span>
-                {active && <span className="pr-cat-tick" aria-hidden>✓</span>}
-              </button>
-            );
-          })}
+      <section ref={packagesRef} style={{ padding: "100px 16px 0", scrollMarginTop: 70 }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <h1 className="sr-only">Website, Mobile App &amp; Software Development Pricing</h1>
+          <div className="pr-menu" role="tablist" aria-label="Service type">
+            {CATEGORIES.map((c) => {
+              const active = c.id === cat.id;
+              return (
+                <button key={c.id} role="tab" aria-selected={active} onClick={() => chooseCategory(c.id, false)} style={{
+                  flexShrink: 0, padding: "8px 18px", borderRadius: 100, fontSize: 13, fontWeight: 600, cursor: "pointer",
+                  border: "1px solid", whiteSpace: "nowrap", transition: "all 0.2s",
+                  background: active ? BLUE : "rgba(10,22,40,0.6)",
+                  borderColor: active ? "transparent" : "rgba(255,255,255,0.1)",
+                  color: active ? "white" : "#8A9BB8",
+                  boxShadow: active ? "0 4px 16px rgba(0,102,255,0.35)" : "none",
+                }}>
+                  <span aria-hidden style={{ marginRight: 6 }}>{c.icon}</span>{c.short}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </section>
 
       {/* Step 2: packages */}
-      <section ref={packagesRef} style={{ padding: "0 24px 60px", scrollMarginTop: 90 }}>
+      <section style={{ padding: "24px 16px 60px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <h2 style={{ fontSize: 22, fontWeight: 800, color: "white", textAlign: "center", margin: "0 0 6px" }}>
-            {cat.icon} {cat.name} packages
+          <h2 className="pr-title" style={{ fontWeight: 800, color: "white", textAlign: "center", margin: "0 0 6px" }}>
+            {cat.name} packages
           </h2>
           <p style={{ textAlign: "center", color: "#6B7A94", fontSize: 14.5, margin: "0 0 26px" }}>Tap <strong style={{ color: "#C4D0E0" }}>Select</strong> on the package you like.</p>
 
@@ -220,16 +200,9 @@ export default function PricingClient() {
       {selected && <div style={{ height: 80 }} aria-hidden />}
 
       <style>{`
-        .pr-steps { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 22px; list-style: none; padding: 0; margin: 26px 0 0; }
-        .pr-steps li { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #C4D0E0; font-weight: 600; }
-        .pr-steps li span { width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: white; background: ${BLUE}; }
-
-        .pr-cats { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-        .pr-cat { position: relative; display: flex; flex-direction: column; gap: 14px; text-align: left; padding: 24px 22px; border-radius: 20px; cursor: pointer; transition: transform .2s, border-color .2s; font: inherit; }
-        .pr-cat:hover { transform: translateY(-3px); }
-        .pr-cat-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 26px; background: rgba(0,102,255,0.12); border: 1px solid rgba(0,102,255,0.25); flex-shrink: 0; }
-        .pr-cat-blurb { display: block; font-size: 13.5px; color: #8193AB; line-height: 1.55; }
-        .pr-cat-tick { position: absolute; top: 16px; right: 16px; width: 26px; height: 26px; border-radius: 50%; background: ${BLUE}; color: white; font-size: 14px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+        .pr-menu { display: flex; gap: 8px; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+        .pr-menu::-webkit-scrollbar { display: none; }
+        .pr-title { font-size: 22px; }
 
         .pr-table { border-radius: 22px; border: 1px solid rgba(255,255,255,0.08); background: rgba(10,22,40,0.75); overflow: hidden; }
         .pr-row { display: grid; grid-template-columns: 1.15fr repeat(3, 1fr); }
@@ -253,10 +226,8 @@ export default function PricingClient() {
         .pr-bar { position: fixed; left: 0; right: 0; margin: 0 auto; bottom: 16px; z-index: 60; width: min(680px, calc(100% - 24px)); display: flex; align-items: center; gap: 12px; padding: 12px 14px 12px 18px; border-radius: 18px; background: rgba(6,14,28,0.96); border: 1px solid rgba(34,197,94,0.4); box-shadow: 0 20px 50px rgba(0,0,0,0.5); backdrop-filter: blur(12px); animation: fadeInUp .3s ease both; box-sizing: border-box; }
 
         @media (max-width: 860px) {
-          .pr-cats { grid-template-columns: 1fr; gap: 10px; }
-          .pr-cat { flex-direction: row; align-items: center; padding: 16px; }
-          .pr-cat-blurb { display: none; }
-          .pr-cat-tick { top: 50%; transform: translateY(-50%); }
+          .pr-menu > button { flex: 1 1 0; padding: 9px 6px !important; font-size: 13px !important; }
+          .pr-title { font-size: 18px; }
           .pr-table { display: none; }
           .pr-mobile { display: block; }
           .pr-explore { grid-template-columns: 1fr; }

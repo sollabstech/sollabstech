@@ -16,6 +16,7 @@ export interface Category {
   id: string;
   icon: string;
   name: string;
+  short: string;
   blurb: string;
   tiers: [Tier, Tier, Tier];
   features: { label: string; values: [Cell, Cell, Cell] }[];
@@ -27,6 +28,7 @@ export const WHATSAPP = "919003850743";
 export const CATEGORIES: Category[] = [
   {
     id: "website",
+    short: "Website",
     icon: "🌐",
     name: "Website & E-commerce",
     blurb: "Business websites, online stores and multi-vendor marketplaces.",
@@ -54,6 +56,7 @@ export const CATEGORIES: Category[] = [
   },
   {
     id: "app",
+    short: "Mobile App",
     icon: "📱",
     name: "Mobile Apps",
     blurb: "Android and iPhone apps with an admin panel to run them.",
@@ -80,6 +83,7 @@ export const CATEGORIES: Category[] = [
   },
   {
     id: "software",
+    short: "Software",
     icon: "🖥️",
     name: "Custom Software & ERP",
     blurb: "Billing, ERP, CRM and custom software for web, Windows and mobile.",
