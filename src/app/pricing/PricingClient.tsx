@@ -68,7 +68,7 @@ export default function PricingClient() {
       </section>
 
       {/* Step 2: packages */}
-      <section style={{ padding: "24px 16px 60px" }}>
+      <section style={{ padding: "24px 16px 100px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <h2 className="pr-title" style={{ fontWeight: 800, color: "white", textAlign: "center", margin: "0 0 6px" }}>
             {cat.name} packages
@@ -151,31 +151,6 @@ export default function PricingClient() {
             })()}
           </div>
 
-          <p style={{ textAlign: "center", fontSize: 13, color: "#64748B", marginTop: 18, lineHeight: 1.6 }}>
-            Prices are starting prices. Need something different? We&apos;ll confirm the final quote with you before any work starts.
-          </p>
-        </div>
-      </section>
-
-      {/* Explore everything */}
-      <section style={{ padding: "0 24px 100px" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <h2 style={{ fontSize: 24, fontWeight: 800, color: "white", textAlign: "center", margin: "0 0 6px" }}>
-            Explore all our <span className="gradient-text">services</span>
-          </h2>
-          <p style={{ textAlign: "center", color: "#6B7A94", fontSize: 14.5, margin: "0 0 28px" }}>Tap any service to see its packages.</p>
-          <div className="pr-explore">
-            {CATEGORIES.map((c) => (
-              <div key={c.id} style={{ padding: 22, borderRadius: 18, background: "rgba(10,22,40,0.7)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                <div style={{ fontSize: 16, fontWeight: 700, color: "white", marginBottom: 14 }}>{c.icon} {c.name}</div>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-                  {c.services.map((s) => (
-                    <button key={s} type="button" onClick={() => chooseCategory(c.id, true)} className="pr-chip">{s}</button>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -219,9 +194,6 @@ export default function PricingClient() {
         .pr-mcard { padding: 20px 18px; border-radius: 20px; background: rgba(10,22,40,0.8); border: 1px solid rgba(255,255,255,0.08); }
         .pr-mcard.pr-picked { border-color: rgba(34,197,94,0.5); }
 
-        .pr-explore { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-        .pr-chip { padding: 8px 14px; border-radius: 100px; font-size: 13px; font-weight: 600; color: #C4D0E0; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: all .2s; font-family: inherit; }
-        .pr-chip:hover { color: white; border-color: rgba(0,170,255,0.6); background: rgba(0,102,255,0.15); }
 
         .pr-bar { position: fixed; left: 0; right: 0; margin: 0 auto; bottom: 16px; z-index: 60; width: min(680px, calc(100% - 24px)); display: flex; align-items: center; gap: 12px; padding: 12px 14px 12px 18px; border-radius: 18px; background: rgba(6,14,28,0.96); border: 1px solid rgba(34,197,94,0.4); box-shadow: 0 20px 50px rgba(0,0,0,0.5); backdrop-filter: blur(12px); animation: fadeInUp .3s ease both; box-sizing: border-box; }
 
@@ -230,7 +202,6 @@ export default function PricingClient() {
           .pr-title { font-size: 18px; }
           .pr-table { display: none; }
           .pr-mobile { display: block; }
-          .pr-explore { grid-template-columns: 1fr; }
           .pr-bar { gap: 8px; padding-left: 14px; }
           .pr-bar a { padding: 11px 14px !important; }
         }
