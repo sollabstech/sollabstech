@@ -275,7 +275,7 @@ export default function ProductsClient({ initialProducts }: { initialProducts: P
                 textDecoration: "none", whiteSpace: "nowrap", color: "white",
                 background: "linear-gradient(135deg,#16A34A,#22C55E)", boxShadow: "0 4px 16px rgba(34,197,94,0.3)",
               }}>
-                💰 Sell Your Device
+                💰 Sell
               </Link>
             </div>
 
