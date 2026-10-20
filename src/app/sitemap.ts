@@ -56,6 +56,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${base}/blog/how-to-check-laptop-warranty-sollabstech`, lastModified: new Date("2026-10-11"), changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/blog/sollabstech-warranty-policy`,          lastModified: new Date("2026-10-11"), changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/blog/sollabs-tech-laptop-warranty-replacement`, lastModified: new Date("2026-08-11"), changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/pricing`, lastModified: new Date("2026-10-20"), changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/sell`, lastModified: new Date("2026-10-20"), changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/warranty`,       lastModified: new Date("2026-10-11"), changeFrequency: "yearly",  priority: 0.6 },
     { url: `${base}/track`,          lastModified: new Date("2026-08-11"), changeFrequency: "yearly",  priority: 0.5 },
