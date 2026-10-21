@@ -161,7 +161,7 @@ function CategoryFromUrl({ onChange }: { onChange: (category: string) => void })
   return null;
 }
 
-export default function ProductsClient({ initialProducts }: { initialProducts: Product[] | null }) {
+export default function ProductsClient({ initialProducts, header }: { initialProducts: Product[] | null; header?: React.ReactNode }) {
   const router = useRouter();
 
   const [categoryParam, setCategoryParam] = useState("");
@@ -239,6 +239,7 @@ export default function ProductsClient({ initialProducts }: { initialProducts: P
       </Suspense>
       <section style={{ paddingTop: 100, padding: "100px 16px 80px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          {header}
 
           {/* Toolbar */}
           <div className="products-toolbar" style={{ marginBottom: 24 }}>
