@@ -62,6 +62,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${base}/track`,          lastModified: new Date("2026-08-11"), changeFrequency: "yearly",  priority: 0.5 },
     { url: `${base}/privacy`,        lastModified: new Date("2026-09-02"), changeFrequency: "yearly",  priority: 0.3 },
     { url: `${base}/lokkho/privacy-policy`, lastModified: new Date("2026-10-11"), changeFrequency: "yearly",  priority: 0.4 },
+    { url: `${base}/solattend-admin/privacy-policy`, lastModified: new Date("2026-10-22"), changeFrequency: "yearly",  priority: 0.4 },
+    { url: `${base}/solattend-admin/delete-account`,  lastModified: new Date("2026-10-22"), changeFrequency: "yearly",  priority: 0.3 },
+    { url: `${base}/solattend/privacy-policy`,        lastModified: new Date("2026-10-22"), changeFrequency: "yearly",  priority: 0.4 },
+    { url: `${base}/solattend/delete-account`,        lastModified: new Date("2026-10-22"), changeFrequency: "yearly",  priority: 0.3 },
     { url: `${base}/terms`,          lastModified: new Date("2026-09-02"), changeFrequency: "yearly",  priority: 0.3 },
   ];
 }

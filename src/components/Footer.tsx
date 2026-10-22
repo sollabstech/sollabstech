@@ -134,8 +134,10 @@ export default function Footer() {
           <p style={{ color: "#3D4F6B", fontSize: 13 }}>
             © {new Date().getFullYear()} Sollabs Tech. All rights reserved.
           </p>
-          <div style={{ display: "flex", gap: 20 }}>
+          <div style={{ display: "flex", gap: 20, flexWrap: "wrap" }}>
             <Link href="/privacy" style={{ color: "#3D4F6B", fontSize: 13, textDecoration: "none" }}>Privacy Policy</Link>
+            <Link href="/solattend/privacy-policy" style={{ color: "#3D4F6B", fontSize: 13, textDecoration: "none" }}>SolAttend Privacy</Link>
+            <Link href="/solattend-admin/privacy-policy" style={{ color: "#3D4F6B", fontSize: 13, textDecoration: "none" }}>SolAttend Admin Privacy</Link>
             <Link href="/terms" style={{ color: "#3D4F6B", fontSize: 13, textDecoration: "none" }}>Terms & Conditions</Link>
           </div>
         </div>
