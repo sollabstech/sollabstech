@@ -3,35 +3,27 @@
 import { useState } from "react";
 import Link from "next/link";
 import {
-  AGES, APPLE_CHIPS, BRANDS, CONDITIONS, DEFAULTS, GENERATIONS, GRAPHICS, PROCESSORS, RAM, STORAGE,
-  estimate, formatINR, type Inputs, type Option,
+  BRANDS, CONDITIONS, DEFAULTS, GPUS, GPU_TYPES, MAKES, PROCESSORS, RAM, STORAGE_TYPES, WARRANTY_MONTHS,
+  ageMonths, estimate, find, formatINR, generationsFor, storageSizesFor, underWarranty,
+  type GpuType, type Inputs, type Make, type StorageType,
 } from "./valuation";
 
 const WHATSAPP = "919003850743";
 
-function Chips({ label, options, value, onChange }: { label: string; options: Option[]; value: string; onChange: (id: string) => void }) {
+function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <fieldset className="lp-field">
-      <legend>{label}</legend>
-      <div className="lp-chips">
-        {options.map((o) => (
-          <button key={o.id} type="button" aria-pressed={value === o.id} onClick={() => onChange(o.id)} className={value === o.id ? "on" : ""}>
-            {o.label}
-          </button>
-        ))}
-      </div>
-    </fieldset>
+    <label className="lp-field">
+      <span>{label}</span>
+      {children}
+    </label>
   );
 }
 
-function Select({ label, options, value, onChange }: { label: string; options: Option[]; value: string; onChange: (id: string) => void }) {
+function Select({ value, options, onChange }: { value: string; options: { id: string; label: string }[]; onChange: (id: string) => void }) {
   return (
-    <label className="lp-field">
-      <span className="lp-legend">{label}</span>
-      <select value={value} onChange={(e) => onChange(e.target.value)}>
-        {options.map((o) => <option key={o.id} value={o.id}>{o.label}</option>)}
-      </select>
-    </label>
+    <select value={value} onChange={(e) => onChange(e.target.value)}>
+      {options.map((o) => <option key={o.id} value={o.id}>{o.label}</option>)}
+    </select>
   );
 }
 
@@ -47,56 +39,104 @@ function Toggle({ label, checked, onChange }: { label: string; checked: boolean;
 export default function Calculator() {
   const [v, setV] = useState<Inputs>(DEFAULTS);
   const set = <K extends keyof Inputs>(k: K) => (val: Inputs[K]) => setV((x) => ({ ...x, [k]: val }));
-  const isMac = v.brand === "apple";
-  const r = estimate(v);
 
-  const name = (list: Option[], id: string) => list.find((o) => o.id === id)?.label ?? "";
+  // Each choice resets the dropdowns that depend on it.
+  const setBrand = (brand: string) =>
+    setV((x) => {
+      if (brand === "apple") return { ...x, brand, make: "apple", processor: "m1", generation: "", gpuType: "none", gpu: "" };
+      if (x.make === "apple") return { ...x, brand, make: "intel", processor: "i5", generation: "11" };
+      return { ...x, brand };
+    });
+  const setMake = (make: Make) =>
+    setV((x) => {
+      const processor = make === "apple" ? "m1" : make === "amd" ? "r5" : "i5";
+      const gens = generationsFor(make, processor);
+      return {
+        ...x, make, processor, generation: gens[Math.floor(gens.length / 2)]?.id ?? "",
+        brand: make === "apple" ? "apple" : x.brand === "apple" ? "dell" : x.brand,
+        ...(make === "apple" ? { gpuType: "none" as GpuType, gpu: "" } : {}),
+      };
+    });
+  const setProcessor = (processor: string) =>
+    setV((x) => {
+      const gens = generationsFor(x.make, processor);
+      const keep = gens.some((g) => g.id === x.generation);
+      return { ...x, processor, generation: keep ? x.generation : gens[gens.length - 1]?.id ?? "" };
+    });
+  const setStorageType = (storageType: StorageType) =>
+    setV((x) => {
+      const sizes = storageSizesFor(storageType);
+      return { ...x, storageType, storageSize: sizes.some((s) => s.id === x.storageSize) ? x.storageSize : sizes[1]?.id ?? sizes[0].id };
+    });
+  const setGpuType = (gpuType: GpuType) =>
+    setV((x) => ({ ...x, gpuType, gpu: gpuType === "none" ? "" : GPUS[gpuType][0].id }));
+
+  const isMac = v.make === "apple";
+  const gens = generationsFor(v.make, v.processor);
+  const r = estimate(v);
+  const warranty = underWarranty(v);
+  const months = ageMonths(v);
+
   const summary = [
-    name(BRANDS, v.brand),
-    isMac ? name(APPLE_CHIPS, v.chip) : `${name(PROCESSORS, v.processor)} (${name(GENERATIONS, v.generation)})`,
-    `${name(RAM, v.ram)} RAM`,
-    name(STORAGE, v.storage),
-    !isMac && v.graphics !== "none" ? name(GRAPHICS, v.graphics) : "",
-    `${name(AGES, v.age)} old`,
-    `${name(CONDITIONS, v.condition)} condition`,
+    find(BRANDS, v.brand).label,
+    [find(PROCESSORS[v.make], v.processor).label, gens.length ? find(gens, v.generation).label : ""].filter(Boolean).join(" "),
+    `${find(RAM, v.ram).label} RAM`,
+    v.storageType === "hdd"
+      ? `${find(storageSizesFor("hdd"), v.storageSize).label} HDD`
+      : `${find(storageSizesFor("ssd"), v.storageSize).label} SSD${v.storageType === "both" ? " + HDD" : ""}`,
+    !isMac && v.gpuType !== "none" ? find(GPUS[v.gpuType], v.gpu).label : "",
+    `${months} month${months === 1 ? "" : "s"} old`,
+    `${find(CONDITIONS, v.condition).label.split(" –")[0]} condition`,
   ].filter(Boolean).join(", ");
   const waText = encodeURIComponent(`Hi Sollabs Tech, I want to sell my laptop: ${summary}. The calculator says ${formatINR(r.low)}–${formatINR(r.high)}. What's your offer?`);
 
   return (
     <div className="lp-wrap">
       <div className="lp-form">
-        <Chips label="Brand" options={BRANDS} value={v.brand} onChange={set("brand")} />
-        {isMac ? (
-          <Chips label="Chip" options={APPLE_CHIPS} value={v.chip} onChange={set("chip")} />
-        ) : (
+        <div className="lp-step">1 · Laptop & processor</div>
+        <div className="lp-grid">
+          <Field label="Brand"><Select value={v.brand} options={BRANDS} onChange={setBrand} /></Field>
+          <Field label="Processor make"><Select value={v.make} options={MAKES} onChange={(id) => setMake(id as Make)} /></Field>
+          <Field label={isMac ? "Chip" : "Processor model"}><Select value={v.processor} options={PROCESSORS[v.make]} onChange={setProcessor} /></Field>
+          {gens.length > 0 && <Field label="Generation"><Select value={v.generation} options={gens} onChange={set("generation")} /></Field>}
+        </div>
+
+        <div className="lp-step">2 · RAM & storage</div>
+        <div className="lp-grid">
+          <Field label="RAM"><Select value={v.ram} options={RAM} onChange={set("ram")} /></Field>
+          <Field label="Storage type"><Select value={v.storageType} options={STORAGE_TYPES} onChange={(id) => setStorageType(id as StorageType)} /></Field>
+          <Field label={v.storageType === "hdd" ? "Hard disk size" : "SSD size"}>
+            <Select value={v.storageSize} options={storageSizesFor(v.storageType)} onChange={set("storageSize")} />
+          </Field>
+        </div>
+
+        {!isMac && (
           <>
-            <Chips label="Processor" options={PROCESSORS} value={v.processor} onChange={set("processor")} />
-            <Select label="Processor generation" options={GENERATIONS} value={v.generation} onChange={set("generation")} />
+            <div className="lp-step">3 · Graphics card</div>
+            <div className="lp-grid">
+              <Field label="Graphics"><Select value={v.gpuType} options={GPU_TYPES} onChange={(id) => setGpuType(id as GpuType)} /></Field>
+              {v.gpuType !== "none" && (
+                <Field label="Graphics model"><Select value={v.gpu} options={GPUS[v.gpuType]} onChange={set("gpu")} /></Field>
+              )}
+            </div>
           </>
         )}
-        <Chips label="RAM" options={RAM} value={v.ram} onChange={set("ram")} />
-        <Chips label="Storage" options={STORAGE} value={v.storage} onChange={set("storage")} />
-        {!isMac && <Chips label="Graphics card" options={GRAPHICS} value={v.graphics} onChange={set("graphics")} />}
-        <Chips label="How old is it?" options={AGES} value={v.age} onChange={set("age")} />
-        <fieldset className="lp-field">
-          <legend>Condition</legend>
-          <div className="lp-cond">
-            {CONDITIONS.map((c) => (
-              <button key={c.id} type="button" aria-pressed={v.condition === c.id} onClick={() => set("condition")(c.id)} className={v.condition === c.id ? "on" : ""}>
-                <strong>{c.label}</strong>
-                <span>{c.hint}</span>
-              </button>
-            ))}
-          </div>
-        </fieldset>
-        <fieldset className="lp-field">
-          <legend>Anything else?</legend>
-          <div style={{ display: "grid", gap: 8 }}>
-            <Toggle label="Battery is weak (lasts under 1 hour)" checked={v.batteryWeak} onChange={set("batteryWeak")} />
-            <Toggle label="Original charger is missing" checked={v.noCharger} onChange={set("noCharger")} />
-            <Toggle label="Has the original bill and box" checked={v.billAndBox} onChange={set("billAndBox")} />
-          </div>
-        </fieldset>
+
+        <div className="lp-step">{isMac ? "3" : "4"} · Age & condition</div>
+        <div className="lp-grid">
+          <Field label="How many months old?">
+            <input inputMode="numeric" value={v.months} onChange={(e) => set("months")(e.target.value.replace(/\D/g, "").slice(0, 3))} placeholder="e.g. 18" />
+            {warranty && <em className="lp-warranty">🛡️ Under {WARRANTY_MONTHS} months: brand warranty usually still active</em>}
+          </Field>
+          <Field label="Condition"><Select value={v.condition} options={CONDITIONS} onChange={set("condition")} /></Field>
+        </div>
+
+        <div className="lp-step">Anything else?</div>
+        <div style={{ display: "grid", gap: 10 }}>
+          <Toggle label="Battery is weak (lasts under 1 hour)" checked={v.batteryWeak} onChange={set("batteryWeak")} />
+          <Toggle label="Original charger is missing" checked={v.noCharger} onChange={set("noCharger")} />
+          <Toggle label="Has the original bill and box" checked={v.billAndBox} onChange={set("billAndBox")} />
+        </div>
       </div>
 
       <aside id="lp-result" className="lp-result" aria-live="polite">
@@ -108,6 +148,7 @@ export default function Calculator() {
           <span>A shop may offer</span>
           <strong>{formatINR(r.shopLow)} – {formatINR(r.shopHigh)}</strong>
         </div>
+        {warranty && <div className="lp-badge">🛡️ Still under brand warranty</div>}
 
         <p style={{ fontSize: 13, color: "#94A3B8", lineHeight: 1.6, margin: "14px 0 18px" }}>{summary}</p>
 
@@ -130,24 +171,23 @@ export default function Calculator() {
       <style>{`
         .lp-mini { display: none; }
         .lp-wrap { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 24px; align-items: start; }
-        .lp-form { display: grid; gap: 20px; padding: 24px; border-radius: 22px; background: rgba(10,22,40,0.75); border: 1px solid rgba(255,255,255,0.08); }
-        .lp-field { border: none; padding: 0; margin: 0; min-width: 0; display: block; }
-        .lp-field legend, .lp-legend { display: block; font-size: 13px; font-weight: 700; color: #C4D0E0; margin-bottom: 9px; padding: 0; }
-        .lp-chips { display: flex; flex-wrap: wrap; gap: 8px; }
-        .lp-chips button, .lp-cond button { font-family: inherit; cursor: pointer; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); color: #8A9BB8; transition: all .15s; }
-        .lp-chips button { padding: 9px 14px; font-size: 13.5px; font-weight: 600; }
-        .lp-chips button.on, .lp-cond button.on { background: rgba(0,102,255,0.18); border-color: rgba(0,170,255,0.7); color: white; }
-        .lp-cond { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
-        .lp-cond button { padding: 11px 13px; text-align: left; display: grid; gap: 2px; }
-        .lp-cond strong { font-size: 14px; }
-        .lp-cond span { font-size: 12px; color: #64748B; }
-        .lp-form select { width: 100%; height: 44px; padding: 0 12px; border-radius: 12px; font-size: 14.5px; color: white; background: rgba(3,7,18,0.6); border: 1px solid rgba(255,255,255,0.12); }
+        .lp-form { padding: 24px; border-radius: 22px; background: rgba(10,22,40,0.75); border: 1px solid rgba(255,255,255,0.08); }
+        .lp-step { font-size: 12px; font-weight: 800; color: #60A5FA; letter-spacing: 1px; text-transform: uppercase; margin: 24px 0 12px; }
+        .lp-step:first-child { margin-top: 0; }
+        .lp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .lp-field { display: grid; gap: 7px; min-width: 0; align-content: start; }
+        .lp-field > span { font-size: 13px; font-weight: 600; color: #C4D0E0; }
+        .lp-field select, .lp-field input { width: 100%; height: 46px; padding: 0 12px; border-radius: 12px; font-size: 15px; color: white; background: rgba(3,7,18,0.6); border: 1px solid rgba(255,255,255,0.12); outline: none; font-family: inherit; box-sizing: border-box; }
+        .lp-field select:focus, .lp-field input:focus { border-color: rgba(0,170,255,0.7); }
+        .lp-field select option { background: #0B1526; color: white; }
+        .lp-warranty { font-style: normal; font-size: 12.5px; color: #4ADE80; }
         .lp-toggle { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #C4D0E0; cursor: pointer; }
         .lp-toggle input { width: 18px; height: 18px; accent-color: #0066FF; flex-shrink: 0; }
         .lp-result { position: sticky; top: 96px; padding: 24px 22px; border-radius: 22px; background: linear-gradient(160deg, rgba(0,102,255,0.16), rgba(10,22,40,0.92)); border: 1px solid rgba(0,170,255,0.35); }
         .lp-price { font-size: clamp(1.45rem, 3.4vw, 1.75rem); font-weight: 800; color: white; margin: 6px 0 2px; line-height: 1.2; white-space: nowrap; }
         .lp-shop { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; padding: 12px 14px; border-radius: 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); font-size: 13.5px; color: #8193AB; }
         .lp-shop strong { color: #E2E8F0; }
+        .lp-badge { margin-top: 10px; padding: 8px 12px; border-radius: 10px; font-size: 13px; font-weight: 600; color: #4ADE80; background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.3); }
         .lp-wa { display: block; text-align: center; margin-top: 10px; padding: 11px; border-radius: 12px; font-size: 14px; font-weight: 600; color: #4ADE80; border: 1px solid rgba(34,197,94,0.35); text-decoration: none; }
         @media (max-width: 860px) {
           .lp-wrap { grid-template-columns: 1fr; }
@@ -156,9 +196,9 @@ export default function Calculator() {
           .lp-mini span { font-size: 12.5px; color: #8193AB; }
           .lp-mini strong { font-size: 17px; color: white; }
         }
-        @media (max-width: 480px) {
+        @media (max-width: 520px) {
           .lp-form { padding: 18px 16px; }
-          .lp-cond { grid-template-columns: 1fr; }
+          .lp-grid { grid-template-columns: 1fr; }
         }
       `}</style>
     </div>
