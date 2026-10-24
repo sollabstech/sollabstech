@@ -6,9 +6,9 @@ const EFFECTIVE_DATE = "22 October 2026";
 const EFFECTIVE_ISO = "2026-10-22";
 
 export const metadata: Metadata = {
-  title: "SolAttend Admin Privacy Policy – Employee Attendance App for Businesses",
+  title: "SolAttend Admin Privacy Policy | Sollabs Tech",
   description:
-    "Privacy Policy for SolAttend Admin by Sollabs Tech: what staff, attendance, face and location data the app handles, why, who can see it, and how to delete your account and data.",
+    "How SolAttend Admin by Sollabs Tech handles staff, attendance, face and location data, and how to delete your account and data.",
   alternates: { canonical: PATH },
   openGraph: {
     title: "SolAttend Admin Privacy Policy",
