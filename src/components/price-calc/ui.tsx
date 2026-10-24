@@ -85,10 +85,6 @@ export function CalcLayout({ form, result, warranty, summary, device }: {
         <div className="lp-price">{range}</div>
         <div style={{ fontSize: 13.5, color: "#8193AB", marginBottom: 16 }}>Fair price between two people</div>
 
-        <div className="lp-shop">
-          <span>A shop may offer</span>
-          <strong>{formatINR(result.shopLow)} – {formatINR(result.shopHigh)}</strong>
-        </div>
         {warranty && <div className="lp-badge">🛡️ Still under brand warranty</div>}
 
         <p style={{ fontSize: 13, color: "#94A3B8", lineHeight: 1.6, margin: "14px 0 18px" }}>{summary}</p>
@@ -126,16 +122,14 @@ export function CalcLayout({ form, result, warranty, summary, device }: {
         .lp-toggle input { width: 18px; height: 18px; accent-color: #0066FF; flex-shrink: 0; }
         .lp-result { position: sticky; top: 96px; padding: 24px 22px; border-radius: 22px; background: linear-gradient(160deg, rgba(0,102,255,0.16), rgba(10,22,40,0.92)); border: 1px solid rgba(0,170,255,0.35); }
         .lp-price { font-size: clamp(1.45rem, 3.4vw, 1.75rem); font-weight: 800; color: white; margin: 6px 0 2px; line-height: 1.2; white-space: nowrap; }
-        .lp-shop { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; padding: 12px 14px; border-radius: 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); font-size: 13.5px; color: #8193AB; }
-        .lp-shop strong { color: #E2E8F0; }
-        .lp-badge { margin-top: 10px; padding: 8px 12px; border-radius: 10px; font-size: 13px; font-weight: 600; color: #4ADE80; background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.3); }
+        .lp-badge { margin-top: 2px; padding: 8px 12px; border-radius: 10px; font-size: 13px; font-weight: 600; color: #4ADE80; background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.3); }
         .lp-wa { display: block; text-align: center; margin-top: 10px; padding: 11px; border-radius: 12px; font-size: 14px; font-weight: 600; color: #4ADE80; border: 1px solid rgba(34,197,94,0.35); text-decoration: none; }
         @media (max-width: 860px) {
           .lp-wrap { grid-template-columns: 1fr; }
           .lp-result { position: static; scroll-margin-top: 90px; }
           .lp-mini { display: flex; justify-content: space-between; align-items: center; gap: 10px; position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 50; padding: 12px 16px; border-radius: 16px; background: rgba(6,14,28,0.96); border: 1px solid rgba(0,170,255,0.45); box-shadow: 0 16px 40px rgba(0,0,0,0.5); text-decoration: none; backdrop-filter: blur(10px); }
-          .lp-mini span { font-size: 12.5px; color: #8193AB; }
-          .lp-mini strong { font-size: 17px; color: white; }
+          .lp-mini span { font-size: 12.5px; color: #8193AB; white-space: nowrap; }
+          .lp-mini strong { font-size: 17px; color: white; white-space: nowrap; }
         }
         @media (max-width: 520px) {
           .lp-form { padding: 18px 16px; }

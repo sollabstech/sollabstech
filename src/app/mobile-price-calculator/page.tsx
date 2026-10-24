@@ -32,10 +32,6 @@ const faqs = [
     a: "Yes. A phone under 10 months old usually still has its brand warranty, which adds a little to its value.",
   },
   {
-    q: "Why is a shop's offer lower than the fair price?",
-    a: "A shop has to test, clean, repair and give a warranty before it resells a phone, so it usually pays about 80% of what the phone would fetch between two people.",
-  },
-  {
     q: "Is this the price Sollabs Tech will pay?",
     a: "It's an estimate. Send us the details or photos on WhatsApp, or use the Sell page, and we'll give you a real offer, usually the same day.",
   },

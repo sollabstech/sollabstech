@@ -28,10 +28,6 @@ const faqs = [
     a: "We start from a typical second-hand price for the processor and its generation, add value for more RAM, a bigger SSD and a graphics card, then adjust for the brand, the laptop's age and its condition. A weak battery or missing charger lowers the price; the original bill and box raise it. A laptop under 10 months old usually still has its brand warranty, which adds a little more.",
   },
   {
-    q: "Why is a shop's offer lower than the fair price?",
-    a: "A shop has to test, clean, repair and give a warranty before it resells a laptop, so it usually pays about 80% of what the laptop would fetch between two people.",
-  },
-  {
     q: "Is this the price Sollabs Tech will pay?",
     a: "It's an estimate. Send us the details or photos on WhatsApp, or use the Sell page, and we'll give you a real offer, usually the same day.",
   },
