@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import {
-  BATTERY, BRANDS, CONDITIONS, DEFAULTS, NEW_PRICE_TIERS, OTHER_MODEL, STORAGE, WARRANTY_MONTHS,
+  BATTERY, BRANDS, CONDITIONS, DEFAULTS, KITS, NEW_PRICE_TIERS, OTHER_MODEL, STORAGE, WARRANTY_MONTHS,
   ageMonths, brandOf, estimate, find, underWarranty, type Inputs,
 } from "./valuation";
 import { CalcLayout, Field, Grid, MonthsInput, Select, Step, Toggle } from "@/components/price-calc/ui";
@@ -32,6 +32,7 @@ export default function PhoneCalculator() {
     `${months} month${months === 1 ? "" : "s"} old`,
     `${find(CONDITIONS, v.condition).label.split(" –")[0]} condition`,
     `battery ${find(BATTERY, v.battery).label.split(" /")[0]}`,
+    find(KITS, v.kit).label,
   ].join(", ");
 
   const form = (
@@ -51,11 +52,11 @@ export default function PhoneCalculator() {
         </Field>
         <Field label="Condition"><Select value={v.condition} options={CONDITIONS} onChange={set("condition")} /></Field>
         <Field label={v.brand === "apple" ? "Battery health" : "Battery"}><Select value={v.battery} options={BATTERY} onChange={set("battery")} /></Field>
+        <Field label="What's included?"><Select value={v.kit} options={KITS} onChange={set("kit")} /></Field>
       </Grid>
 
       <Step>Anything else?</Step>
       <div style={{ display: "grid", gap: 10 }}>
-        <Toggle label="Has the original bill and box" checked={v.billAndBox} onChange={set("billAndBox")} />
         <Toggle label="Screen or battery has been replaced (not original)" checked={v.partReplaced} onChange={set("partReplaced")} />
         <Toggle label={v.brand === "apple" ? "Face ID / Touch ID not working" : "Fingerprint or face unlock not working"} checked={v.biometricBroken} onChange={set("biometricBroken")} />
       </div>

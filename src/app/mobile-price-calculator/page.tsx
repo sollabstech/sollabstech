@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "How is the used phone price calculated?",
-    a: "For popular models (iPhone, Samsung Galaxy, OnePlus, Pixel, ROG) we start from the model's typical second-hand price and adjust for storage, condition and battery health. For other phones we use the price when new and how many months old it is. The original bill and box raise the price; a replaced screen or battery, or broken Face ID or fingerprint, lowers it.",
+    a: "For popular models (iPhone, Samsung Galaxy, OnePlus, Pixel, ROG) we start from the model's typical second-hand price and adjust for storage, condition and battery health. For other phones we use the price when new and how many months old it is. What's included matters too: a phone with its box, bill and charger is worth more than the phone alone. A replaced screen or battery, or broken Face ID or fingerprint, lowers it.",
   },
   {
     q: "Does warranty change the price?",

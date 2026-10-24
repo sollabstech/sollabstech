@@ -187,8 +187,16 @@ export const WARRANTY_MONTHS = 10;
 export const WARRANTY_BONUS = 0.05;
 
 export const BATTERY_WEAK_DEDUCTION = 2500;
+
+// What comes with the laptop. value = multiplier; "Only laptop" also loses the cost of a charger.
+export const KITS: Option[] = [
+  { id: "only", label: "Only laptop", value: 1 },
+  { id: "charger", label: "Laptop + charger", value: 1 },
+  { id: "box", label: "Laptop + charger + box", value: 1.03 },
+  { id: "full", label: "Full kit (charger, box, bill)", value: 1.05 },
+  { id: "all", label: "Everything (full kit + bag, mouse)", value: 1.07 },
+];
 export const NO_CHARGER_DEDUCTION = 1200;
-export const BILL_BOX_BONUS = 0.05;
 export const SHOP_OFFER_SHARE = 0.8;
 export const RANGE = 0.08;
 
@@ -204,15 +212,14 @@ export type Inputs = {
   gpu: string;
   months: string;
   condition: string;
+  kit: string;
   batteryWeak: boolean;
-  noCharger: boolean;
-  billAndBox: boolean;
 };
 
 export const DEFAULTS: Inputs = {
   brand: "dell", make: "intel", processor: "i5", generation: "11", ram: "8",
   storageType: "ssd", storageSize: "512", gpuType: "none", gpu: "",
-  months: "24", condition: "good", batteryWeak: false, noCharger: false, billAndBox: false,
+  months: "24", condition: "good", kit: "charger", batteryWeak: false,
 };
 
 export const find = (list: Option[], id: string) => list.find((o) => o.id === id) ?? list[0];
@@ -239,8 +246,8 @@ export function estimate(i: Inputs) {
   let value = (core + find(RAM, i.ram).value + storage + gpu) * find(BRANDS, i.brand).value * age * find(CONDITIONS, i.condition).value;
   if (underWarranty(i)) value *= 1 + WARRANTY_BONUS;
   if (i.batteryWeak) value -= BATTERY_WEAK_DEDUCTION;
-  if (i.noCharger) value -= NO_CHARGER_DEDUCTION;
-  if (i.billAndBox) value *= 1 + BILL_BOX_BONUS;
+  if (i.kit === "only") value -= NO_CHARGER_DEDUCTION;
+  value *= find(KITS, i.kit).value;
   value = Math.max(value, 3000);
   return {
     low: round500(value * (1 - RANGE)),

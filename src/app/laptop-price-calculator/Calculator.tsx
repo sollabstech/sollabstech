@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import {
-  BRANDS, CONDITIONS, DEFAULTS, GPUS, GPU_TYPES, MAKES, PROCESSORS, RAM, STORAGE_TYPES, WARRANTY_MONTHS,
+  BRANDS, CONDITIONS, DEFAULTS, KITS, GPUS, GPU_TYPES, MAKES, PROCESSORS, RAM, STORAGE_TYPES, WARRANTY_MONTHS,
   ageMonths, estimate, find, generationsFor, storageSizesFor, underWarranty,
   type GpuType, type Inputs, type Make, type StorageType,
 } from "./valuation";
@@ -59,6 +59,7 @@ export default function Calculator() {
     !isMac && v.gpuType !== "none" ? find(GPUS[v.gpuType], v.gpu).label : "",
     `${months} month${months === 1 ? "" : "s"} old`,
     `${find(CONDITIONS, v.condition).label.split(" –")[0]} condition`,
+    find(KITS, v.kit).label,
   ].filter(Boolean).join(", ");
 
   const form = (
@@ -98,13 +99,12 @@ export default function Calculator() {
           <MonthsInput value={v.months} onChange={set("months")} warranty={warranty} warrantyMonths={WARRANTY_MONTHS} />
         </Field>
         <Field label="Condition"><Select value={v.condition} options={CONDITIONS} onChange={set("condition")} /></Field>
+        <Field label="What's included?"><Select value={v.kit} options={KITS} onChange={set("kit")} /></Field>
       </Grid>
 
       <Step>Anything else?</Step>
       <div style={{ display: "grid", gap: 10 }}>
         <Toggle label="Battery is weak (lasts under 1 hour)" checked={v.batteryWeak} onChange={set("batteryWeak")} />
-        <Toggle label="Original charger is missing" checked={v.noCharger} onChange={set("noCharger")} />
-        <Toggle label="Has the original bill and box" checked={v.billAndBox} onChange={set("billAndBox")} />
       </div>
     </>
   );

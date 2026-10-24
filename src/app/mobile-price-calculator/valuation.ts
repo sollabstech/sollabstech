@@ -3,7 +3,7 @@
 //
 // Known model: value = model price × storage × condition × battery (age is built into the model)
 // Other model: value = price when new × age drop × brand × storage × condition × battery
-// Then: warranty, bill & box, replaced parts and broken biometrics adjust it.
+// Then: warranty, what's included, replaced parts and broken biometrics adjust it.
 // The fair price shown is value ±8%; a shop offer is about 80% of value.
 
 export type Option = { id: string; label: string; value: number };
@@ -151,9 +151,17 @@ export const BATTERY: Option[] = [
   { id: "low", label: "Below 80% / drains fast", value: 0.88 },
 ];
 
+// What comes with the phone (multiplier).
+export const KITS: Option[] = [
+  { id: "only", label: "Only phone", value: 0.97 },
+  { id: "charger", label: "Phone + charger / cable", value: 1 },
+  { id: "box", label: "Phone + box", value: 1.02 },
+  { id: "full", label: "Full kit (box, bill, charger)", value: 1.05 },
+  { id: "all", label: "Everything (full kit + case, extras)", value: 1.06 },
+];
+
 export const WARRANTY_MONTHS = 10;
 export const WARRANTY_BONUS = 0.05;
-export const BILL_BOX_BONUS = 0.05;
 export const PART_REPLACED = 0.9; // screen or battery not original
 export const BIOMETRIC_BROKEN = 0.8; // Face ID / fingerprint not working
 export const SHOP_OFFER_SHARE = 0.8;
@@ -167,14 +175,14 @@ export type Inputs = {
   months: string;
   condition: string;
   battery: string;
-  billAndBox: boolean;
+  kit: string;
   partReplaced: boolean;
   biometricBroken: boolean;
 };
 
 export const DEFAULTS: Inputs = {
   brand: "apple", model: "13", tier: "t3", storage: "128", months: "24",
-  condition: "good", battery: "85", billAndBox: false, partReplaced: false, biometricBroken: false,
+  condition: "good", battery: "85", kit: "charger", partReplaced: false, biometricBroken: false,
 };
 
 export const find = (list: Option[], id: string) => list.find((o) => o.id === id) ?? list[0];
@@ -200,7 +208,7 @@ export function estimate(i: Inputs) {
 
   let value = base * find(STORAGE, i.storage).value * find(CONDITIONS, i.condition).value * find(BATTERY, i.battery).value;
   if (underWarranty(i)) value *= 1 + WARRANTY_BONUS;
-  if (i.billAndBox) value *= 1 + BILL_BOX_BONUS;
+  value *= find(KITS, i.kit).value;
   if (i.partReplaced) value *= PART_REPLACED;
   if (i.biometricBroken) value *= BIOMETRIC_BROKEN;
   value = Math.max(value, 1500);

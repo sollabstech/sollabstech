@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "How is the used laptop price calculated?",
-    a: "We start from a typical second-hand price for the processor and its generation, add value for more RAM, a bigger SSD and a graphics card, then adjust for the brand, the laptop's age and its condition. A weak battery or missing charger lowers the price; the original bill and box raise it. A laptop under 10 months old usually still has its brand warranty, which adds a little more.",
+    a: "We start from a typical second-hand price for the processor and its generation, add value for more RAM, a bigger SSD and a graphics card, then adjust for the brand, the laptop's age and its condition. A weak battery lowers the price, and what's included matters: a laptop with its charger, box and bill is worth more than the laptop alone. A laptop under 10 months old usually still has its brand warranty, which adds a little more.",
   },
   {
     q: "Is this the price Sollabs Tech will pay?",
