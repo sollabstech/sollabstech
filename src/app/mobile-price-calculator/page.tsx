@@ -3,7 +3,7 @@ import Link from "next/link";
 import PhoneCalculator from "./Calculator";
 import { CalcTabs, CalcTabsStyles } from "@/components/price-calc/ui";
 
-const title = "Used Mobile Price Calculator India – Second-Hand Phone Value | Sollabs Tech";
+const title = "Used Mobile Price Calculator India | Sollabs Tech";
 const description =
   "Free used mobile price calculator: pick your iPhone, Samsung, OnePlus, Pixel or any phone, its storage, age, condition and battery to see what it's worth in India.";
 

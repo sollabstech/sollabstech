@@ -5,10 +5,10 @@ import BlogArticle, { h2, h3, p, strong, link, list, Callout, CardGrid, Table, t
 const slug = "second-hand-iphone-price-india";
 const title = "Second-Hand iPhone Price in India 2026: iPhone 11 to iPhone 17 Pro Max";
 const description =
-  "Typical 2026 used iPhone prices in India from iPhone 11 to iPhone 17 Pro Max, how storage, battery health and condition change the price, and a free used phone price calculator.";
+  "Used iPhone prices in India for 2026, from iPhone 11 to 17 Pro Max, how storage, battery health and condition change them, and a free price calculator.";
 
 export const metadata: Metadata = {
-  title: "Second-Hand iPhone Price in India 2026 (iPhone 11 to 17) | Sollabs Tech",
+  title: "Second-Hand iPhone Price in India 2026 | Sollabs Tech",
   description,
   keywords: [
     "second hand iphone price india",

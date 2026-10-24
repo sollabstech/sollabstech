@@ -3,7 +3,7 @@ import Link from "next/link";
 import Calculator from "./Calculator";
 import { CalcTabs, CalcTabsStyles } from "@/components/price-calc/ui";
 
-const title = "Used Laptop Price Calculator India – Second-Hand Laptop Value | Sollabs Tech";
+const title = "Used Laptop Price Calculator India | Sollabs Tech";
 const description =
   "Free used laptop price calculator: pick the brand, processor, RAM, storage, graphics, age and condition to see what your second-hand laptop is worth in India.";
 

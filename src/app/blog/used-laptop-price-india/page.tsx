@@ -8,7 +8,7 @@ const description =
   "Typical 2026 second-hand prices for i3, i5, i7, Ryzen, gaming laptops and MacBooks in India, what raises or lowers the price, and a free used laptop price calculator.";
 
 export const metadata: Metadata = {
-  title: "Used Laptop Price in India 2026: How Much Is My Laptop Worth? | Sollabs Tech",
+  title: "Used Laptop Price in India 2026: What Is It Worth? | Sollabs Tech",
   description,
   keywords: [
     "used laptop price india",
