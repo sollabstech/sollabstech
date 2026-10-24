@@ -13,6 +13,36 @@ export const metadata = {
 
 const posts = [
   {
+    slug: "used-laptop-price-india",
+    tag: "Price Guide",
+    date: "October 24, 2026",
+    title: "How Much Is My Used Laptop Worth in India? 2026 Second-Hand Laptop Price Guide",
+    excerpt:
+      "Typical 2026 second-hand prices for i3, i5, i7, Ryzen, gaming laptops and MacBooks, what raises or lowers the price, and a free used laptop price calculator.",
+    readTime: "6 min read",
+    icon: "💻",
+  },
+  {
+    slug: "second-hand-iphone-price-india",
+    tag: "Price Guide",
+    date: "October 24, 2026",
+    title: "Second-Hand iPhone Price in India 2026: iPhone 11 to iPhone 17 Pro Max",
+    excerpt:
+      "Used iPhone prices from iPhone 11 to 17 Pro Max, how storage, battery health and condition change the price, and what to check before you buy or sell.",
+    readTime: "6 min read",
+    icon: "📱",
+  },
+  {
+    slug: "sell-old-laptop-phone-madurai",
+    tag: "Sell",
+    date: "October 24, 2026",
+    title: "How to Sell Your Old Laptop or Phone in Madurai for the Best Price",
+    excerpt:
+      "Check its value, prepare it, wipe your data and get a same-day offer: a simple guide to selling a used laptop or mobile in Madurai.",
+    readTime: "5 min read",
+    icon: "💰",
+  },
+  {
     slug: "sollabs-tech-bill-tax-invoice",
     tag: "Billing",
     date: "October 12, 2026",

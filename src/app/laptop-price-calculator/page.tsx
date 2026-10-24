@@ -63,6 +63,12 @@ export default function LaptopPriceCalculatorPage() {
 
         <Calculator />
 
+        <p style={{ fontSize: 14.5, color: "#94A3B8", marginTop: 40 }}>
+          Guides:{" "}
+          <Link href="/blog/used-laptop-price-india" style={{ color: "#00AAFF" }}>Used laptop price guide 2026</Link>{" · "}
+          <Link href="/blog/sell-old-laptop-phone-madurai" style={{ color: "#00AAFF" }}>How to sell your old laptop or phone</Link>
+        </p>
+
         <div style={{ maxWidth: 760, marginTop: 56 }}>
           <h2 style={{ fontSize: 22, fontWeight: 800, color: "white", margin: "0 0 16px" }}>Questions</h2>
           {faqs.map((f) => (
