@@ -8,6 +8,7 @@ const footerLinks = {
     { label: "All Products", href: "/products" },
     { label: "Laptops", href: "/products?category=laptop" },
     { label: "Mobiles", href: "/products?category=mobile" },
+    { label: "Laptop Price Calculator", href: "/laptop-price-calculator" },
   ],
   Company: [
     { label: "Reviews", href: "/reviews" },
