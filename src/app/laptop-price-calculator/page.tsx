@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Calculator from "./Calculator";
+import { CalcTabs, CalcTabsStyles } from "@/components/price-calc/ui";
 
 const title = "Used Laptop Price Calculator India – Second-Hand Laptop Value | Sollabs Tech";
 const description =
@@ -50,11 +51,13 @@ export default function LaptopPriceCalculatorPage() {
   return (
     <section style={{ padding: "110px 16px 100px" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      <CalcTabsStyles />
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <nav aria-label="Breadcrumb" style={{ fontSize: 13, color: "#475569", marginBottom: 18, display: "flex", gap: 6 }}>
           <Link href="/" style={{ color: "#475569", textDecoration: "none" }}>Home</Link><span>›</span>
           <span style={{ color: "#94A3B8" }}>Laptop price calculator</span>
         </nav>
+        <CalcTabs active="laptop" />
         <h1 style={{ fontSize: "clamp(1.7rem, 4.5vw, 2.6rem)", fontWeight: 800, color: "white", lineHeight: 1.2, margin: "0 0 10px" }}>
           Used laptop <span className="gradient-text">price calculator</span>
         </h1>

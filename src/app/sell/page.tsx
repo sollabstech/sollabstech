@@ -33,8 +33,9 @@ export default function SellPage() {
         </h1>
         <p style={{ fontSize: 16, color: "#94A3B8", lineHeight: 1.7, margin: "0 0 26px" }}>
           Got a laptop or mobile you no longer need? Tell us about it and Sollabs Tech, Madurai will send you a free quote.
-          {" "}Not sure what your laptop is worth?{" "}
-          <Link href="/laptop-price-calculator" style={{ color: "#00AAFF", fontWeight: 600 }}>Check its value first</Link>.
+          {" "}Not sure what it&apos;s worth? Check the value of your{" "}
+          <Link href="/laptop-price-calculator" style={{ color: "#00AAFF", fontWeight: 600 }}>laptop</Link>{" "}or{" "}
+          <Link href="/mobile-price-calculator" style={{ color: "#00AAFF", fontWeight: 600 }}>phone</Link>{" "}first.
         </p>
 
         <div className="sell-steps" style={{ marginBottom: 26 }}>

@@ -250,4 +250,3 @@ export function estimate(i: Inputs) {
   };
 }
 
-export const formatINR = (n: number) => "₹" + n.toLocaleString("en-IN");
