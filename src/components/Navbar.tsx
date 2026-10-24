@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/pricing", label: "Pricing" },
+  { href: "/laptop-price-calculator", label: "Laptop Price" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
@@ -281,8 +282,9 @@ export default function Navbar() {
 
       <style>{`
         .hidden-mobile { display: flex; }
+        .hidden-mobile a { white-space: nowrap; }
         .show-mobile { display: none; }
-        @media (max-width: 900px) {
+        @media (max-width: 1000px) {
           .hidden-mobile { display: none !important; }
           .show-mobile { display: block !important; }
         }
