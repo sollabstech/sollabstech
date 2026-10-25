@@ -7,8 +7,10 @@ import {
   type GpuType, type Inputs, type Make, type StorageType,
 } from "./valuation";
 import { CalcLayout, Field, Grid, MonthsInput, Select, Step, Toggle } from "@/components/price-calc/ui";
+import { useSellForm } from "@/components/price-calc/sell";
 
-export default function Calculator() {
+// sell: adds the seller's contact details and a Send button (used on /sell).
+export default function Calculator({ sell = false }: { sell?: boolean }) {
   const [v, setV] = useState<Inputs>(DEFAULTS);
   const set = <K extends keyof Inputs>(k: K) => (val: Inputs[K]) => setV((x) => ({ ...x, [k]: val }));
 
@@ -62,6 +64,17 @@ export default function Calculator() {
     find(KITS, v.kit).label,
   ].filter(Boolean).join(", ");
 
+  const processor = [find(PROCESSORS[v.make], v.processor).label, gens.length ? find(gens, v.generation).label : ""].filter(Boolean).join(" ");
+  const { fields, action } = useSellForm({
+    deviceType: "laptop",
+    brand: find(BRANDS, v.brand).label,
+    model: processor,
+    specs: summary,
+    age: `${months} months`,
+    condition: find(CONDITIONS, v.condition).label.split(" –")[0],
+    accessories: find(KITS, v.kit).label,
+  }, r);
+
   const form = (
     <>
       <Step>1 · Laptop & processor</Step>
@@ -109,5 +122,5 @@ export default function Calculator() {
     </>
   );
 
-  return <CalcLayout form={form} result={r} warranty={warranty} summary={summary} device="laptop" />;
+  return <CalcLayout form={form} result={r} warranty={warranty} summary={summary} device="laptop" extra={sell ? fields : undefined} action={sell ? action : undefined} />;
 }

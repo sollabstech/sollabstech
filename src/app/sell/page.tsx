@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import SellForm from "./SellForm";
+import SellCalculator from "./SellCalculator";
 
 export const metadata: Metadata = {
   title: "Sell Your Laptop or Phone in Madurai | Sollabs Tech",
@@ -14,15 +14,16 @@ export const metadata: Metadata = {
 };
 
 const steps = [
-  { icon: "📝", title: "Tell us about it", text: "Brand, model, condition and your expected price." },
+  { icon: "📝", title: "Tell us about it", text: "Pick your device's details and see its estimated value." },
   { icon: "📞", title: "Get a quote", text: "We call or WhatsApp you, usually the same day." },
   { icon: "🤝", title: "Get paid", text: "Agree on the price and hand over your device." },
 ];
 
-export default function SellPage() {
+export default async function SellPage({ searchParams }: { searchParams: Promise<{ type?: string }> }) {
+  const { type } = await searchParams;
   return (
     <section style={{ padding: "110px 20px 90px" }}>
-      <div style={{ maxWidth: 780, margin: "0 auto" }}>
+      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <nav aria-label="Breadcrumb" style={{ fontSize: 13, color: "#475569", marginBottom: 20, display: "flex", gap: 6 }}>
           <Link href="/" style={{ color: "#475569", textDecoration: "none" }}>Home</Link><span>›</span>
           <Link href="/products" style={{ color: "#475569", textDecoration: "none" }}>Products</Link><span>›</span>
@@ -31,11 +32,8 @@ export default function SellPage() {
         <h1 style={{ fontSize: "clamp(1.8rem, 4.5vw, 2.6rem)", fontWeight: 800, color: "white", lineHeight: 1.2, margin: "0 0 10px" }}>
           Sell your laptop or phone
         </h1>
-        <p style={{ fontSize: 16, color: "#94A3B8", lineHeight: 1.7, margin: "0 0 26px" }}>
-          Got a laptop or mobile you no longer need? Tell us about it and Sollabs Tech, Madurai will send you a free quote.
-          {" "}Not sure what it&apos;s worth? Check the value of your{" "}
-          <Link href="/laptop-price-calculator" style={{ color: "#00AAFF", fontWeight: 600 }}>laptop</Link>{" "}or{" "}
-          <Link href="/mobile-price-calculator" style={{ color: "#00AAFF", fontWeight: 600 }}>phone</Link>{" "}first.
+        <p style={{ fontSize: 16, color: "#94A3B8", lineHeight: 1.7, margin: "0 0 26px", maxWidth: 760 }}>
+          Got a laptop or mobile you no longer need? Pick its details to see what it&apos;s worth, add your name and number, and Sollabs Tech, Madurai will send you a free quote.
         </p>
 
         <div className="sell-steps" style={{ marginBottom: 26 }}>
@@ -48,7 +46,7 @@ export default function SellPage() {
           ))}
         </div>
 
-        <SellForm />
+        <SellCalculator initial={type === "mobile" ? "mobile" : "laptop"} />
       </div>
       <style>{`
         .sell-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }

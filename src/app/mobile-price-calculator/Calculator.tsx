@@ -6,8 +6,10 @@ import {
   ageMonths, brandOf, estimate, find, underWarranty, type Inputs,
 } from "./valuation";
 import { CalcLayout, Field, Grid, MonthsInput, Select, Step, Toggle } from "@/components/price-calc/ui";
+import { useSellForm } from "@/components/price-calc/sell";
 
-export default function PhoneCalculator() {
+// sell: adds the seller's contact details and a Send button (used on /sell).
+export default function PhoneCalculator({ sell = false }: { sell?: boolean }) {
   const [v, setV] = useState<Inputs>(DEFAULTS);
   const set = <K extends keyof Inputs>(k: K) => (val: Inputs[K]) => setV((x) => ({ ...x, [k]: val }));
 
@@ -34,6 +36,16 @@ export default function PhoneCalculator() {
     `battery ${find(BATTERY, v.battery).label.split(" /")[0]}`,
     find(KITS, v.kit).label,
   ].join(", ");
+
+  const { fields, action } = useSellForm({
+    deviceType: "mobile",
+    brand: brand.label,
+    model: isOther ? `Other (new price ${find(NEW_PRICE_TIERS, v.tier).label})` : model.label,
+    specs: summary,
+    age: `${months} months`,
+    condition: find(CONDITIONS, v.condition).label.split(" –")[0],
+    accessories: find(KITS, v.kit).label,
+  }, r);
 
   const form = (
     <>
@@ -63,5 +75,5 @@ export default function PhoneCalculator() {
     </>
   );
 
-  return <CalcLayout form={form} result={r} warranty={warranty} summary={summary} device="phone" />;
+  return <CalcLayout form={form} result={r} warranty={warranty} summary={summary} device="phone" extra={sell ? fields : undefined} action={sell ? action : undefined} />;
 }

@@ -66,19 +66,22 @@ export function Toggle({ label, checked, onChange }: { label: string; checked: b
 export type Estimate = { low: number; high: number; shopLow: number; shopHigh: number };
 
 // The form on the left, the price card on the right (below on phones), and a price bar on phones.
-export function CalcLayout({ form, result, warranty, summary, device }: {
+// With `extra` and `action` (sell mode), extra fields go under the form and `action` replaces the buttons.
+export function CalcLayout({ form, result, warranty, summary, device, extra, action }: {
   form: React.ReactNode;
   result: Estimate;
   warranty: boolean;
   summary: string;
   device: "laptop" | "phone";
+  extra?: React.ReactNode;
+  action?: React.ReactNode;
 }) {
   const range = `${formatINR(result.low)} – ${formatINR(result.high)}`;
   const waText = encodeURIComponent(`Hi Sollabs Tech, I want to sell my ${device}: ${summary}. The calculator says ${formatINR(result.low)}–${formatINR(result.high)}. What's your offer?`);
 
   return (
     <div className="lp-wrap">
-      <div className="lp-form">{form}</div>
+      <div className="lp-form">{form}{extra}</div>
 
       <aside id="lp-result" className="lp-result" aria-live="polite">
         <div style={{ fontSize: 12.5, fontWeight: 700, color: "#8193AB", letterSpacing: 0.6, textTransform: "uppercase" }}>Estimated value</div>
@@ -89,12 +92,16 @@ export function CalcLayout({ form, result, warranty, summary, device }: {
 
         <p style={{ fontSize: 13, color: "#94A3B8", lineHeight: 1.6, margin: "14px 0 18px" }}>{summary}</p>
 
-        <Link href="/sell" className="btn-primary" style={{ width: "100%", justifyContent: "center", padding: "13px", fontSize: 15, background: "linear-gradient(135deg,#16A34A,#22C55E)" }}>
-          💰 Sell it to Sollabs Tech
-        </Link>
-        <a href={`https://wa.me/${WHATSAPP}?text=${waText}`} target="_blank" rel="noopener noreferrer" className="lp-wa">
-          💬 Ask our price on WhatsApp
-        </a>
+        {action ?? (
+          <>
+            <Link href={`/sell?type=${device === "phone" ? "mobile" : "laptop"}`} className="btn-primary" style={{ width: "100%", justifyContent: "center", padding: "13px", fontSize: 15, background: "linear-gradient(135deg,#16A34A,#22C55E)" }}>
+              💰 Sell it to Sollabs Tech
+            </Link>
+            <a href={`https://wa.me/${WHATSAPP}?text=${waText}`} target="_blank" rel="noopener noreferrer" className="lp-wa">
+              💬 Ask our price on WhatsApp
+            </a>
+          </>
+        )}
         <p style={{ fontSize: 11.5, color: "#64748B", lineHeight: 1.5, margin: "14px 0 0" }}>
           This is an estimate from typical Indian second-hand prices. The real price depends on the exact model and how the {device} tests.
         </p>
@@ -116,6 +123,8 @@ export function CalcLayout({ form, result, warranty, summary, device }: {
         .lp-field > span { font-size: 13px; font-weight: 600; color: #C4D0E0; }
         .lp-field select, .lp-field input { width: 100%; height: 46px; padding: 0 12px; border-radius: 12px; font-size: 15px; color: white; background: rgba(3,7,18,0.6); border: 1px solid rgba(255,255,255,0.12); outline: none; font-family: inherit; box-sizing: border-box; }
         .lp-field select:focus, .lp-field input:focus { border-color: rgba(0,170,255,0.7); }
+        .lp-field [aria-invalid="true"] { border-color: #F87171; }
+        .lp-field select:disabled { opacity: 0.5; }
         .lp-field select option { background: #0B1526; color: white; }
         .lp-warranty { font-style: normal; font-size: 12.5px; color: #4ADE80; }
         .lp-toggle { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #C4D0E0; cursor: pointer; }
