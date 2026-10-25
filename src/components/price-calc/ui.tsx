@@ -4,7 +4,6 @@ import Link from "next/link";
 
 // Shared pieces for the laptop and mobile price calculators.
 
-const WHATSAPP = "919003850743";
 
 export const formatINR = (n: number) => "₹" + n.toLocaleString("en-IN");
 
@@ -77,7 +76,6 @@ export function CalcLayout({ form, result, warranty, summary, device, extra, act
   action?: React.ReactNode;
 }) {
   const range = `${formatINR(result.low)} – ${formatINR(result.high)}`;
-  const waText = encodeURIComponent(`Hi Sollabs Tech, I want to sell my ${device}: ${summary}. The calculator says ${formatINR(result.low)}–${formatINR(result.high)}. What's your offer?`);
 
   return (
     <div className="lp-wrap">
@@ -93,14 +91,9 @@ export function CalcLayout({ form, result, warranty, summary, device, extra, act
         <p style={{ fontSize: 13, color: "#94A3B8", lineHeight: 1.6, margin: "14px 0 18px" }}>{summary}</p>
 
         {action ?? (
-          <>
-            <Link href={`/sell?type=${device === "phone" ? "mobile" : "laptop"}`} className="btn-primary" style={{ width: "100%", justifyContent: "center", padding: "13px", fontSize: 15, background: "linear-gradient(135deg,#16A34A,#22C55E)" }}>
-              💰 Sell it to Sollabs Tech
-            </Link>
-            <a href={`https://wa.me/${WHATSAPP}?text=${waText}`} target="_blank" rel="noopener noreferrer" className="lp-wa">
-              💬 Ask our price on WhatsApp
-            </a>
-          </>
+          <Link href={`/sell?type=${device === "phone" ? "mobile" : "laptop"}`} className="btn-primary" style={{ width: "100%", justifyContent: "center", padding: "13px", fontSize: 15, background: "linear-gradient(135deg,#16A34A,#22C55E)" }}>
+            💰 Sell it to Sollabs Tech
+          </Link>
         )}
         <p style={{ fontSize: 11.5, color: "#64748B", lineHeight: 1.5, margin: "14px 0 0" }}>
           This is an estimate from typical Indian second-hand prices. The real price depends on the exact model and how the {device} tests.
