@@ -30,7 +30,7 @@ export default function ComputersPreview() {
     const q = query(collection(db, "products"), orderBy("createdAt", "desc"));
     const unsub = onSnapshot(q, (snap) => {
       if (!snap.empty) {
-        setFirebaseProducts(snap.docs.map((d) => {
+        setFirebaseProducts(snap.docs.filter((d) => d.data().status !== "draft").map((d) => {
           const data = d.data();
           return {
             id: d.id,

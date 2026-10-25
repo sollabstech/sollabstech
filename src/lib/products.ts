@@ -197,11 +197,18 @@ function mapDoc(id: string, data: Record<string, any>): Product {
   };
 }
 
+// Drafts are saved in the admin panel but never shown on the website.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const isDraft = (data: Record<string, any>) => data.status === "draft";
+
 export async function fetchProducts(): Promise<Product[]> {
   const q = query(collection(db, "products"), orderBy("createdAt", "desc"));
   const snap = await getDocs(q);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return snap.docs.map((d) => mapDoc(d.id, d.data() as Record<string, any>));
+  return snap.docs
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    .filter((d) => !isDraft(d.data() as Record<string, any>))
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    .map((d) => mapDoc(d.id, d.data() as Record<string, any>));
 }
 
 export async function fetchProductBySlug(slug: string): Promise<Product | null> {
@@ -210,7 +217,8 @@ export async function fetchProductBySlug(slug: string): Promise<Product | null> 
   if (!snap.empty) {
     const d = snap.docs[0];
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return mapDoc(d.id, d.data() as Record<string, any>);
+    const data = d.data() as Record<string, any>;
+    return isDraft(data) ? null : mapDoc(d.id, data);
   }
   // Fallback: match by computed slug (for products saved before slug field existed)
   const all = await fetchProducts();
@@ -225,8 +233,11 @@ export async function fetchFeaturedProducts(count = 4): Promise<Product[]> {
     limit(count * 3)
   );
   const snap = await getDocs(q);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const results = snap.docs.map((d) => mapDoc(d.id, d.data() as Record<string, any>));
+  const results = snap.docs
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    .filter((d) => !isDraft(d.data() as Record<string, any>))
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    .map((d) => mapDoc(d.id, d.data() as Record<string, any>));
   const available = results.filter((p) => p.inStock);
   return (available.length >= count ? available : results).slice(0, count);
 }
@@ -241,9 +252,12 @@ export async function fetchRelatedProducts(current: Product, count = 3): Promise
 export async function fetchAllSlugs(): Promise<string[]> {
   const q = query(collection(db, "products"), orderBy("createdAt", "desc"));
   const snap = await getDocs(q);
-  return snap.docs.map((d) => {
+  return snap.docs
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const data = d.data() as Record<string, any>;
-    return (data.slug as string) || slugify((data.name as string) || d.id);
-  });
+    .filter((d) => !isDraft(d.data() as Record<string, any>))
+    .map((d) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const data = d.data() as Record<string, any>;
+      return (data.slug as string) || slugify((data.name as string) || d.id);
+    });
 }
