@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import PolicyDocument, { type Section } from "@/components/PolicyDocument";
 
 const PATH = "/solattend/privacy-policy";
-const EFFECTIVE_DATE = "22 October 2026";
-const EFFECTIVE_ISO = "2026-10-22";
+const EFFECTIVE_DATE = "27 October 2026";
+const EFFECTIVE_ISO = "2026-10-27";
 
 export const metadata: Metadata = {
   title: "SolAttend Privacy Policy | Sollabs Tech",
@@ -50,6 +50,7 @@ const sections: Section[] = [
         "Whether face verification passed (a yes or no result, never a picture), and whether the check-in was saved while offline",
       ] },
       "Your leave requests: leave type, dates, the reason you write, the status, and who decided and when.",
+      "If your Company uses an office kiosk, it now runs as the separate SolAttend Kiosk app, which SolAttend Admin pairs and manages; the kiosk device list and kiosk PIN settings are stored in the Company’s data and described in the SolAttend Kiosk policy.",
       "Stored on your phone: a local copy of your own records and of check-ins that were not sent yet (so the app works offline), your company and employee IDs, and your light or dark theme choice.",
     ],
   },
@@ -180,6 +181,7 @@ export default function SolAttendPrivacyPage() {
       scopeNote="This policy applies only to the SolAttend employee app."
       otherLinks={[
         { label: "SolAttend Admin app policy", href: "/solattend-admin/privacy-policy" },
+        { label: "SolAttend Kiosk app policy", href: "/solattend-kiosk/privacy-policy" },
         { label: "Sollabs Tech website policy", href: "/privacy" },
       ]}
       schemaDescription="Employee attendance app: check in and out with location and face verification, view attendance and apply for leave."

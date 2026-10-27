@@ -140,6 +140,7 @@ export default function Footer() {
             <Link href="/privacy" style={{ color: "#3D4F6B", fontSize: 13, textDecoration: "none" }}>Privacy Policy</Link>
             <Link href="/solattend/privacy-policy" style={{ color: "#3D4F6B", fontSize: 13, textDecoration: "none" }}>SolAttend Privacy</Link>
             <Link href="/solattend-admin/privacy-policy" style={{ color: "#3D4F6B", fontSize: 13, textDecoration: "none" }}>SolAttend Admin Privacy</Link>
+            <Link href="/solattend-kiosk/privacy-policy" style={{ color: "#3D4F6B", fontSize: 13, textDecoration: "none" }}>SolAttend Kiosk Privacy</Link>
             <Link href="/terms" style={{ color: "#3D4F6B", fontSize: 13, textDecoration: "none" }}>Terms & Conditions</Link>
           </div>
         </div>

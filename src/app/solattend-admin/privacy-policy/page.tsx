@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import PolicyDocument, { type Section } from "@/components/PolicyDocument";
 
 const PATH = "/solattend-admin/privacy-policy";
-const EFFECTIVE_DATE = "22 October 2026";
-const EFFECTIVE_ISO = "2026-10-22";
+const EFFECTIVE_DATE = "27 October 2026";
+const EFFECTIVE_ISO = "2026-10-27";
 
 export const metadata: Metadata = {
   title: "SolAttend Admin Privacy Policy | Sollabs Tech",
@@ -58,6 +58,7 @@ const sections: Section[] = [
         "Leave requests and decisions, and the manager invitations you send (the invited Gmail address)",
         "Monthly reports. You create Excel or PDF files on your phone and share them yourself with the share menu.",
       ] },
+      "SolAttend Admin now pairs and manages SolAttend Kiosk devices (the earlier option to turn this phone into a kiosk has moved to the separate SolAttend Kiosk app), and the list of kiosk devices and the kiosk PIN settings are stored in the Company’s data.",
       "On your device only: your light or dark theme choice and a random kiosk device ID.",
       "Technical data: Google Firebase may process technical data such as your IP address and device information to run its services. See section 6 for the map and font services.",
     ],
@@ -189,6 +190,7 @@ export default function SolAttendAdminPrivacyPage() {
       scopeNote="This policy applies only to the SolAttend Admin app."
       otherLinks={[
         { label: "SolAttend employee app policy", href: "/solattend/privacy-policy" },
+        { label: "SolAttend Kiosk app policy", href: "/solattend-kiosk/privacy-policy" },
         { label: "Sollabs Tech website policy", href: "/privacy" },
       ]}
       schemaDescription="Management app for businesses to run employee attendance: staff, working hours, offices, face-attendance kiosk, leave and reports."
